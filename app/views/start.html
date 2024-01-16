@@ -1,0 +1,122 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "https://www.gov.uk/"
+      },
+      {
+        text: "Driving and transport",
+        href: "https://www.gov.uk/browse/driving"
+      },
+      {
+        text: "Manufacture or adapt a vehicle",
+        href: "https://www.gov.uk/browse/driving/manufacture-adapt-vehicle"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p>Use this service to apply for:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>vehicle tests</li>
+        <li>vehicle approvals</li>
+        <li>do something else</li>
+      </ul>
+      
+      {{ govukInsetText({
+        html: 'Do not use this service to apply for an annual test. <a class="govuk-link" href="https://www.gov.uk/mot-for-hgv-buses-and-trailers">The annual test (MOT) for lorries, buses and trailers</a> page offers guidance on how to book an annual test.'
+      }) }}
+
+      {{ govukButton({
+        text: "Start now",
+        href: "ready-to-upload",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Before you start
+      </h2>
+
+      <p>Some applications still require you to complete and upload an application form. Decide which form you need by looking at
+      the forms below:</p>
+      <ul class="govuk-list">
+        <li><a class="govuk-link" href="https://www.gov.uk/government/collections/annual-tests-forms-for-buses-and-coaches">Application forms for a coach or bus</a></li>
+        <li><a class="govuk-link" href="https://www.gov.uk/government/collections/annual-test-forms-for-lorries-and-trailers">Application forms for a lorry or trailer</a></li>
+        <li><a class="govuk-link" href="https://www.gov.uk/government/publications/motorcycle-single-vehicle-approval-msva-1">Application forms for a motorcycle or three-wheeled vehicle</a></li>
+        <li><a class="govuk-link" href="https://www.gov.uk/government/publications/iva-application-form-for-passenger-cars-iva-1c">Application forms for a passenger car</a></li>
+      </ul>
+
+      <p>
+        If you have a 'Manage your vehicle testing' account, <a class="govuk-link" href="#">sign in</a> to that service to:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>make applications</li>
+        <li>track applications</li>
+        <li>make payments</li>
+      </ul>
+      
+      <p>
+        If you want to make more than one application, we recommend you <a class="govuk-link" href="#">create an account</a>. This is so you can:
+      </p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>save time in making applications for the same or similar vehicles</li>
+        <li>track applications</li>
+      </ul>
+
+      <p>
+        You can also apply <a href="govuk-link" href="#">via email</a> or <a href="govuk-link" href="#">by post</a>.
+      </p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="https://www.gov.uk/vehicle-approval">
+                Vehicle approval
+              </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/vehicle-registration">
+                Vehicle registration
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+{% endblock %}

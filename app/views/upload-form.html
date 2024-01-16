@@ -14,8 +14,21 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class='govuk-heading-l'>Upload form</h1>
+    <h1 class='govuk-heading-l'>Upload application form</h1>
     <h2 class="govuk-heading-m">{{ title }}</h2>
+    <p class="govuk-body">
+      Upload your completed {{ title }} form below.
+    </p>
+    {{ govukFileUpload({
+    id: "application-upload",
+    name: "application-upload",
+    label: {
+    html: "<strong>Upload application form</strong>"
+    }
+    }) }}
+    {{ govukButton({
+    text: "Save and continue"
+    }) }}
   </div>
 </div>
 
