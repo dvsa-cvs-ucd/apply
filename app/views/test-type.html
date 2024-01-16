@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% if data['ready-to-upload'] == 'yes' %}
+  {% set question = 'Choose the technical test type' %}
+  {% set types = data.tass %}
+  {% set nextPage = 'application-type' %}
+  {% else %}
+  {% set question = 'Choose t he form you need' %}
+  {% set types = data.forms %}
+  {% set nextPage = 'download-form'  %}
+{% endif %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="{{ nextPage }}">
+      {{ govukRadios({
+      name: "test-type",
+      fieldset: {
+      legend: {
+        text: question,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: types[data['vehicle-category']] | radiosFromObject
+      }) }}
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

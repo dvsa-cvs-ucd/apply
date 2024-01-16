@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% set question = 'Choose the application type' %}
+{% set types = data.tass[data['vehicle-category']] %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="upload-form">
+      {{ govukRadios({
+      name: "test-type",
+      fieldset: {
+      legend: {
+        text: question,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: types[data['test-type']] | radiosFromList
+      }) }}
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

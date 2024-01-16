@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% set question = 'What is your phone number?' %}
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="vehicle-details">
+      {% call govukFieldset({
+      legend: {
+      text: question,
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+      <p class="govuk-hint">We need your email address to update you about your application</p>
+        {{ govukInput({
+        label: {
+        text: "Phone number"
+        },
+        id: "telephone-number",
+        name: "telephone-number",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-input--width-20"
+        }) }}
+        {{ govukInput({
+        label: {
+          text: "Confirm phone number"
+        },
+        id: "confirm-telephone-number",
+        name: "confirm-telephone-number",
+        type: "tel",
+        autocomplete: "tel",
+        classes: "govuk-input--width-20"
+        }) }}
+      {% endcall %}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

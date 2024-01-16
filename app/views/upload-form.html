@@ -1,0 +1,22 @@
+{% extends "layouts/main.html" %}
+
+{% set title = data['test-type'] %}
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class='govuk-heading-l'>Upload form</h1>
+    <h2 class="govuk-heading-m">{{ title }}</h2>
+  </div>
+</div>
+
+{% endblock %}

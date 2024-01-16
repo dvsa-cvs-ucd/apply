@@ -1,0 +1,41 @@
+{
+  "Passenger Cars (no more than 8 passenger seats)": {
+    "Individual Vehicle Approval (IVA 1C)": "https://www.gov.uk/government/publications/iva-application-form-for-passenger-cars-iva-1c",
+    "Voluntary Individual Vehicle Approval (VIVA)": "https://www.gov.uk/government/publications/voluntary-individual-vehicle-approval-viva-1"
+  },
+  "Light Goods Vehicle (up to 3,500kgs)": {
+    "Individual Vehicle Approval (IVA 1LG)": "https://www.gov.uk/government/publications/iva-application-form-for-light-goods-vehicles-up-to-3500kg-iva-1lg",
+    "Voluntary Individual Vehicle Approval (VIVA)": "https://www.gov.uk/government/publications/voluntary-individual-vehicle-approval-viva-1"
+  },
+  "Buses and Coaches (more than 8 passenger seats)": {
+    "Accessibility Certificate (PSVA 1)": "https://www.gov.uk/government/publications/public-service-vehicle-accessibility-certificate-psva-1",
+    "Accessibility changes to a type vehicle notification form (PSV 400B)": "https://www.gov.uk/government/publications/accessibility-changes-to-a-type-vehicle-notification-form-psv-400b",
+    "Certificate of Initial Fitness (PSV 417)": "https://www.gov.uk/government/publications/certificate-of-initial-fitness-psv-417",
+    "Certificate of type approval application (PSV 400)": "https://www.gov.uk/government/publications/certificate-of-type-approval-application-form-psv-400",
+    "Changes to a type vehicle notification form (PSV 400A)": "https://www.gov.uk/government/publications/changes-to-a-type-vehicle-notification-form-psv-400a",
+    "Disability Discrimation Act Corticated (PSVA 6)": "https://www.gov.uk/government/publications/disability-discrimination-act-certificate-of-type-approval",
+    "Individual Vehicle Approval (IVA 1P)": "https://www.gov.uk/government/publications/individual-vehicle-approval-iva-ip",
+    "Individual Vehicle Approval Tilt Justification Report (IVA 52A)": "https://www.gov.uk/government/publications/iva-tilt-justification-report-form-for-buses-and-coaches-iva-52a",
+    "Replacement Fitness and Testing Certificates (VTP 6)": "https://www.gov.uk/government/publications/replacement-psv-fitness-and-testing-certifcates-application-form-vtp6",
+    "Notifiable Alteration (VTP 5)": "https://www.gov.uk/government/publications/notification-of-an-alteration-to-a-public-service-vehicle-vtp-5",
+    "Tempo 100 (PSVC 1)": "https://www.gov.uk/government/publications/tempo-100-examination-psv-application-form-psvc-1"
+  },
+  "Lorries or Large Goods Vehicles (over 3,500kgs)": {
+    "ADR Carriage of Dangerous Goods (ADRIII)": "https://www.gov.uk/government/publications/application-for-adr-road-vehicle-certification-adr-iii",
+    "First Time Test (VTG1)": "https://www.gov.uk/government/publications/hgv-first-test-application-form-vtg1",
+    "Individual Vehicle Approval (IVA 1H)": "https://www.gov.uk/government/publications/individual-vehicle-approval-iva-ih",
+    "Notifiable Alteration (VTG10)": "https://www.gov.uk/government/publications/details-of-notifiable-alterations-or-application-for-a-change-of-plated-details-of-a-goods-motor-vehicle",
+    "Replacement ADR Carriage of Dangerous Goods (ADRIIIr)": "https://www.gov.uk/government/publications/carriage-of-dangerous-goods-replacement-certificate-application-form-adr-iiir",
+    "Replacement Document (VTG59)": "https://www.gov.uk/government/publications/replacement-hgv-plating-and-testing-documents-application-form-vtg59"
+  },
+  "Trailers": {
+    "ADR Carriage of Dangerous Goods (ADRIII)": "https://www.gov.uk/government/publications/application-for-adr-road-vehicle-certification-adr-iii",
+    "Application for id numbers for new build trailers (TES 2)": "https://www.gov.uk/government/publications/application-for-identification-numbers-for-new-build-trailers-tes-2",
+    "First Test (VTG2)": "https://www.gov.uk/government/publications/trailer-first-test-application-form-vtg2",
+    "Individual Vehicle Approval (IVA 1T)": "https://www.gov.uk/government/publications/individual-vehicle-approval-iva-it",
+    "Notifiable Alteration (VTG10)": "https://www.gov.uk/government/publications/details-of-notifiable-alterations-or-application-for-a-change-of-plated-details-of-a-goods-motor-vehicle",
+    "Permission to supply new large goods trailers (TES 1)": "https://www.gov.uk/government/publications/permission-to-supply-a-large-goods-trailer-for-use-on-the-road",
+    "Replacement ADR Carriage of Dangerous Goods (ADRIIIr)": "https://www.gov.uk/government/publications/carriage-of-dangerous-goods-replacement-certificate-application-form-adr-iiir",
+    "Replacement Document (VTG59)": "https://www.gov.uk/government/publications/replacement-hgv-plating-and-testing-documents-application-form-vtg59"
+  }
+}

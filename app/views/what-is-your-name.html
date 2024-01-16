@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% set question = 'What is your name?' %}
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="what-is-your-email-address">
+      {% call govukFieldset({
+      legend: {
+      text: question,
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+        {{ govukInput({
+        label: {
+        text: "Full name"
+        },
+        id: "full-name",
+        name: "fullName",
+        autocomplete: "name",
+        spellcheck: false
+        }) }}
+        {{ govukInput({
+        label: {
+        text: "Company name (if relevant)"
+        },
+        id: "company-name",
+        name: "company-name",
+        spellcheck: false
+        }) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+      {% endcall %}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

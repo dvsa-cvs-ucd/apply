@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% set title = data['test-type'] %}
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class='govuk-heading-l'>Download form</h1>
+    <h2 class="govuk-heading-m">{{ title }}</h2>
+    <p class="govuk-body"><a class="govuk-link" href="{{ data['test-type'] | findTestUrl(data.forms) }}" target="_blank">Download application form (opens in a new window).</p>
+  </div>
+</div>
+
+{% endblock %}

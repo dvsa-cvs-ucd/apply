@@ -1,0 +1,22 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+
+@font-face {
+  font-family: 'UK-VRM';
+  src: url('../uk-vrm.ttf');
+}
+
+.dvsa-vrm {
+  display: inline-block;
+  min-width: 9.375rem;
+  font: 1.8rem 'UK-VRM', Verdana, sans-serif;
+  padding: govuk-spacing(1) .2rem;
+  text-align: center;
+  background-color: #fd0;
+  border-radius: .25rem;
+  text-transform: uppercase
+}
