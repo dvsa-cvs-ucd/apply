@@ -9,7 +9,9 @@ Uploading supporting documentation for {{ title }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
+{% if not query.changing %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -17,8 +19,8 @@ Uploading supporting documentation for {{ title }} – {{ serviceName }}
 <form action="upload-check">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-caption-m">{{ title }}</div>
       <h1 class='govuk-heading-l'>Upload supporting documentation</h1>
-      <h2 class="govuk-heading-m">{{ title }}</h2>
       <p class="govuk-body">
         Upload supporting documentation for your {{ title }} form below.
       </p>

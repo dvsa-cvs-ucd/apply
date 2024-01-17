@@ -1,6 +1,8 @@
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
 {% macro notification() %}
 {% if not data.error %}
-  {% if data.uploaded and data['supporting-documentation-upload'] | length > 0 %}
+  {% if query.uploaded == '1' and data['supporting-documentation-upload'] | length > 0 %}
     {% set heading %}
       File uploaded
     {% endset %}

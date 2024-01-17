@@ -1,20 +1,27 @@
 {% extends "layouts/main.html" %}
 
 {% set question = 'What is your phone number?' %}
+{% if query.changing %}
+  {% set nextPage='check-your-answers' %}
+{% else %}
+  {% set nextPage = 'vehicle-details' %}
+{% endif %}
 
 {% block pageTitle %}
 {{ question }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% if not query.changing %}
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="vehicle-details">
+    <form class="form" action="{{ nextPage }}">
       {% call govukFieldset({
       legend: {
       text: question,
@@ -28,6 +35,7 @@
         text: "Phone number"
         },
         id: "telephone-number",
+        value: data['telephone-number'],
         name: "telephone-number",
         type: "tel",
         autocomplete: "tel",
@@ -38,6 +46,7 @@
           text: "Confirm phone number"
         },
         id: "confirm-telephone-number",
+        value: data['confirm-telephone-number'],
         name: "confirm-telephone-number",
         type: "tel",
         autocomplete: "tel",

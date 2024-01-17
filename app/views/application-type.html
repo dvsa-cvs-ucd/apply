@@ -9,7 +9,9 @@
 {% set types = data.tass[data['vehicle-category']] %}
 
 {% block beforeContent %}
+{% if not query.changing %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +20,7 @@
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="upload-form">
       {{ govukRadios({
-      name: "test-type",
+      name: "application-type",
       fieldset: {
       legend: {
         text: question,

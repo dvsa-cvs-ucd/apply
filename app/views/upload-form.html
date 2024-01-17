@@ -7,7 +7,9 @@ Upload {{ title }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
+{% if not query.changing %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -15,8 +17,8 @@ Upload {{ title }} – {{ serviceName }}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form class="form" action="upload-supporting-documentation">
+      <div class="govuk-caption-m">{{ title }}</div>
       <h1 class='govuk-heading-l'>Upload application form</h1>
-      <h2 class="govuk-heading-m">{{ title }}</h2>
       <p class="govuk-body">
         Upload your completed {{ title }} form below.
       </p>

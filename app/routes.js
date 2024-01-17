@@ -19,9 +19,14 @@ router.get('/ready-check', (req, res) => {
   }
 })
 
-router.get('/vehicle-category', (req, res) => {
-  res.render('vehicle-category.html')
-})
+router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', {query: req.query}))
+router.get('/what-is-your-email-address', (req, res) => res.render('what-is-your-email-address.html', {query: req.query}))
+router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-phone-number.html', {query: req.query}))
+router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', {query: req.query}))
+router.get('/vehicle-data', (req, res) => res.render('vehicle-data.html', {query: req.query}))
+router.get('/vehicle-category', (req, res) => res.render('vehicle-category.html', {query: req.query}))
+router.get('/test-type', (req, res) => res.render('test-type.html', {query: req.query}))
+router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
 
 router.get('/download-form', (req, res) => {
   const formToDownload = req.query['test-type'] ?? req.session.data['test-type']
@@ -50,10 +55,8 @@ router.get('/vrm-check', async (req, res) => {
   }
 })
 
-router.get('/upload-supporting-documentation', (req, res) => {
-  req.session.data.uploaded = undefined
-  res.render('/upload-supporting-documentation')
-})
+router.get('/upload-form', (req, res) => res.render('/upload-form', {query: req.query}))
+router.get('/upload-supporting-documentation', (req, res) => res.render('/upload-supporting-documentation', {query: req.query}))
 
 router.get(['/upload-check'], (req, res) => {
   req.session.data.removed = undefined
@@ -65,8 +68,7 @@ router.get(['/upload-check'], (req, res) => {
       req.session.data.error = false
       if (req.session.data['supporting-documentation'] === undefined) req.session.data['supporting-documentation'] = []
       req.session.data['supporting-documentation'] = req.session.data['supporting-documentation'].concat(req.session.data['supporting-documentation-upload'])
-      req.session.data.uploaded = true
-      res.redirect('/upload-supporting-documentation')
+      res.redirect('/upload-supporting-documentation?uploaded=1')
     } else {
       req.session.data.error = true
       res.redirect('/upload-supporting-documentation')

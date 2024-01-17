@@ -80,7 +80,9 @@
 {{ question }} – {{ serviceName }}
 {% endblock %}
 {% block beforeContent %}
+{% if not query.changing %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 {% block content %}
   <form action="vehicle-category">

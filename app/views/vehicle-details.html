@@ -1,20 +1,27 @@
 {% extends "layouts/main.html" %}
 
 {% set question = 'Vehicle details' %}
+{% if query.changing %}
+  {% set nextPage = "check-your-answers" %}
+{% else %}
+  {% set nextPage = "vrm-check" %}
+{% endif %}
 
 {% block pageTitle %}
-{{ question }} – {{ serviceName }}
+  {{ question }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% if not query.changing %}
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="vrm-check">
+    <form class="form" action="{{ nextPage }}">
       {% call govukFieldset({
       legend: {
       text: question,
@@ -31,6 +38,7 @@
         text: "This is also known as a chassis number. VIN numbers can be 9, 17 or 21 characters long."
       },
       id: "vin",
+      value: data['vin'],
       name: "vin",
       spellcheck: false
     }) }}
@@ -38,8 +46,12 @@
       label: {
       text: "Vehicle registration mark (VRM) or Trailer ID"
       },
+      hint: {
+        text: "If your vehicle or trailer is not yet registered, leave this field blank."
+      },
       classes: "govuk-input--width-10",
       id: "vrm",
+      value: data['vrm'],
       name: "vrm",
       spellcheck: false
       }) }}

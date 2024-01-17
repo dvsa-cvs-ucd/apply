@@ -2,19 +2,27 @@
 
 {% set question = 'What is your email address?' %}
 
+{% if query.changing %}
+  {% set nextPage='check-your-answers' %}
+{% else %}
+  {% set nextPage='what-is-your-phone-number' %}
+{% endif %}
+
 {% block pageTitle %}
-{{ question }} – {{ serviceName }}
+  {{ question }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
-<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% if not query.changing %}
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% endif %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="what-is-your-phone-number">
+    <form class="form" action="{{ nextPage}}">
       {% call govukFieldset({
       legend: {
       text: question,
@@ -28,6 +36,7 @@
         text: "Email address"
         },
         id: "email",
+        value: data['email'],
         name: "email",
         type: "email",
         autocomplete: "email",
@@ -37,8 +46,9 @@
         label: {
         text: "Confirm email address"
         },
-        id: "email",
-        name: "email",
+        id: "confirm-email",
+        value: data['confirm-email'],
+        name: "confirm-email",
         type: "email",
         autocomplete: "email",
         spellcheck: false

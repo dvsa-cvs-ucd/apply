@@ -2,19 +2,27 @@
 
 {% set question = 'What is your name?' %}
 
+{% if query.changing %}
+  {% set nextPage = 'check-your-answers' %}
+{% else %}
+  {% set nextPage = 'what-is-your-email-address' %}
+{% endif %}
+
 {% block pageTitle %}
 {{ question }} – {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
+{% if not query.changing %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="what-is-your-email-address">
+    <form class="form" action="{{ nextPage }}">
       {% call govukFieldset({
       legend: {
       text: question,
@@ -26,8 +34,9 @@
         label: {
         text: "Full name"
         },
+        value: data['full-name'],
         id: "full-name",
-        name: "fullName",
+        name: "full-name",
         autocomplete: "name",
         spellcheck: false
         }) }}
@@ -35,6 +44,7 @@
         label: {
         text: "Company name (if relevant)"
         },
+        value: data['company-name'],
         id: "company-name",
         name: "company-name",
         spellcheck: false

@@ -4,95 +4,159 @@
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+{% set vrm %}
+  {% if data.vrm %}
+    <span class="dvsa-vrm">{{ data.vrm | vrm }}</span>
+  {% else %}
+    Not provided
+  {% endif %}
+{% endset %}
+
 
 {% block content %}
+<form action="/summary-check" method="post" novalidate>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
-        Check your answers before sending your application
+      <h1 class="govuk-heading-l">
+        Check your answers
       </h1>
 
+      <h2 class="govuk-heading-m">
+        About you
+      </h2>
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Question 1"
+              text: "Full name"
             },
             value: {
-              text: "Answer 1"
+              text: data['full-name']
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "what-is-your-name?changing=1#full-name",
                   text: "Change",
-                  visuallyHiddenText: "Question 1"
+                  visuallyHiddenText: "full name"
                 }
               ]
             }
-          }
-          ,
+          },
           {
             key: {
-              text: "Question 2"
+              text: "Company name (if relevant)"
             },
             value: {
-              text: "Answer 2"
+              text: data['company-name'] or "None given"
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "what-is-your-name?changing=1#company-name",
                   text: "Change",
-                  visuallyHiddenText: "Question 2"
+                  visuallyHiddenText: "company name"
                 }
               ]
             }
-          }
-          ,
+          },
           {
             key: {
-              text: "Question 3"
+              text: "Email address"
             },
             value: {
-              text: "Answer 3"
+              text: data['email']
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "what-is-your-email-address?changing=1#email",
                   text: "Change",
                   visuallyHiddenText: "Question 3"
                 }
               ]
             }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data['telephone-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-phone-number?changing=1#telephone-number",
+                  text: "Change",
+                  visuallyHiddenText: "phone number"
+                }
+              ]
+            }
+          }
+          ]})}}
+          <h2 class="govuk-heading-m">Your vehicle</h2>
+          {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Vehicle identification number (VIN)"
+            },
+            value: {
+              text: data['vin']
+            },
+            actions: {
+              items: [
+                {
+                  href: "vehicle-details?changing=1#vin",
+                  text: "Change",
+                  visuallyHiddenText: "VIN"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Vehicle registration mark or trailer ID"
+            },
+            value: {
+              html: vrm
+            },
+            actions: {
+              items: [
+                {
+                  href: "vehicle-details?changing=1#vrm",
+                  text: "Change",
+                  visuallyHiddenText: "vrm"
+                }
+              ]
+            }
+          }
+        ]
+      })}}
+      <h3 class="govuk-heading-s">{{ data['application-type'] }}</h3>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: 'Application form'
+            }
+          },
+          {
+            key: {
+              text: 'Supporting documentation'
+            }
           }
         ]
       }) }}
-
-      <h2 class="govuk-heading-m">
-        Now send your application
-      </h2>
-
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
-
-      <form action="/confirmation" method="post" novalidate>
-
-        {{ govukButton({
-          text: "Accept and send"
-        }) }}
-
-      </form>
-
+        <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another application for this vehicle</button>
+        <div class="govuk-button-group">
+          <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
+          <button value="payment" class="govuk-button">Proceed to payment</button>
+        </div>
+        
+      </div>
     </div>
-  </div>
+  </form>
 {% endblock %}
