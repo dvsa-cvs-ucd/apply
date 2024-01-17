@@ -49,3 +49,34 @@ router.get('/vrm-check', async (req, res) => {
     res.redirect('/vehicle-category')
   }
 })
+
+router.get('/upload-supporting-documentation', (req, res) => {
+  req.session.data.uploaded = undefined
+  res.render('/upload-supporting-documentation')
+})
+
+router.get(['/upload-check'], (req, res) => {
+  req.session.data.removed = undefined
+  req.session.data.uploaded = undefined
+  if (req.query.continue) {
+    res.redirect('/check-your-answers')
+  } else {
+    if (req.query['upload-multiple'] !== undefined && req.query['supporting-documentation-upload'].length !== 0) {
+      req.session.data.error = false
+      if (req.session.data['supporting-documentation'] === undefined) req.session.data['supporting-documentation'] = []
+      req.session.data['supporting-documentation'] = req.session.data['supporting-documentation'].concat(req.session.data['supporting-documentation-upload'])
+      req.session.data.uploaded = true
+      res.redirect('/upload-supporting-documentation')
+    } else {
+      req.session.data.error = true
+      res.redirect('/upload-supporting-documentation')
+    }
+  }
+})
+
+router.get(['/remove-file'], (req, res) => {
+  const indexToRemove = req.session.data['supporting-documentation'].indexOf(req.query.filename)
+  req.session.data['supporting-documentation'].splice(indexToRemove, 1)
+  req.session.data.removed = req.query.filename
+  res.redirect('/upload-supporting-documentation')
+})

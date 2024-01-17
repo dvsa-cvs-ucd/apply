@@ -1,0 +1,54 @@
+{% macro notification() %}
+{% if not data.error %}
+  {% if data.uploaded and data['supporting-documentation-upload'] | length > 0 %}
+    {% set heading %}
+      File uploaded
+    {% endset %}
+    {% set message %}
+      <p>
+        Uploaded <strong>{{ data['supporting-documentation-upload'] }}</strong>.
+      </p>
+      <p>
+        <a class="govuk-notification-banner__link" href="#supporting-documentation-upload">Upload another file.</a>
+      </p>
+    {% endset %}
+  {% endif %}
+{% endif %}
+
+{% if data.removed %}
+  {% set heading %}
+    File removed
+  {% endset %}
+  {% set message %}
+    <p>Removed <strong>{{ data.removed }}</strong></p>
+  {% endset %}
+{% endif %}
+{% if message %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert"
+        aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            {{ heading | safe }}
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          {{ message | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% if data.error %}
+  {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: [
+      {
+        text: "Choose a file to upload",
+        href: "#supporting-documentation-upload"
+      }
+    ]
+  }) }}
+{% endif %}
+{% endmacro %}
