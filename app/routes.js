@@ -25,7 +25,7 @@ router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-
 router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', {query: req.query}))
 router.get('/vehicle-data', (req, res) => res.render('vehicle-data.html', {query: req.query}))
 router.get('/vehicle-category', (req, res) => res.render('vehicle-category.html', {query: req.query}))
-router.get('/test-type', (req, res) => res.render('test-type.html', {query: req.query}))
+router.get('/test-type', (req, res) => res.render('test-type.html'))
 router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
 
 router.get('/download-form', (req, res) => {
@@ -55,6 +55,14 @@ router.get('/vrm-check', async (req, res) => {
   }
 })
 
+router.get('/change-vehicle', (req, res) => {
+  currentVehicle = req.session.data.vehicles[req.session.data['changing']]
+  currentVehicle.vin = req.session.data['vin']
+  currentVehicle.vrm = req.session.data['vrm']
+  req.session.data.changedVehicle = true
+  res.redirect('/check-your-answers')
+})
+
 router.get('/upload-form', (req, res) => res.render('/upload-form', {query: req.query}))
 router.get('/upload-supporting-documentation', (req, res) => res.render('/upload-supporting-documentation', {query: req.query}))
 
@@ -81,4 +89,62 @@ router.get(['/remove-file'], (req, res) => {
   req.session.data['supporting-documentation'].splice(indexToRemove, 1)
   req.session.data.removed = req.query.filename
   res.redirect('/upload-supporting-documentation')
+})
+
+router.get('/check-your-answers', (req, res) => {
+  const currentFields = req.session.data
+  const currentVehicle = currentFields.vehicles.find(vehicle => currentFields['vin'] === vehicle.vin || currentFields['vrm'] === vehicle.vrm)
+  if (currentVehicle) {
+    const currentTest = currentVehicle.tests.find(test => test['test'] === currentFields['application-type'])
+    if (req.session.data.changedVehicle) {
+      req.session.data.changedVehicle = false 
+    } else {
+      if (currentTest) {
+        currentTest['form'] = currentFields['application-upload'],
+        currentTest['supporting'] = currentFields['supporting-documentation']
+      } else {
+        currentVehicle.tests.push({ 
+          test: currentFields['application-type'], 
+          form: currentFields['application-upload'], 
+          supporting: currentFields['supporting-documentation']
+        })
+      }
+    }
+  } else {
+    currentFields.vehicles.push({
+      vin: currentFields['vin'],
+      vrm: currentFields['vrm'],
+      category: currentFields['vehicle-category'],
+      tests: [
+        {
+          test: currentFields['application-type'], 
+          form: currentFields['application-upload'],
+          supporting: currentFields['supporting-documentation']
+        }
+        ]
+    })
+  }
+  res.render('/check-your-answers', {query: req.query})
+})
+
+router.get('/add-vehicle', (req, res) => {
+  req.session.data.vin = undefined
+  req.session.data.vrm = undefined
+  req.session.data['vehicle-category'] = undefined
+  req.session.data['test-type'] = undefined
+  req.session.data['application-type'] = undefined
+  req.session.data['upload-form'] = undefined
+  req.session.data['supporting-documentation'] = undefined
+  res.redirect('/vehicle-details')
+})
+
+router.get('/add-test', (req, res) => {
+  req.session.data['vehicle-category'] = req.session.data.vehicles[req.session.data.addTo]['category']
+  req.session.data.vin = req.session.data.vehicles[req.session.data.addTo].vin
+  req.session.data.vrm = req.session.data.vehicles[req.session.data.addTo].vrm
+  req.session.data['test-type'] = undefined
+  req.session.data['application-type'] = undefined
+  req.session.data['application-upload'] = undefined
+  req.session.data['supporting-documentation'] = undefined
+  res.redirect('/test-type')
 })

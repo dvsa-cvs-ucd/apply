@@ -2,10 +2,19 @@
 
 {% set question = 'Vehicle details' %}
 {% if query.changing %}
-  {% set nextPage = "check-your-answers" %}
+  {% set nextPage = "change-vehicle" %}
+  {% set vehicleCount = data.vehicles | length %}
+  {% set vehicleIndex = query.index | int + 1 %}
+  {% set vin = data['vehicles'][query['index']]['vin'] %}
+  {% set vrm = data['vehicles'][query['index']]['vrm'] %}
 {% else %}
+  {% set vehicleCount = data.vehicles | length + 1 %}
+  {% set vehicleIndex = vehicleCount %}
   {% set nextPage = "vrm-check" %}
+  {% set vin = data['vin'] %}
+  {% set vrm = data['vrm'] %}
 {% endif %}
+
 
 {% block pageTitle %}
   {{ question }} – {{ serviceName }}
@@ -21,7 +30,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
     <form class="form" action="{{ nextPage }}">
+      {% if query.changing %}
+        <input type="hidden" name="changing" value="{{query.index}}">
+      {% endif %}
       {% call govukFieldset({
       legend: {
       text: question,
@@ -38,7 +51,7 @@
         text: "This is also known as a chassis number. VIN numbers can be 9, 17 or 21 characters long."
       },
       id: "vin",
-      value: data['vin'],
+      value: vin,
       name: "vin",
       spellcheck: false
     }) }}
@@ -51,7 +64,7 @@
       },
       classes: "govuk-input--width-10",
       id: "vrm",
-      value: data['vrm'],
+      value:vrm,
       name: "vrm",
       spellcheck: false
       }) }}
