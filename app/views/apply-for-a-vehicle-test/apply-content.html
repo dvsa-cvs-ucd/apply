@@ -1,0 +1,6 @@
+{% set currentPath = path | endSegment %}
+
+{% if currentPath != 'apply' and currentPath != 'applications' %}
+{%- set question -%}../questions/{{ currentPath }}.html{%- endset -%}
+{% include question %}
+{% endif %}

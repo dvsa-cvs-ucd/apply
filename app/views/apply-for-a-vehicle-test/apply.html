@@ -1,0 +1,21 @@
+{% set title = "Apply for a vehicle test or approval" %}
+{%- set activeTab -%}
+{%- if '/apply-for-a-vehicle-test/apply' in path -%}
+Apply
+{%- elif '/apply-for-a-vehicle-test/applications' in path -%}
+Past applications
+{%- endif -%}
+{%- endset -%}
+{% set tabs %}
+{% include './apply-tabs.html' %}
+{% endset %}
+{% extends "layouts/myvtlayout.html" %}
+
+{% block content %}
+  <section role="tabpanel" class="govuk-main-wrapper app-main-class tab-content {% if activeTab == 'Apply' -%}active-tab{% endif %}" data-tab="/apply-for-a-vehicle-test/apply" aria-labelledby="apply">
+    {% include "./apply-content.html" %}
+  </section>
+  <section role="tabpanel" class="govuk-main-wrapper app-main-class tab-content {% if activeTab == 'Past applications' %}active-tab{% endif %}" data-tab="/apply-for-a-vehicle-test/applications" aria-labelledby="applications">
+    {% include "./applications-content.html" %}
+  </section>
+{% endblock %}

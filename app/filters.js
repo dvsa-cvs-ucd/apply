@@ -70,3 +70,6 @@ addFilter('typeApproval', string => {
     return vehicle
 })
 
+addFilter('split', (string , delimiter) =>  string.split(delimiter ?? '').filter(item => item !== ''))
+
+addFilter('endSegment', string => string.split('/').pop())

@@ -1,0 +1,66 @@
+{% set title = "Manage your vehicle testing" %}
+{% extends "layouts/myvtlayout.html" %}
+
+{% block content %}
+
+<div class="govuk-main-wrapper">
+  <div class="govuk-width-container app-width-container">
+    <nav>
+      <dl class="nav-card-list">
+        <div class="nav-card">
+          <dt>
+            <a aria-describedby="facility-management" href="#">Facility management</a>
+          </dt>
+          <dd id="facility-management">
+            View today’s completed tests and search past transactions.
+          </dd>
+        </div>
+        <div class="nav-card">
+          <dt>
+            <a aria-describedby="apply-for-a-vehicle-test" href="apply-for-a-vehicle-test">Apply for a vehicle test</a>
+          </dt>
+          <dd id="apply-for-vehicle-tests">
+            Make an application for a specialist or technical test.
+          </dd>
+        </div>
+        <div class="nav-card">
+          <dt>
+            <a aria-describedby="user-settings" href="#">User settings</a>
+          </dt>
+          <dd id="user-settings">
+            View your personal details. Add and remove team members.
+          </dd>
+        </div>
+      </dl>
+    </nav>
+    <article>
+      <hr class="money-display-divider" aria-hidden="true">
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Pre-funded account information</h2>    
+      <div class="govuk-!-padding-bottom-6"></div>
+      <div class="govuk-grid-row govuk-grid-row">
+        <dl class="money-display-list">
+          <div aria-live="polite" aria-atomic="true" aria-relevant="text" class="money-display">
+            <dt>Current balance</dt>
+            <dd data-balance="s-&amp;-s-motors">£79,022.18</dd>
+            <dd class="govuk-visually-hidden">Your current balance does not have today's running total taken away from it.
+            </dd>
+          </div>
+    
+          <div aria-live="polite" aria-atomic="true" aria-relevant="text" class="money-display"
+            id="ATF_Todays_Running_Total">
+            <dt>Today's running total</dt>
+            <dd data-runningtotal="s-&amp;-s-motors">£0.00</dd>
+          </div>
+    
+        </dl>
+        <div class="top-up-cta">
+          <h3 class="govuk-heading-m">Account top up</h3>
+          <p class="govuk-body">Top up by card, Direct Debit or via cheque or Postal Order.</p>
+          <a href="/pre-funded-account-top-up/credit-or-debit-card/" class="govuk-button">Top up account</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+{% endblock %}
