@@ -23,7 +23,7 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 })
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
-  res.render('apply-for-a-vehicle-test/apply.html', {path : req.path})
+  res.render('apply-for-a-vehicle-test/apply.html', {path : req.path, query: req.query})
 })
 
 router.get('/ready-check', (req, res) => {
@@ -95,7 +95,7 @@ router.get(['/upload-check'], (req, res) => {
   req.session.data.uploaded = undefined
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   if (req.query.continue) {
-    res.redirect(`${myvt}/check-your-answers`)
+    res.redirect(`/submit-test`)
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['supporting-documentation-upload'].length !== 0) {
       req.session.data.error = false
@@ -110,13 +110,14 @@ router.get(['/upload-check'], (req, res) => {
 })
 
 router.get(['/remove-file'], (req, res) => {
+  const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   const indexToRemove = req.session.data['supporting-documentation'].indexOf(req.query.filename)
   req.session.data['supporting-documentation'].splice(indexToRemove, 1)
   req.session.data.removed = req.query.filename
-  res.redirect('/upload-supporting-documentation')
+  res.redirect(`${myvt}/upload-supporting-documentation`)
 })
 
-router.get(['/check-your-answers', '/apply-for-a-vehicle/apply/check-your-answers'], (req, res) => {
+router.get(['/submit-test'], (req, res) => {
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   const currentFields = req.session.data
   const currentVehicle = currentFields.vehicles.find(vehicle => currentFields['vin'] === vehicle.vin || currentFields['vrm'] === vehicle.vrm)
@@ -150,8 +151,10 @@ router.get(['/check-your-answers', '/apply-for-a-vehicle/apply/check-your-answer
         ]
     })
   }
-  res.render(`${myvt}/check-your-answers`, {query: req.query})
+  res.redirect(`${myvt}/check-your-answers`)
 })
+
+router.get('/check-your-answers', (req, res) => res.render('/check-your-answers.html', {query: req.query}))
 
 router.get('/add-vehicle', (req, res) => {
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
