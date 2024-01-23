@@ -1,0 +1,32 @@
+{% if data['ready-to-upload'] == 'yes' %}
+  {% set categories = data.tass %}
+  {% if data['vehicle-confirmation'] == 'yes' %}
+    {% set foundVehicleCategory %}{{ data.vehicle['typeApproval'] | typeApproval }}{% endset %}
+  {% endif %}
+{% else %}
+  {% set categories = data.forms %}
+{% endif %}
+{% set nextPage = 'test-type' %}
+
+{% set question = 'Choose your vehicle category' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="{{ nextPage }}">
+      {{ govukRadios({
+      name: "vehicle-category",
+      fieldset: {
+      legend: {
+        text: question,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: categories | radiosFromObject(foundVehicleCategory)
+      }) }}
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

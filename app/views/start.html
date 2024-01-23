@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 
+
 {% block pageTitle %}
   Start page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -52,7 +53,7 @@
 
       {{ govukButton({
         text: "Start now",
-        href: "ready-to-upload",
+        href: "unauthenticated",
         isStartButton: true
       }) }}
 
@@ -70,7 +71,7 @@
       </ul>
 
       <p>
-        If you have a 'Manage your vehicle testing' account, <a class="govuk-link" href="#">sign in</a> to that service to:
+        If you have a 'Manage your vehicle testing' account, <a class="govuk-link" href="myvt">sign in</a> to that service to:
       </p>
       <ul class="govuk-list govuk-list--bullet">
         <li>make applications</li>

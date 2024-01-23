@@ -1,0 +1,10 @@
+{% set title = data['test-type'] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class='govuk-heading-l'>Download application form</h1>
+    <h2 class="govuk-heading-m">{{ title }}</h2>
+    <p class="govuk-body"><a class="govuk-link" href="{{ data['test-type'] | findTestUrl(data.forms) }}" target="_blank">Download application form from GOV.UK (opens in a new window)</a>.</p>
+    <p class="govuk-body">When your form is complete, you can <a class="govuk-link" href="ready-to-upload">return to the start of this form to upload it</a>.</p>
+  </div>
+</div>

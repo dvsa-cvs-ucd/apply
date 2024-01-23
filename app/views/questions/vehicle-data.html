@@ -1,0 +1,107 @@
+
+{% set question = 'Is this your vehicle?' %}
+
+{% set vrm %}
+  <span class="dvsa-vrm">{{ data.vehicle['registrationNumber'] | vrm}}</span>
+{% endset %}
+
+{% set vehicleSummary %}
+{{ govukSummaryList({
+      rows: [
+      {
+        key: {
+          text: "Make"
+        },
+        value: {
+          text: data.vehicle['make']
+        },
+        actions: {
+        }
+      },
+      {
+        key: {
+          text: "Colour"
+        },
+        value: {
+          text: data.vehicle['colour'] | title
+        },
+        actions: {
+        }
+      },
+      {
+        key: {
+          text: "VRM"
+        },
+        value: {
+          html: vrm
+        },
+        actions: {
+        }
+      },
+      {
+        key: {
+          text: "Year of manufacture"
+        },
+        value: {
+          text: data.vehicle['yearOfManufacture']
+        },
+        actions: {
+        }
+      },
+      {
+        key: {
+          text: "Fuel"
+        },
+        value: {
+          text: data.vehicle['fuelType'] | title
+        },
+        actions: {
+        }
+      },
+      {
+        key : {
+          text: 'Wheelplan'
+        },
+        value: {
+          text: data.vehicle['wheelplan'] | title
+        },
+        actions: {
+
+        }
+      }
+      ]
+    }) }}
+{% endset %}
+<form action="vehicle-category">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "vehicle-confirmation",
+        fieldset: {
+        legend: {
+          text: question,
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+        html: vehicleSummary
+        },
+        items: [
+        {
+        value: "yes",
+        text: "Yes"
+        },
+        {
+        value: "no",
+        text: "No"
+        }
+        ]
+        }) }}
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+        </div>
+    </div>
+  </form>

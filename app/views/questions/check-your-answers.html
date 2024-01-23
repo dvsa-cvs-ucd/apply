@@ -1,0 +1,183 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+      {% if not data['myvt'] %}
+      <h2 class="govuk-heading-l">
+        About you
+      </h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-name?changing=1#full-name",
+                  text: "Change",
+                  visuallyHiddenText: "full name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Company name (if relevant)"
+            },
+            value: {
+              text: data['company-name'] or "None given"
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-name?changing=1#company-name",
+                  text: "Change",
+                  visuallyHiddenText: "company name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data['email']
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-email-address?changing=1#email",
+                  text: "Change",
+                  visuallyHiddenText: "Question 3"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data['telephone-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "what-is-your-phone-number?changing=1#telephone-number",
+                  text: "Change",
+                  visuallyHiddenText: "phone number"
+                }
+              ]
+            }
+          }
+          ]})}}
+          {% endif %}
+          <h2 class="govuk-heading-l govuk-!-margin-top-9">Your vehicles</h2>
+          <form action="/add-vehicle">
+            <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
+          </form>
+          {% for vehicle in data['vehicles'] %}
+            {% set vrm %}
+              {% if vehicle.vrm %}
+                <span class="dvsa-vrm">{{ vehicle.vrm | vrm }}</span>
+              {% else %}
+                Not provided
+              {% endif %}
+            {% endset %}
+              <h3 class="govuk-heading-m">Vehicle {{ loop.index }}</h3>
+              {%- set changeVin -%}vehicle-details?changing=1&index={{ loop.index0 }}#vin{%- endset -%}
+              {%- set changeVrm -%}vehicle-details?changing=1&index={{ loop.index0 }}#vrm{%- endset -%}
+              {{ govukSummaryList({
+                rows: [
+                {
+                  key: {
+                    text: "Vehicle category"
+                  },
+                  value: {
+                    text: vehicle['category']
+                  },
+                  actions: {
+                  
+                  }
+                },
+                {
+                  key: {
+                    text: "Vehicle identification number (VIN)"
+                  },
+                  value: {
+                    text: vehicle['vin']
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: changeVin,
+                        text: "Change",
+                        visuallyHiddenText: "VIN"
+                      }
+                    ]
+                  }
+                },
+                {
+                  key: {
+                    text: "Vehicle registration mark or trailer ID"
+                  },
+                  value: {
+                    html: vrm
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: changeVrm,
+                        text: "Change",
+                        visuallyHiddenText: "vrm"
+                      }
+                    ]
+                  }
+                }
+              ]
+            })}}
+            <h3 class="govuk-heading-m">Test applications for vehicle {{ loop.index }}</h3>
+            {% for test in vehicle.tests %}
+              <h4 class="govuk-heading-s">{{ test.test }}</h4>
+              {{ govukSummaryList({
+                rows: [
+                 {
+                  key: {
+                    text: 'Application form'
+                  },
+                  value: {
+                    text: test.form
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Supporting documentation'
+                  },
+                  value: {
+                    text: test.supporting
+                  }
+                 }
+                ]
+              }) }}
+            {% endfor %}
+            <form action="/add-test">
+              <input type="hidden" value="{{ loop.index0 }}" name="addTo">
+              <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for this vehicle</button>
+            </form>
+            <hr class="govuk-!-margin-bottom-9 govuk-section-break--visible"></hr>
+          {% endfor %}
+        <form action="/summary-check">
+          <div class="govuk-button-group">
+            <button value="payment" class="govuk-button">Proceed to payment</button>
+          </div>
+        </form>
+      </div>
+    </div>

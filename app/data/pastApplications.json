@@ -1,0 +1,34 @@
+{
+  "vehicles": [
+    {
+      "VIN": "1HGCM82633A123456",
+      "VRM": "AB12CDE",
+      "technicalTestName": "VTG788 Application for a Plating ",
+      "status": "submitted"
+    },
+    {
+      "VIN": "2HGFG12674H567890",
+      "VRM": "DE14FGH",
+      "technicalTestName": "VTG10 Notifiable Alteration",
+      "status": "rejected"
+    },
+    {
+      "VIN": "3HGGK25896T987654",
+      "VRM": "GH16IJK",
+      "technicalTestName": "VTG788 Application for a Plating ",
+      "status": "accepted"
+    },
+    {
+      "VIN": "4HGLL38102M345678",
+      "VRM": "JK18LMN",
+      "technicalTestName": "VTG788 Application for a Plating ",
+      "status": "on hold"
+    },
+    {
+      "VIN": "5HGMN49713P876543",
+      "VRM": "MN20 0PQ",
+      "technicalTestName": "VTG10 Notifiable Alteration",
+      "status": "accepted"
+    }
+  ]
+}
