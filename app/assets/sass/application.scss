@@ -135,19 +135,20 @@
   font-weight: 400
 }
 
+.money-display-list dd {
+  @extend .govuk-heading-l;
+}
+
+.money-display-list dt {
+  @extend .govuk-heading-s;
+}
+
 .money-display-list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   min-height: 8.5rem;
   margin-right: 15px;
   padding: 0;
   float: left;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
   flex-flow: row wrap
 }
 
@@ -254,26 +255,8 @@
   margin-bottom: 10px;
   padding-top: 10px;
   border-top: 2px solid #505a5f;
-  font-family: GDS Transport, arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @extend .govuk-body-l;
   font-weight: 700;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.11111
-}
-
-@media print {
-  .nav-card dt {
-    font-family: sans-serif
-  }
-}
-
-@include govuk-media-query($from: tablet) {
-  .nav-card dt {
-    font-size: 1.5rem;
-    line-height: 1.25
-  }
 }
 
 .nav-card dt:first-child:before {
@@ -285,6 +268,19 @@
   margin: 0;
 }
 
+.nav-card dt:before {
+  @extend .govuk-breadcrumbs__list-item;
+}
+
+.nav-card a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 @include govuk-media-query($until: tablet) {
   .nav-card dt:first-child:before {
     top: 15px;
@@ -292,12 +288,8 @@
 }
 
 .nav-card dd {
-  font-family: 'GDS Transport';
-  color: $govuk-text-colour;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.25;
-  margin-left: 0;
+  @extend .govuk-body-s; 
+  margin: 0;
 }
 
 .nav-card a {

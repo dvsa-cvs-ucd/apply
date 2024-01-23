@@ -73,3 +73,23 @@ addFilter('typeApproval', string => {
 addFilter('split', (string , delimiter) =>  string.split(delimiter ?? '').filter(item => item !== ''))
 
 addFilter('endSegment', string => string.split('/').pop())
+
+addFilter('statusClass', string => {
+  let tag = 'govuk-tag--';
+  switch(string) {
+    case 'submitted':
+    default:
+      tag += 'grey'
+      break
+    case 'accepted':
+     tag += 'blue'
+     break
+    case 'rejected':
+      tag += 'red'
+      break
+    case 'on hold':
+      tag += 'yellow'
+      break
+  }
+  return tag
+})

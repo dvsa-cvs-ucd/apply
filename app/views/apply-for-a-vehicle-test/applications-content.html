@@ -1,1 +1,22 @@
-<h2 class="govuk-heading-l">Applications</h2>
+<h2 class="govuk-heading-l">Past appplications</h2>
+<table class="govuk-table">
+  <caption class="govuk-table__caption">Statuses</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">VIN</th>
+      <th scope="col" class="govuk-table__header">VRM</th>
+      <th scope="col" class="govuk-table__header">Technical Test Name</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for vehicle in data['pastApplications']['vehicles'] %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ vehicle.VIN }}</td>
+      <td class="govuk-table__cell"><span class="dvsa-vrm">{{ vehicle.VRM | vrm }}</span></td>
+      <td class="govuk-table__cell">{{ vehicle.technicalTestName }}</td>
+      <td class="govuk-table__cell"><span class="govuk-tag {{vehicle.status | statusClass}}">{{ vehicle.status | title }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
