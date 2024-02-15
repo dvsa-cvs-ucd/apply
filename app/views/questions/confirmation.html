@@ -1,0 +1,12 @@
+{% set title = data['test-type'] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>APP-1088-0224</strong>"
+      }) }}
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>The Driving & Vehicle Standards Agency has received your application.</p>
+  </div>
+</div>
