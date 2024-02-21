@@ -1,0 +1,1302 @@
+[
+  {
+    "code": "AAL",
+    "name": "Annual test",
+    "price": "£128.00"
+  },
+  {
+    "code": "AAS",
+    "name": "Annual test",
+    "price": "£103.00"
+  },
+  {
+    "code": "ADL",
+    "name": "Annual test",
+    "price": "£128.00"
+  },
+  {
+    "code": "WBL",
+    "name": "Class 6A seatbelt installation check (first test)",
+    "price": "£128.00"
+  },
+  {
+    "code": "WBS",
+    "name": "Class 6A seatbelt installation check (first test)",
+    "price": "£103.00"
+  },
+  {
+    "code": "WBL",
+    "name": "Class 6A seatbelt installation check (first test)",
+    "price": "£128.00"
+  },
+  {
+    "code": "WBS",
+    "name": "Class 6A seatbelt installation check (first test)",
+    "price": "£103.00"
+  },
+  {
+    "code": "RHL",
+    "name": "Paid retest",
+    "price": "£56.00"
+  },
+  {
+    "code": "RPL",
+    "name": "Paid retest",
+    "price": "£56.00"
+  },
+  {
+    "code": "RPS",
+    "name": "Paid retest",
+    "price": "£39.00"
+  },
+  {
+    "code": "WHL",
+    "name": "Paid retest with Class 6A seatbelt installation check",
+    "price": "£56.00"
+  },
+  {
+    "code": "WHS",
+    "name": "Paid retest with Class 6A seatbelt installation check",
+    "price": "£39.00"
+  },
+  {
+    "code": "RGL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSS",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RGL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSS",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RGL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSL",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "RSS",
+    "name": "Part-paid retest",
+    "price": "£12.00"
+  },
+  {
+    "code": "PRL",
+    "name": "Part-paid prohibition clearance (full inspection)",
+    "price": "£27.00"
+  },
+  {
+    "code": "PRS",
+    "name": "Part-paid prohibition clearance (full inspection)",
+    "price": "£27.00"
+  },
+  {
+    "code": "PGL",
+    "name": "Part-paid prohibition clearance (partial inspection)",
+    "price": "£56.00"
+  },
+  {
+    "code": "PGS",
+    "name": "Part-paid prohibition clearance (partial inspection)",
+    "price": "£39.00"
+  },
+  {
+    "code": "WFL",
+    "name": "Paid prohibition clearance with Class 6A seatbelt installation check (full inspection)",
+    "price": "£128.00"
+  },
+  {
+    "code": "WFS",
+    "name": "Paid prohibition clearance with Class 6A seatbelt installation check (full inspection)",
+    "price": "£103.00"
+  },
+  {
+    "code": "WIS",
+    "name": "Prohibition clearance (retest with Class 6A seatbelt installation check)",
+    "price": "£39.00"
+  },
+  {
+    "code": "WIL",
+    "name": "Prohibition clearance (retest with Class 6A seatbelt installation check)",
+    "price": "£56.00"
+  },
+  {
+    "code": "WES",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "WEL",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "WES",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "WEL",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "WES",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "WEL",
+    "name": "Prohibition clearance (retest without Class 6A seatbelt installation check)",
+    "price": "£27.00"
+  },
+  {
+    "code": "TEL",
+    "name": "Voluntary Tempo 100",
+    "price": "£0.00"
+  },
+  {
+    "code": "TES",
+    "name": "Voluntary Tempo 100",
+    "price": "£0.00"
+  },
+  {
+    "code": "TEL",
+    "name": "Voluntary Tempo 100",
+    "price": "£0.00"
+  },
+  {
+    "code": "TES",
+    "name": "Voluntary Tempo 100",
+    "price": "£0.00"
+  },
+  {
+    "code": "LCP",
+    "name": "Low Emissions Certificate (LEC) with annual test",
+    "price": "£18.00"
+  },
+  {
+    "code": "LBP",
+    "name": "Low Emissions Certificate (LEC)",
+    "price": "£30.00"
+  },
+  {
+    "code": "LBP",
+    "name": "Low Emissions Certificate (LEC)",
+    "price": "£30.00"
+  },
+  {
+    "code": "LBP",
+    "name": "Low Emissions Certificate (LEC)",
+    "price": "£30.00"
+  },
+  {
+    "code": "AAV2",
+    "name": "Annual test",
+    "price": "£91.00"
+  },
+  {
+    "code": "AAV3",
+    "name": "Annual test",
+    "price": "£113.00"
+  },
+  {
+    "code": "AAV4",
+    "name": "Annual test",
+    "price": "£137.00"
+  },
+  {
+    "code": "AAV5",
+    "name": "Annual test",
+    "price": "£137.00"
+  },
+  {
+    "code": "AAT2",
+    "name": "Annual test",
+    "price": "£54.00"
+  },
+  {
+    "code": "AAT3",
+    "name": "Annual test",
+    "price": "£64.00"
+  },
+  {
+    "code": "AAT4",
+    "name": "Annual test",
+    "price": "£64.00"
+  },
+  {
+    "code": "AAT5",
+    "name": "Annual test",
+    "price": "£64.00"
+  },
+  {
+    "code": "AAT1",
+    "name": "Annual test",
+    "price": "£41.00"
+  },
+  {
+    "code": "FFV2",
+    "name": "First test",
+    "price": "£91.00"
+  },
+  {
+    "code": "FFV3",
+    "name": "First test",
+    "price": "£113.00"
+  },
+  {
+    "code": "FFV4",
+    "name": "First test",
+    "price": "£137.00"
+  },
+  {
+    "code": "FFV5",
+    "name": "First test",
+    "price": "£137.00"
+  },
+  {
+    "code": "FFT2",
+    "name": "First test",
+    "price": "£54.00"
+  },
+  {
+    "code": "FFT3",
+    "name": "First test",
+    "price": "£64.00"
+  },
+  {
+    "code": "FFT4",
+    "name": "First test",
+    "price": "£64.00"
+  },
+  {
+    "code": "FFT5",
+    "name": "First test",
+    "price": "£64.00"
+  },
+  {
+    "code": "FFT1",
+    "name": "First test",
+    "price": "£41.00"
+  },
+  {
+    "code": "LDV",
+    "name": "Low Emissions Certificate (LEC) with annual test",
+    "price": "£18.00"
+  },
+  {
+    "code": "LEV",
+    "name": "Low Emissions Certificate (LEC)",
+    "price": "£30.00"
+  },
+  {
+    "code": "NFV",
+    "name": "Free notifiable alteration",
+    "price": "£0.00"
+  },
+  {
+    "code": "NFT",
+    "name": "Free notifiable alteration",
+    "price": "£0.00"
+  },
+  {
+    "code": "NVV",
+    "name": "Paid notifiable alteration",
+    "price": "£27.00"
+  },
+  {
+    "code": "NVT",
+    "name": "Paid notifiable alteration",
+    "price": "£27.00"
+  },
+  {
+    "code": "DDV",
+    "name": "ADR test",
+    "price": "£83.00"
+  },
+  {
+    "code": "DDT",
+    "name": "ADR test",
+    "price": "£83.00"
+  },
+  {
+    "code": "DDV",
+    "name": "ADR test",
+    "price": "£83.00"
+  },
+  {
+    "code": "DDT",
+    "name": "ADR test",
+    "price": "£83.00"
+  },
+  {
+    "code": "RPV2",
+    "name": "Paid annual test retest",
+    "price": "£35.00"
+  },
+  {
+    "code": "RPV3",
+    "name": "Paid annual test retest",
+    "price": "£49.00"
+  },
+  {
+    "code": "RPV4",
+    "name": "Paid annual test retest",
+    "price": "£65.00"
+  },
+  {
+    "code": "RPV5",
+    "name": "Paid annual test retest",
+    "price": "£65.00"
+  },
+  {
+    "code": "RPT2",
+    "name": "Paid annual test retest",
+    "price": "£25.00"
+  },
+  {
+    "code": "RPT3",
+    "name": "Paid annual test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RPT4",
+    "name": "Paid annual test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RPT5",
+    "name": "Paid annual test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RSV2",
+    "name": "Part paid annual test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RSV3",
+    "name": "Part paid annual test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RSV4",
+    "name": "Part paid annual test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RSV5",
+    "name": "Part paid annual test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RST2",
+    "name": "Part paid annual test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RST3",
+    "name": "Part paid annual test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RST4",
+    "name": "Part paid annual test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RST5",
+    "name": "Part paid annual test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RHT",
+    "name": "Free loaded retest",
+    "price": "£0.00"
+  },
+  {
+    "code": "TRT",
+    "name": "Paid TIR retest",
+    "price": "£70.00"
+  },
+  {
+    "code": "TRV",
+    "name": "Paid TIR retest",
+    "price": "£70.00"
+  },
+  {
+    "code": "RFT",
+    "name": "Free TIR retest",
+    "price": "£0.00"
+  },
+  {
+    "code": "ARV",
+    "name": "Paid ADR retest",
+    "price": "£39.00"
+  },
+  {
+    "code": "ART",
+    "name": "Paid ADR retest",
+    "price": "£39.00"
+  },
+  {
+    "code": "DRV",
+    "name": "Free ADR retest",
+    "price": "£0.00"
+  },
+  {
+    "code": "DRT",
+    "name": "Free ADR retest",
+    "price": "£0.00"
+  },
+  {
+    "code": "QKV",
+    "name": "Paid roadworthiness retest",
+    "price": "£62.88"
+  },
+  {
+    "code": "QPV",
+    "name": "Paid roadworthiness retest",
+    "price": "£88.77"
+  },
+  {
+    "code": "QPT",
+    "name": "Paid roadworthiness retest",
+    "price": "£44.39"
+  },
+  {
+    "code": "QQV",
+    "name": "Paid roadworthiness retest",
+    "price": "£116.52"
+  },
+  {
+    "code": "QQT",
+    "name": "Paid roadworthiness retest",
+    "price": "£59.18"
+  },
+  {
+    "code": "QKT",
+    "name": "Paid roadworthiness retest",
+    "price": "£31.44"
+  },
+  {
+    "code": "RUT",
+    "name": "Part paid roadworthiness retest",
+    "price": "£11.10"
+  },
+  {
+    "code": "RUV",
+    "name": "Part paid roadworthiness retest",
+    "price": "£22.19"
+  },
+  {
+    "code": "RGT2",
+    "name": "Paid first test retest",
+    "price": "£25.00"
+  },
+  {
+    "code": "RGT3",
+    "name": "Paid first test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RGT4",
+    "name": "Paid first test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RGT5",
+    "name": "Paid first test retest",
+    "price": "£33.00"
+  },
+  {
+    "code": "RGV2",
+    "name": "Paid first test retest",
+    "price": "£35.00"
+  },
+  {
+    "code": "RGV3",
+    "name": "Paid first test retest",
+    "price": "£49.00"
+  },
+  {
+    "code": "RGV4",
+    "name": "Paid first test retest",
+    "price": "£65.00"
+  },
+  {
+    "code": "RGV5",
+    "name": "Paid first test retest",
+    "price": "£65.00"
+  },
+  {
+    "code": "RIT2",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIT3",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIT4",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIT5",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIV2",
+    "name": "Part paid first test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RIV3",
+    "name": "Part paid first test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RIV4",
+    "name": "Part paid first test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RIV5",
+    "name": "Part paid first test retest",
+    "price": "£13.00"
+  },
+  {
+    "code": "RHT",
+    "name": "Free first test retest",
+    "price": "£0.00"
+  },
+  {
+    "code": "RPT1",
+    "name": "Paid annual test retest",
+    "price": "£18.00"
+  },
+  {
+    "code": "RST1",
+    "name": "Part paid annual test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RGT1",
+    "name": "Paid first test retest",
+    "price": "£18.00"
+  },
+  {
+    "code": "RIT1",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIT1",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "RIT1",
+    "name": "Part paid first test retest",
+    "price": "£7.00"
+  },
+  {
+    "code": "P1V2",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£91.00"
+  },
+  {
+    "code": "P1V3",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£113.00"
+  },
+  {
+    "code": "P1V4",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "P1V5",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "P1T2",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£54.00"
+  },
+  {
+    "code": "P1T3",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P1T4",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P1T5",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "PBV2",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£91.00"
+  },
+  {
+    "code": "PBV3",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£113.00"
+  },
+  {
+    "code": "PBV4",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "PBV5",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "PBT2",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£54.00"
+  },
+  {
+    "code": "PBT3",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "PBT4",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "PBT5",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P7V2",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£91.00"
+  },
+  {
+    "code": "P7V3",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£113.00"
+  },
+  {
+    "code": "P7V4",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "P7V5",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£137.00"
+  },
+  {
+    "code": "P7T2",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£54.00"
+  },
+  {
+    "code": "P7T3",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P7T4",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P7T5",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£64.00"
+  },
+  {
+    "code": "P4V2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£35.00"
+  },
+  {
+    "code": "P4V3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£49.00"
+  },
+  {
+    "code": "P4V4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4V5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4T2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£25.00"
+  },
+  {
+    "code": "P4T3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4V2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£35.00"
+  },
+  {
+    "code": "P4V3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£49.00"
+  },
+  {
+    "code": "P4V4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4V5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4T2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£25.00"
+  },
+  {
+    "code": "P4T3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4V2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£35.00"
+  },
+  {
+    "code": "P4V3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£49.00"
+  },
+  {
+    "code": "P4V4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4V5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£65.00"
+  },
+  {
+    "code": "P4T2",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£25.00"
+  },
+  {
+    "code": "P4T3",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T4",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P4T5",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£33.00"
+  },
+  {
+    "code": "P1T1",
+    "name": "Paid prohibition clearance (full inspection with certification)",
+    "price": "£41.00"
+  },
+  {
+    "code": "PBT1",
+    "name": "Paid prohibition clearance (full inspection without certification)",
+    "price": "£41.00"
+  },
+  {
+    "code": "P7T1",
+    "name": "Paid prohibition clearance on first test (full inspection with certification)",
+    "price": "£41.00"
+  },
+  {
+    "code": "P4T1",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£18.00"
+  },
+  {
+    "code": "P4T1",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£18.00"
+  },
+  {
+    "code": "P4T1",
+    "name": "Paid retest prohibition clearance on first test",
+    "price": "£18.00"
+  },
+  {
+    "code": "QJT1",
+    "name": "Voluntary roadworthiness test",
+    "price": "£46.24"
+  },
+  {
+    "code": "QJT1",
+    "name": "Voluntary roadworthiness test",
+    "price": "£46.24"
+  },
+  {
+    "code": "YF4",
+    "name": "Basic IVA inspection",
+    "price": "£450.00"
+  },
+  {
+    "code": "YL4",
+    "name": "Basic IVA inspection",
+    "price": "£199.00"
+  },
+  {
+    "code": "YF7",
+    "name": "Basic IVA inspection",
+    "price": "£450.00"
+  },
+  {
+    "code": "YL7",
+    "name": "Basic IVA inspection",
+    "price": "£199.00"
+  },
+  {
+    "code": "YAS",
+    "name": "Normal IVA inspection",
+    "price": "£250.00"
+  },
+  {
+    "code": "YEL",
+    "name": "Normal IVA inspection",
+    "price": "£360.00"
+  },
+  {
+    "code": "YJL",
+    "name": "Normal IVA inspection",
+    "price": "£360.00"
+  },
+  {
+    "code": "YAV",
+    "name": "Normal IVA inspection",
+    "price": "£230.00"
+  },
+  {
+    "code": "YEV",
+    "name": "Normal IVA inspection",
+    "price": "£230.00"
+  },
+  {
+    "code": "YAT",
+    "name": "Normal IVA inspection",
+    "price": "£70.00"
+  },
+  {
+    "code": "YET",
+    "name": "Normal IVA inspection",
+    "price": "£70.00"
+  },
+  {
+    "code": "YJT",
+    "name": "Normal IVA inspection",
+    "price": "£145.00"
+  },
+  {
+    "code": "YNT",
+    "name": "Normal IVA inspection",
+    "price": "£145.00"
+  },
+  {
+    "code": "YA4",
+    "name": "Normal IVA inspection",
+    "price": "£199.00"
+  },
+  {
+    "code": "YA7",
+    "name": "Normal IVA inspection",
+    "price": "£199.00"
+  },
+  {
+    "code": "YXZ",
+    "name": "IVA mutual recognition/ end of series & inspection",
+    "price": "£100.00"
+  },
+  {
+    "code": "QT1",
+    "name": "Part MSVA inspection",
+    "price": "£12.00"
+  },
+  {
+    "code": "QT2",
+    "name": "Part MSVA inspection",
+    "price": "£12.00"
+  },
+  {
+    "code": "QT3",
+    "name": "Part MSVA inspection",
+    "price": "£12.00"
+  },
+  {
+    "code": "QT4",
+    "name": "Part MSVA inspection",
+    "price": "£12.00"
+  },
+  {
+    "code": "CEL",
+    "name": "COIF with annual test",
+    "price": "£293.00"
+  },
+  {
+    "code": "CES",
+    "name": "COIF with annual test",
+    "price": "£293.00"
+  },
+  {
+    "code": "CFL",
+    "name": "COIF without annual test",
+    "price": "£293.00"
+  },
+  {
+    "code": "CFS",
+    "name": "COIF without annual test",
+    "price": "£293.00"
+  },
+  {
+    "code": "GAL",
+    "name": "Type approved to bus directive COIF",
+    "price": "£293.00"
+  },
+  {
+    "code": "GAS",
+    "name": "Type approved to bus directive COIF",
+    "price": "£293.00"
+  },
+  {
+    "code": "FAL",
+    "name": "Annex 7 COIF",
+    "price": "£85.00"
+  },
+  {
+    "code": "FAS",
+    "name": "Annex 7 COIF",
+    "price": "£85.00"
+  },
+  {
+    "code": "7LL",
+    "name": "DDA Schedule 1, 2 or 3",
+    "price": "£51.00"
+  },
+  {
+    "code": "7OL",
+    "name": "DDA Schedule 1 + 2 or 3",
+    "price": "£104.00"
+  },
+  {
+    "code": "YYS",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£322.58"
+  },
+  {
+    "code": "YWL",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£464.52"
+  },
+  {
+    "code": "YYL",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£464.52"
+  },
+  {
+    "code": "YJV",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£296.77"
+  },
+  {
+    "code": "YLV",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£296.77"
+  },
+  {
+    "code": "YST",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£90.32"
+  },
+  {
+    "code": "YUT",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£90.32"
+  },
+  {
+    "code": "YWT",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£187.10"
+  },
+  {
+    "code": "YYT",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£187.10"
+  },
+  {
+    "code": "YD4",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YD7",
+    "name": "Normal voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YJ4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "YP4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YP7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YJ7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "YJ4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "YP4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YP7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YJ7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "YJ4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "YP4",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YP7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£256.77"
+  },
+  {
+    "code": "YJ7",
+    "name": "Basic voluntary IVA inspection",
+    "price": "£580.65"
+  },
+  {
+    "code": "MDU",
+    "name": "Vitesse 100",
+    "price": "£20.50"
+  },
+  {
+    "code": "NFS",
+    "name": "VPT5 Notifiable Alteration",
+    "price": "£0.00"
+  },
+  {
+    "code": "NFL",
+    "name": "VPT5 Notifiable Alteration",
+    "price": "£0.00"
+  },
+  {
+    "code": "CEL",
+    "name": "IVA Appeal",
+    "price": "£293.00"
+  },
+  {
+    "code": "CES",
+    "name": "IVA Appeal",
+    "price": "£293.00"
+  },
+  {
+    "code": "YDV",
+    "name": "IVA17 Appeal",
+    "price": "£230.00"
+  },
+  {
+    "code": "YHV",
+    "name": "IVA17 Appeal",
+    "price": "£230.00"
+  },
+  {
+    "code": "YDT",
+    "name": "IVA17 Appeal",
+    "price": "£70.00"
+  },
+  {
+    "code": "YHT",
+    "name": "IVA17 Appeal",
+    "price": "£70.00"
+  },
+  {
+    "code": "YMT",
+    "name": "IVA17 Appeal",
+    "price": "£145.00"
+  },
+  {
+    "code": "YRT",
+    "name": "IVA17 Appeal",
+    "price": "£145.00"
+  },
+  {
+    "code": "LNV",
+    "name": "RPC/LEC3 Appeal",
+    "price": "£32.00"
+  },
+  {
+    "code": "YDS",
+    "name": "IVA17 Appeal",
+    "price": "£250.00"
+  },
+  {
+    "code": "YHL",
+    "name": "IVA17 Appeal",
+    "price": "£360.00"
+  },
+  {
+    "code": "YML",
+    "name": "IVA17 Appeal",
+    "price": "£360.00"
+  },
+  {
+    "code": "YK4",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£450.00"
+  },
+  {
+    "code": "YQ4",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£199.00"
+  },
+  {
+    "code": "YE4",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£199.00"
+  },
+  {
+    "code": "YK7",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£450.00"
+  },
+  {
+    "code": "YQ7",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£199.00"
+  },
+  {
+    "code": "YE7",
+    "name": "IVA17 Appeal for IVA",
+    "price": "£199.00"
+  },
+  {
+    "code": "YSZ",
+    "name": "Mutual Recognition Cat E Statutory",
+    "price": "£100.00"
+  },
+  {
+    "code": "YSZ",
+    "name": "Mutual Recognition Cat E Statutory",
+    "price": "£100.00"
+  },
+  {
+    "code": "YSZ",
+    "name": "Mutual Recognition Cat E Statutory",
+    "price": "£100.00"
+  },
+  {
+    "code": "YSZ",
+    "name": "Mutual Recognition Cat E Statutory",
+    "price": "£100.00"
+  }
+]
