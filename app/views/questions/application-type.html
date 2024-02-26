@@ -13,7 +13,7 @@
         classes: "govuk-fieldset__legend--l"
         }
       },
-      items: types[data['test-type']] | radiosFromList
+      items: types[data['test-type']] | radiosFromList('form')
       }) }}
       {{ govukButton({
         text: "Save and continue"

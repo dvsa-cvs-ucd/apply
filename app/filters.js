@@ -9,7 +9,10 @@ const addFilter = govukPrototypeKit.views.addFilter
 // Add your filters here
 
 addFilter('radiosFromObject', (object, preselect) => Object.keys(object).map(key => ({text: key, value: key, checked: preselect === key})))
-addFilter('radiosFromList', (list, preselect) => list.map(key => ({text: key, value: key, checked: preselect === key})))
+addFilter('radiosFromList', (list, key) => list.map(item => { 
+  console.log(key) 
+  return ({ text: key != undefined ? item[key] : item, value: key != undefined ? item[key] : item })
+}))
 
 addFilter('findTestUrl', (string, testInventory) => {
   let url;
