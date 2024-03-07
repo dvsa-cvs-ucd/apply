@@ -15,32 +15,18 @@ router.get('/myvt', (req, res) => {
 
 router.get('/unauthenticated', (req, res) => {
   req.session.data.myvt = false
-  res.redirect('/ready-to-upload')
+  res.redirect('/what-is-your-name')
 })
 
 router.get(['/apply-for-a-vehicle-test'], (req, res) => {
-  res.redirect('/apply-for-a-vehicle-test/apply/ready-to-upload')
+  req.session.data.myvt = true
+  res.redirect('/apply-for-a-vehicle-test/apply/vehicle-details')
 })
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   res.render('apply-for-a-vehicle-test/apply.html', {path : req.path, query: req.query})
 })
 
-router.get('/ready-check', (req, res) => {
-  const ready = req.session.data['ready-to-upload'] === 'yes'
-  const myvt = req.session.data['myvt']
-  if (ready && myvt) {
-    res.redirect(`/apply-for-a-vehicle-test/apply/vehicle-details`)
-  } else if (ready && !myvt) {
-    res.redirect(`/what-is-your-name`)
-  } else if (!ready && myvt) {
-    res.redirect('/apply-for-a-vehicle-test/apply/vehicle-category')
-  } else {
-    res.redirect('/vehicle-category')
-  }
-})
-
-router.get('/ready-to-upload', (req, res) => res.render('ready-to-upload.html', {query: req.query}))
 router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', {query: req.query}))
 router.get('/what-is-your-email-address', (req, res) => res.render('what-is-your-email-address.html', {query: req.query}))
 router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-phone-number.html', {query: req.query}))
@@ -95,7 +81,7 @@ router.get(['/upload-check'], (req, res) => {
   req.session.data.uploaded = undefined
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   if (req.query.continue) {
-    res.redirect(`/submit-test`)
+    res.redirect(`${myvt}/test-location`)
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['supporting-documentation-upload'].length !== 0) {
       req.session.data.error = false
@@ -133,6 +119,9 @@ router.get(['/submit-test'], (req, res) => {
         currentVehicle.tests.push({ 
           test: currentFields['application-type'], 
           form: currentFields['application-upload'], 
+          productCode: `${currentFields['test-time']}-${currentFields['test-location']}`,
+          location: currentFields['test-location'], 
+          time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']
         })
       }
@@ -146,6 +135,9 @@ router.get(['/submit-test'], (req, res) => {
         {
           test: currentFields['application-type'], 
           form: currentFields['application-upload'],
+          productCode: `${currentFields['test-time']}-${currentFields['test-location']}`,
+          location: currentFields['test-location'],
+          time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']
         }
         ]

@@ -1,0 +1,19 @@
+{% extends "layouts/main.html" %}
+
+{% set question = 'If your vehicle needs inspecting, which test location would you prefer?' %}
+
+{% block pageTitle %}
+{{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+{% if not query.changing %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% include "./questions/test-location.html" %}
+
+{% endblock %}

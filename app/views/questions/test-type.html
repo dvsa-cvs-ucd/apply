@@ -1,13 +1,7 @@
+{% set question = 'Choose the technical test type' %}
+{% set types = data.tass %}
+{% set nextPage = 'application-type' %}
 
-{% if data['ready-to-upload'] == 'yes' %}
-  {% set question = 'Choose the technical test type' %}
-  {% set types = data.tass %}
-  {% set nextPage = 'application-type' %}
-{% else %}
-  {% set question = 'Choose the form you need' %}
-  {% set types = data.forms %}
-  {% set nextPage = 'download-form'  %}
-{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

@@ -1,10 +1,6 @@
-{% if data['ready-to-upload'] == 'yes' %}
-  {% set categories = data.tass %}
-  {% if data['vehicle-confirmation'] == 'yes' %}
-    {% set foundVehicleCategory %}{{ data.vehicle['typeApproval'] | typeApproval }}{% endset %}
-  {% endif %}
-{% else %}
-  {% set categories = data.forms %}
+{% set categories = data.tass %}
+{% if data['vehicle-confirmation'] == 'yes' %}
+  {% set foundVehicleCategory %}{{ data.vehicle['typeApproval'] | typeApproval }}{% endset %}
 {% endif %}
 {% set nextPage = 'test-type' %}
 
