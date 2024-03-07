@@ -70,6 +70,30 @@ addFilter('typeApproval', string => {
     return vehicle
 })
 
+function replaceProductCodeComponent(string) {
+  let replacement = string
+  switch (string) {
+    case 'AN':
+      replacement = 'any'
+      break
+    case 'NH':
+      replacement = 'in normal hours'
+      break
+    case 'OH':
+      replacement = 'out of hours'
+      break
+    case 'AT':
+      replacement = 'at an authorised testing facility'
+      break
+    case 'GV':
+      replacement = 'at a DVSA test station'
+      break
+    }
+  return replacement
+}
+
+addFilter('productCode', string => string.split('-').map(component => replaceProductCodeComponent(component)).join(', '))
+
 addFilter('split', (string , delimiter) =>  string.split(delimiter ?? '').filter(item => item !== ''))
 
 addFilter('endSegment', string => string.split('/').pop())

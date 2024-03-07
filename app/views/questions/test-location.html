@@ -1,0 +1,42 @@
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% set question = 'If your vehicle needs inspecting, which test location would you prefer?' %}
+{% set hint %}
+<p class="govuk-hint">
+  Please answer this question in all cases. The Driver and Vehicle Standards Agency (DVSA) reserves the right to inspect your vehicle.
+</p>
+<p class="govuk-hint">You can find your nearest <a class="govuk-link" href="https://www.gov.uk/mot-for-hgv-buses-and-trailers/book-your-test">authorised testing facility (ATF)  or DVSA test station online</a>.</p>
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="test-time">
+      {{ govukRadios({
+        name: "test-location",
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: hint
+        },
+        items: [
+          {
+            value: "GV",
+            text: "A Driver and Vehicle Standards Agency (DVSA) test station"
+          },
+          {
+            value: "AT",
+            text: "An authorised testing facility (ATF)"
+          }
+        ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
