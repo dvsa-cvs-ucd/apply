@@ -1,4 +1,4 @@
-{% set question = 'Vehicle details' %}
+{% set question = "Enter your vehicle's details" %}
 {% if query.changing %}
   {% set nextPage = "/change-vehicle" %}
   {% set vehicleCount = data.vehicles | length %}
@@ -32,7 +32,7 @@
         text: "Vehicle identification number (VIN)"
       },
       hint: {
-        text: "This is also known as a chassis number. VIN numbers can be 9, 17 or 21 characters long."
+        text: "This is also known as a chassis number."
       },
       id: "vin",
       value: vin,
@@ -44,7 +44,7 @@
       text: "Vehicle registration mark (VRM) or Trailer ID"
       },
       hint: {
-        text: "If your vehicle or trailer is not yet registered, leave this field blank."
+        text: "Iff your vehicle is not registered, leave this blank."
       },
       classes: "govuk-input--width-10",
       id: "vrm",

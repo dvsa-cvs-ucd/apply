@@ -1,4 +1,4 @@
-{% set question = 'Choose the application type' %}
+{% set question = 'Select the application type' %}
 {% set types = data.tass[data['vehicle-category']] %}
 
 <div class="govuk-grid-row">
@@ -13,7 +13,7 @@
         classes: "govuk-fieldset__legend--l"
         }
       },
-      items: types[data['test-type']] | radiosFromList
+      items: types[data['test-type']] | formsToRadio
       }) }}
       {{ govukButton({
         text: "Save and continue"

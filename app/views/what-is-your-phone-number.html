@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %}
 
-{% set question = 'What is your phone number?' %}
+{% set question = 'Enter your telephone number' %}
 {% if query.changing %}
   {% set nextPage='check-your-answers' %}
 {% else %}
@@ -29,10 +29,10 @@
       isPageHeading: true
       }
       }) %}
-      <p class="govuk-hint">We need your email address to update you about your application</p>
+      <p class="govuk-hint">We may need to call you about your application.</p>
         {{ govukInput({
         label: {
-        text: "Phone number"
+        text: "Telephone number"
         },
         id: "telephone-number",
         value: data['telephone-number'],
@@ -43,7 +43,7 @@
         }) }}
         {{ govukInput({
         label: {
-          text: "Confirm phone number"
+          text: "Confirm telephone number"
         },
         id: "confirm-telephone-number",
         value: data['confirm-telephone-number'],
