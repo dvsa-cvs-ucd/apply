@@ -1,168 +1,733 @@
 {
-    "HGV - Lorries or Large Goods Vehicles": {
-        "ADR Carriage of Dangerous Goods": [
-            "ADRIII First time/changes",
-            "ADRIIIA Type Approved Tractor Unit",
-            "ADRIIIr Replacement",
-            "ADRIIIs Subsequent",
-            "Northern Ireland Only ADRIII Application",
-            "Northern Ireland Only Type Approved Tractor Unit Application"
+  "Heavy goods vehicle (HGV) or lorries (more than 3,500kg)": {
+    "ADR Carriage of Dangerous Goods": [
+      {
+        "codes": [
+          "DDV"
         ],
-        "Certificate of Keeper of Motor Vehicle": [
-            "Request for Certificate of Keeper"
+        "form": "ADRIII First time/changes"
+      },
+      {
+        "codes": [
+          "CDV"
         ],
-        "Emission Certificate": [
-            "Declaration of Conformity of fitment of an approved exhaust abatement device",
-            "Declaration of testing of an approved exhaust abatement device",
-            "RPC Abatement Device Fitment",
-            "RPC Abatement device Testing",
-            "RPC Euro V/VI"
+        "form": "ADRIIIA Type Approved Tractor Unit"
+      },
+      {
+        "codes": [
+          "RAH"
         ],
-        "Individual Vehicle Approval": [
-            "IVA 1H Application for IVA in Northern Ireland Only",
-            "IVA 1H N2 Voluntary",
-            "IVA 1H N3 Voluntary",
-            "IVA 5 Request for Replacement Certificate",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site",
-            "IVA Mutual Recognition Category E Statutory Application",
-            "IVA1H Category N2 Statutory Application",
-            "IVA1H Category N3 Statutory Application"
+        "form": "ADRIIIr Replacement"
+      },
+      {
+        "codes": [
+          "DDV"
         ],
-        "International Transport of Goods Under Cover of TIR Carnets": [
-            "GV204 App. Variation of Design Type of Load Compartment",
-            "GV62 App. Individual Certificate for Road Vehicle",
-            "GV65 App. Authorisation of Design Type of Load Compartment",
-            "GV69 App. Initial Certificate of Approval Design Type",
-            "IVA 9 Application for a Model Report, Tilt or TIR Examination at a non DVSA site"
+        "form": "ADRIIIs Subsequent"
+      },
+      {
+        "codes": [
+          "CNV"
         ],
-        "Plating and Testing": [
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site",
-            "VTG1 First Annual Test",
-            "VTG10 Notifiable Alteration",
-            "VTG10 Notifiable Alteration with Model Report Only",
-            "VTG59 Request for Replacement Documents",
-            "VTG788 Application for a Plating (with EC or NSSTA Certificate)",
-            "VTG789 Application for Plating - (with IVA Certificate)",
-            "VTG790 Notifiable Alteration Cherished Transfer Only"
-        ]
-    },
-    "Light Goods Vehicles": {
-        "Emission Certificate": [
-            "Declaration of Conformity of fitment of an approved exhaust abatement device",
-            "Declaration of testing of an approved exhaust abatement device"
+        "form": "Northern Ireland Only ADRIII Application"
+      },
+      {
+        "codes": [
+          "CDV"
         ],
-        "Individual Vehicle Approval": [
-            "IVA 1LG Application for IVA in Northern Ireland Only",
-            "IVA 1LG Basic Category A, C, S Statutory Application",
-            "IVA 1LG Basic Category L, N, P, T Statutory Application",
-            "IVA 1LG Mutual Recognition Category E Statutory Application",
-            "IVA 1LG Normal Category R Statutory Application",
-            "IVA 5 Request for Replacement Certificate",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+        "form": "Northern Ireland Only Type Approved Tractor Unit Application"
+      }
+    ],
+    "Certificate of Keeper of Motor Vehicle": [
+      {
+        "codes": [
+          "ZDD"
         ],
-        "Voluntary Individual Vehicle Approval": [
-            "IVA 1LG Basic Category A, S, C Voluntary",
-            "IVA 1LG Basic Category L, N, P, T Voluntary",
-            "IVA 1LG Normal Category R Voluntary",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
-        ]
-    },
-    "Motorcycles and Three Wheeled Vehicles": {
-        "Motorcycle Single Vehicle Approval": [
-            "IVA 5 Request for Replacement Certificate",
-            "MSVA1 Test Application",
-            "PMSVA1 Partial Test MSVA Application"
-        ]
-    },
-    "Passenger Cars": {
-        "Individual Vehicle Approval": [
-            "IVA 1C Application for IVA in Northern Ireland Only",
-            "IVA 1C Basic Category A, C, S Statutory Application",
-            "IVA 1C Basic Category L, M, N, P, T Statutory Application",
-            "IVA 1C Mutual Recognition Category E Statutory Application",
-            "IVA 1C Normal Category R, Statutory Application",
-            "IVA 5 Request for Replacement Certificate",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+        "form": "Request for Certificate of Keeper"
+      }
+    ],
+    "Emission Certificate": [
+      {
+        "codes": [
+          "???"
         ],
-        "Voluntary Individual Vehicle Approval": [
-            "IVA 1C Basic Category A, S, C Voluntary",
-            "IVA 1C Basic Category L, M, N, P, T Voluntary",
-            "IVA 1C Normal Category R Voluntary",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
-        ]
-    },
-    "PSV - Buses and Coaches": {
-        "Certificate of Initial Fitness": [
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site",
-            "PSV417 Application for COIF",
-            "PSVC1 Tempo 100 Application",
-            "PSVV1 Vitesse 100 Application",
-            "VTP5 Notifiable Alteration"
+        "form": "Declaration of Conformity of fitment of an approved exhaust abatement device"
+      },
+      {
+        "codes": [
+          "???"
         ],
-        "Disability Discrimination Act (DDA)": [
-            "PSV 400B COIF Approval Change Notification",
-            "PSVA1 Application for Accessibility Cert (Non Approved Type)",
-            "PSVA4 Certification Type Approval Application",
-            "PSVA6 Application for Accessibility Cert - Approved Type"
+        "form": "Declaration of testing of an approved exhaust abatement device"
+      },
+      {
+        "codes": [
+          "???"
         ],
-        "Emission Certificate": [
-            "Declaration of Conformity of fitment of an approved exhaust abatement device",
-            "Declaration of testing of an approved exhaust abatement device"
+        "form": "RPC Abatement Device Fitment"
+      },
+      {
+        "codes": [
+          "???"
         ],
-        "Individual Vehicle Approval": [
-            "IVA 1P Application for IVA in Northern Ireland Only",
-            "IVA 1P Category M2 Statutory Application",
-            "IVA 1P Category M2 Voluntary",
-            "IVA 1P Category M3 Statutory Application",
-            "IVA 1P Category M3 Voluntary",
-            "IVA 1P Mutual Recognition Category E Statutory Application",
-            "IVA 5 Request for Replacement Certificate",
-            "IVA 52A (Tilt Report)",
-            "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+        "form": "RPC Abatement device Testing"
+      },
+      {
+        "codes": [
+          "???"
         ],
-        "Record Data Submission": [
-            "PSV788 Data - Vehicle issued with EC or NSSTA Certificate",
-            "PSV789 Data - Vehicle Issued with IVA or COIF Certificate",
-            "PSV790 Amend Existing PSV Record"
+        "form": "RPC Euro V/VI"
+      }
+    ],
+    "Individual Vehicle Approval": [
+      {
+        "codes": [
+          "000"
         ],
-        "Replacement Fitness and Testing Certifcates": [
-            "VTP6 Request for Replacement COIF or Test Certificate"
-        ]
-    },
-    "Trailers": {
-        "ADR Carriage of Dangerous Goods": [
-            "ADRIII First time/changes",
-            "ADRIIIr Replacement",
-            "ADRIIIs Subsequent",
-            "Northern Ireland ADRIII"
+        "form": "IVA 1H Application for IVA in Northern Ireland Only"
+      },
+      {
+        "codes": [
+          "YJV"
         ],
-        "Certificate of Keeper": [
-            "Request for Certificate of Keeper"
+        "form": "IVA 1H N2 Voluntary"
+      },
+      {
+        "codes": [
+          "YLV"
         ],
-        "Consent to Supply": [
-            "TES1 Consent to Supply Application",
-            "TES2 Application for ID numbers New Trailers"
+        "form": "IVA 1H N3 Voluntary"
+      },
+      {
+        "codes": [
+          "YTZ"
         ],
-        "Individual Vehicle Approval": [
-            "IVA 1T Application for IVA in Northern Ireland Only",
-            "IVA 1T Category O1 Statutory Application",
-            "IVA 1T Category O1 Voluntary",
-            "IVA 1T Category O2 Statutory Application",
-            "IVA 1T Category O2 Voluntary",
-            "IVA 1T Category O3 Statutory Application",
-            "IVA 1T Category O3 Voluntary",
-            "IVA 1T Category O4 Statutory Application",
-            "IVA 1T Category O4 Voluntary",
-            "IVA 5 Request for Replacement Certificate",
-            "Mutual Recognition Category E Statutory Application"
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "TIV"
         ],
-        "International Transport of Goods Under Cover of TIR Carnets": [
-            "IVA 9 Application for a Model Report, Tilt or TIR Examination at a non DVSA site"
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      },
+      {
+        "codes": [
+          "YSZ",
+          "YXZ"
         ],
-        "Plating and Testing": [
-            "VTG10 Notifiable Alteration",
-            "VTG2 First Annual Test Application",
-            "VTG59 Replacement Documents Request"
-        ]
-    }
+        "form": "IVA Mutual Recognition Category E Statutory Application"
+      },
+      {
+        "codes": [
+          "YAV"
+        ],
+        "form": "IVA1H Category N2 Statutory Application"
+      },
+      {
+        "codes": [
+          "YEV"
+        ],
+        "form": "IVA1H Category N3 Statutory Application"
+      }
+    ],
+    "International Transport of Goods Under Cover of TIR Carnets": [
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "GV204 App. Variation of Design Type of Load Compartment"
+      },
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "GV62 App. Individual Certificate for Road Vehicle"
+      },
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "GV65 App. Authorisation of Design Type of Load Compartment"
+      },
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "GV69 App. Initial Certificate of Approval Design Type"
+      },
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "IVA 9 Application for a Model Report, Tilt or TIR Examination at a non DVSA site"
+      }
+    ],
+    "Plating and Testing": [
+      {
+        "codes": [
+          "TIV"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      },
+      {
+        "codes": [
+          "FGV2",
+          "FGV3",
+          "FGV4",
+          "FFV2",
+          "FFV3",
+          "FFV4",
+          "FFV5"
+        ],
+        "form": "VTG1 First Annual Test"
+      },
+      {
+        "codes": [
+          "NVV",
+          "NFV",
+          "NPV",
+          "10I",
+          "10R"
+        ],
+        "form": "VTG10 Notifiable Alteration"
+      },
+      {
+        "codes": [
+          "NVV",
+          "NFV",
+          "NPV",
+          "10I",
+          "10R"
+        ],
+        "form": "VTG10 Notifiable Alteration with Model Report Only"
+      },
+      {
+        "codes": [
+          "00N",
+          "00M"
+        ],
+        "form": "VTG59 Request for Replacement Documents"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG788 Application for a Plating (with EC or NSSTA Certificate)"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG789 Application for Plating - (with IVA Certificate)"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG790 Notifiable Alteration Cherished Transfer Only"
+      }
+    ]
+  },
+  "Light goods vehicles (LGV) or vans (less than 3,500kg)": {
+    "Emission Certificate": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Declaration of Conformity of fitment of an approved exhaust abatement device"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Declaration of testing of an approved exhaust abatement device"
+      }
+    ],
+    "Individual Vehicle Approval": [
+      {
+        "codes": [
+          "000"
+        ],
+        "form": "IVA 1LG Application for IVA in Northern Ireland Only"
+      },
+      {
+        "codes": [
+          "YF7"
+        ],
+        "form": "IVA 1LG Basic Category A, C, S Statutory Application"
+      },
+      {
+        "codes": [
+          "YL7"
+        ],
+        "form": "IVA 1LG Basic Category L, N, P, T Statutory Application"
+      },
+      {
+        "codes": [
+          "YSZ",
+          "YXZ"
+        ],
+        "form": "IVA 1LG Mutual Recognition Category E Statutory Application"
+      },
+      {
+        "codes": [
+          "YA7"
+        ],
+        "form": "IVA 1LG Normal Category R Statutory Application"
+      },
+      {
+        "codes": [
+          "YTZ"
+        ],
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      }
+    ],
+    "Voluntary Individual Vehicle Approval": [
+      {
+        "codes": [
+          "YJ7"
+        ],
+        "form": "IVA 1LG Basic Category A, S, C Voluntary"
+      },
+      {
+        "codes": [
+          "YP7"
+        ],
+        "form": "IVA 1LG Basic Category L, N, P, T Voluntary"
+      },
+      {
+        "codes": [
+          "YD7"
+        ],
+        "form": "IVA 1LG Normal Category R Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      }
+    ]
+  },
+  "Trailers": {
+    "ADR Carriage of Dangerous Goods": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "ADRIII First time/changes"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "ADRIIIr Replacement"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "ADRIIIs Subsequent"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Northern Ireland ADRIII"
+      }
+    ],
+    "Certificate of Keeper": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Request for Certificate of Keeper"
+      }
+    ],
+    "Consent to Supply": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "TES1 Consent to Supply Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "TES2 Application for ID numbers New Trailers"
+      }
+    ],
+    "Individual Vehicle Approval": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Application for IVA in Northern Ireland Only"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O1 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O1 Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O2 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O2 Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O3 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O3 Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O4 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1T Category O4 Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "YSZ",
+          "YXZ"
+        ],
+        "form": "Mutual Recognition Category E Statutory Application"
+      }
+    ],
+    "International Transport of Goods Under Cover of TIR Carnets": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report, Tilt or TIR Examination at a non DVSA site"
+      }
+    ],
+    "Plating and Testing": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG10 Notifiable Alteration"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG2 First Annual Test Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTG59 Replacement Documents Request"
+      }
+    ]
+  },
+  "Public service vehicles (PSV), such as coaches or buses": {
+    "Certificate of Initial Fitness": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      },
+      {
+        "codes": [
+          "CGL",
+          "CGS",
+          "CHL",
+          "CHS",
+          "CEL",
+          "CES",
+          "CFL",
+          "CFS",
+          "CDL",
+          "CFS"
+        ],
+        "form": "PSV417 Application for COIF"
+      },
+      {
+        "codes": [
+          "TES",
+          "TEL"
+        ],
+        "form": "PSVC1 Tempo 100 Application"
+      },
+      {
+        "codes": [
+          "MDU"
+        ],
+        "form": "PSVV1 Vitesse 100 Application"
+      },
+      {
+        "codes": [
+          "NFL",
+          "NFS"
+        ],
+        "form": "VTP5 Notifiable Alteration"
+      }
+    ],
+    "Disability Discrimination Act (DDA)": [
+      {
+        "codes": [
+          "9GP",
+          "9HP",
+          "9IP",
+          "9JP",
+          "9KP"
+        ],
+        "form": "PSV 400B COIF Approval Change Notification"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSVA1 Application for Accessibility Cert (Non Approved Type)"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSVA4 Certification Type Approval Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSVA6 Application for Accessibility Cert - Approved Type"
+      }
+    ],
+    "Emission Certificate": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Declaration of Conformity of fitment of an approved exhaust abatement device"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "Declaration of testing of an approved exhaust abatement device"
+      }
+    ],
+    "Individual Vehicle Approval": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1P Application for IVA in Northern Ireland Only"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1P Category M2 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1P Category M2 Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1P Category M3 Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1P Category M3 Voluntary"
+      },
+      {
+        "codes": [
+          "YSZ",
+          "YXZ"
+        ],
+        "form": "IVA 1P Mutual Recognition Category E Statutory Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 52A (Tilt Report)"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      }
+    ],
+    "Record Data Submission": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSV788 Data - Vehicle issued with EC or NSSTA Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSV789 Data - Vehicle Issued with IVA or COIF Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PSV790 Amend Existing PSV Record"
+      }
+    ],
+    "Replacement Fitness and Testing Certifcates": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "VTP6 Request for Replacement COIF or Test Certificate"
+      }
+    ]
+  },
+  "Cars or passenger vehicles (up to 8 seats)": {
+    "Individual Vehicle Approval": [
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 1C Application for IVA in Northern Ireland Only"
+      },
+      {
+        "codes": [
+          "YF4"
+        ],
+        "form": "IVA 1C Basic Category A, C, S Statutory Application"
+      },
+      {
+        "codes": [
+          "YL4"
+        ],
+        "form": "IVA 1C Basic Category L, M, N, P, T Statutory Application"
+      },
+      {
+        "codes": [
+          "YSZ",
+          "YXZ"
+        ],
+        "form": "IVA 1C Mutual Recognition Category E Statutory Application"
+      },
+      {
+        "codes": [
+          "YA4"
+        ],
+        "form": "IVA 1C Normal Category R, Statutory Application"
+      },
+      {
+        "codes": [
+          "YTZ"
+        ],
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      }
+    ],
+    "Voluntary Individual Vehicle Approval": [
+      {
+        "codes": [
+          "YJ4"
+        ],
+        "form": "IVA 1C Basic Category A, S, C Voluntary"
+      },
+      {
+        "codes": [
+          "YP4"
+        ],
+        "form": "IVA 1C Basic Category L, M, N, P, T Voluntary"
+      },
+      {
+        "codes": [
+          "YD4"
+        ],
+        "form": "IVA 1C Normal Category R Voluntary"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
+      }
+    ]
+  },
+  "Motorcycles, 3-wheeled vehicles and quadricycles": {
+    "Motorcycle Single Vehicle Approval": [
+      {
+        "codes": [
+          "YTZ"
+        ],
+        "form": "IVA 5 Request for Replacement Certificate"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "MSVA1 Test Application"
+      },
+      {
+        "codes": [
+          "???"
+        ],
+        "form": "PMSVA1 Partial Test MSVA Application"
+      }
+    ]
+  }
 }

@@ -1,7 +1,13 @@
 {% set title = data['test-type'] %}
+{% set warning %}
+If your {{ title }} form is not complete, then it may cause problems with your application.
+{% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {{ govukInsetText({
+      text: warning
+    }) }}
     <form class="form" action="upload-supporting-documentation">
       <div class="govuk-caption-m">{{ title }}</div>
       <h1 class='govuk-heading-l'>Upload application form</h1>

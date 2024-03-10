@@ -155,14 +155,32 @@
                   },
                   value: {
                     text: test.form
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "application form"
+                      }
+                    ]
                   }
                  },
                  {
                   key: {
-                    text: 'Supporting documentation'
+                    text: 'Supporting documents'
                   },
                   value: {
                     text: test.supporting
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
                   }
                  },
                  {
@@ -171,6 +189,15 @@
                   },
                   value: {
                     text: test.productCode | productCode
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "preferred test time and location"
+                      }
+                    ]
                   }
                  }
                 ]
@@ -182,9 +209,13 @@
             </form>
             <hr class="govuk-!-margin-bottom-9 govuk-section-break--visible"></hr>
           {% endfor %}
+        {% if data.myvt %}
+        <h3 class="govuk-heading-m">Approve payment from your pre-funded account</h3>
+        <p class="govuk-body">This gives the DVSA permission to collect the cost of the application from your pre-funded account.The payment will happen after your application has been processed.</p>
+        {% endif %}
         <form action="confirmation">
           <div class="govuk-button-group">
-            <button value="payment" class="govuk-button">Submit</button>
+            <button value="payment" class="govuk-button">{%- if data.myvt -%}Accept and approve payment{%- else -%}Submit{%- endif -%}</button>
           </div>
         </form>
       </div>

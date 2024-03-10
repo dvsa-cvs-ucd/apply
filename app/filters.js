@@ -9,8 +9,7 @@ const addFilter = govukPrototypeKit.views.addFilter
 // Add your filters here
 
 addFilter('radiosFromObject', (object, preselect) => Object.keys(object).map(key => ({text: key, value: key, checked: preselect === key})))
-addFilter('radiosFromList', (list, preselect) => list.map(key => ({text: key, value: key, checked: preselect === key})))
-
+addFilter('formsToRadio', list => list.map(item => ({ text: item.form, value: item.form }) ))
 addFilter('findTestUrl', (string, testInventory) => {
   let url;
   Object.keys(testInventory).forEach(vehicle => {
