@@ -6,6 +6,8 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+const tass = require('./data/tass.json')
+
 vesKey = process.env.VES_API_KEY
 
 router.get('/myvt', (req, res) => {
@@ -107,8 +109,12 @@ router.get(['/submit-test'], (req, res) => {
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   const currentFields = req.session.data
   const currentVehicle = currentFields.vehicles.find(vehicle => currentFields['vin'] === vehicle.vin || currentFields['vrm'] === vehicle.vrm)
+  const pcEndings = tass[currentFields['vehicle-category']][currentFields['test-type']].find(test => test.form === currentFields['application-type']).codes
+  const prefix = currentFields['application-type'].includes('Annual Test') ? 'XX' : 'AN'
+  const potentialPcs = pcEndings.map(ending => `${prefix}-${currentFields['test-time']}-${currentFields['test-location']}-${ending}`)
   if (currentVehicle) {
     const currentTest = currentVehicle.tests.find(test => test['test'] === currentFields['application-type'])
+
     if (req.session.data.changedVehicle) {
       req.session.data.changedVehicle = false 
     } else {
@@ -119,7 +125,7 @@ router.get(['/submit-test'], (req, res) => {
         currentVehicle.tests.push({ 
           test: currentFields['application-type'], 
           form: currentFields['application-upload'], 
-          productCode: `${currentFields['test-time']}-${currentFields['test-location']}`,
+          productCodes: potentialPcs,
           location: currentFields['test-location'], 
           time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']
@@ -135,7 +141,7 @@ router.get(['/submit-test'], (req, res) => {
         {
           test: currentFields['application-type'], 
           form: currentFields['application-upload'],
-          productCode: `${currentFields['test-time']}-${currentFields['test-location']}`,
+          productCodes: potentialPcs,
           location: currentFields['test-location'],
           time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']

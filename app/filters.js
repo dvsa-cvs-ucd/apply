@@ -35,11 +35,11 @@ addFilter('typeApproval', string => {
   let vehicle
   switch (string) {
     case 'M1':
-      vehicle = 'Passenger Cars'
+      vehicle = 'Cars or passenger vehicles (up to 8 seats)'
       break
     case 'M2':
     case 'M3':
-      vehicle = 'PSV - Buses and Coaches'
+      vehicle = 'Public service vehicles (PSV), such as coaches or buses'
       break
     case 'L1':
     case 'L2':
@@ -51,11 +51,11 @@ addFilter('typeApproval', string => {
       vehicle = 'Motorcycles and Three Wheeled Vehicles'
       break
     case 'N1':
-      vehicle = 'Light Goods Vehicles'
+      vehicle = 'Light goods vehicles (LGV) or vans (less than 3,500kg)'
       break
     case 'N2':
     case 'N3':
-      vehicle = 'HGV - Lorries or Large Goods Vehicles'
+      vehicle = 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)'
       break
     case 'O1':
     case 'O2':
@@ -115,4 +115,9 @@ addFilter('statusClass', string => {
       break
   }
   return tag
+})
+
+addFilter('tagCodes', array => {
+  const codes = array.map(item => item.includes('???') ? `<strong class="govuk-tag govuk-tag--red>${item}</strong>` : item.includes('XX-') ? `<strong class="govuk-tag govuk-tag--orange>${item}</strong>` : `<strong class="govuk-tag govuk-tag--${array.length > 1 ? 'yellow' : 'green'}">${item}</strong>`)
+  return codes.join(' ')
 })

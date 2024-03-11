@@ -318,25 +318,25 @@
     "ADR Carriage of Dangerous Goods": [
       {
         "codes": [
-          "???"
+          "DDT"
         ],
         "form": "ADRIII First time/changes"
       },
       {
         "codes": [
-          "???"
+          "RAH"
         ],
         "form": "ADRIIIr Replacement"
       },
       {
         "codes": [
-          "???"
+          "DDT"
         ],
         "form": "ADRIIIs Subsequent"
       },
       {
         "codes": [
-          "???"
+          "CDV"
         ],
         "form": "Northern Ireland ADRIII"
       }
@@ -344,7 +344,7 @@
     "Certificate of Keeper": [
       {
         "codes": [
-          "???"
+          "ZDD"
         ],
         "form": "Request for Certificate of Keeper"
       }
@@ -372,55 +372,55 @@
       },
       {
         "codes": [
-          "???"
+          "YAT"
         ],
         "form": "IVA 1T Category O1 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YST"
         ],
         "form": "IVA 1T Category O1 Voluntary"
       },
       {
         "codes": [
-          "???"
+          "YET"
         ],
         "form": "IVA 1T Category O2 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YUT"
         ],
         "form": "IVA 1T Category O2 Voluntary"
       },
       {
         "codes": [
-          "???"
+          "YJT"
         ],
         "form": "IVA 1T Category O3 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YWT"
         ],
         "form": "IVA 1T Category O3 Voluntary"
       },
       {
         "codes": [
-          "???"
+          "YNT"
         ],
         "form": "IVA 1T Category O4 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YYT"
         ],
         "form": "IVA 1T Category O4 Voluntary"
       },
       {
         "codes": [
-          "???"
+          "YTZ"
         ],
         "form": "IVA 5 Request for Replacement Certificate"
       },
@@ -443,19 +443,27 @@
     "Plating and Testing": [
       {
         "codes": [
-          "???"
+          "NVT",
+          "NFT",
+          "NPT",
+          "NNT"
         ],
         "form": "VTG10 Notifiable Alteration"
       },
       {
         "codes": [
-          "???"
+          "FFT1",
+          "FFT2",
+          "FFT3",
+          "FFT4",
+          "FFT5"
         ],
         "form": "VTG2 First Annual Test Application"
       },
       {
         "codes": [
-          "???"
+          "00N",
+          "00M"
         ],
         "form": "VTG59 Replacement Documents Request"
       }
@@ -558,25 +566,27 @@
       },
       {
         "codes": [
-          "???"
+          "YAS"
         ],
         "form": "IVA 1P Category M2 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YYS"
         ],
         "form": "IVA 1P Category M2 Voluntary"
       },
       {
         "codes": [
-          "???"
+          "YEL",
+          "YJL"
         ],
         "form": "IVA 1P Category M3 Statutory Application"
       },
       {
         "codes": [
-          "???"
+          "YWL",
+          "YYL"
         ],
         "form": "IVA 1P Category M3 Voluntary"
       },
@@ -589,7 +599,7 @@
       },
       {
         "codes": [
-          "???"
+          "YTZ"
         ],
         "form": "IVA 5 Request for Replacement Certificate"
       },
