@@ -1,11 +1,10 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% set question = 'If your vehicle needs inspecting, what time would you prefer?' %}
+{% set question = 'Select a time slot for an inspection' %}
 {% set hint %}
 <p class="govuk-hint">
-  Please answer this question in all cases. The Driver and Vehicle Standards Agency (DVSA) reserves the right to inspect your vehicle.
+  Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to inspect your vehicle.
 </p>
-<p class="govuk-hint">Working hours are Monday to Thursday 8am to 5pm, and Friday 8am to 4:30pm.</p>
 {% endset %}
 
 <div class="govuk-grid-row">
@@ -26,11 +25,17 @@
         items: [
           {
             value: "NH",
-            text: "In working hours"
+            text: "Inside working hours",
+            hint: {
+              text: "From 8am to 5pm from Monday to Thursday and 8am to 4.30pm on Fridays."
+            }
           },
           {
             value: "OH",
-            text: "Outside working hours"
+            text: "Outside working hours",
+            hint: {
+              text: "After 5pm from Monday to Thursday and after 4.30pm on Fridays."
+            }
           }
         ]
       }) }}
