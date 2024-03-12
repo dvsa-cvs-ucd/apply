@@ -91,7 +91,7 @@ function replaceProductCodeComponent(string) {
   return replacement
 }
 
-addFilter('productCode', string => string.split('-').map(component => replaceProductCodeComponent(component)).join(', '))
+addFilter('productCode', string => string.split('-').map(component => replaceProductCodeComponent(component)).slice(1, 3).join(', '))
 
 addFilter('split', (string , delimiter) =>  string.split(delimiter ?? '').filter(item => item !== ''))
 
