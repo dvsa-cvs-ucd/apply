@@ -185,7 +185,24 @@
                  },
                  {
                   key: {
-                  text: 'Preferred test location and time'
+                  text: 'Preferred location and test time'
+                  },
+                  value: {
+                    text: test.productCodes[0] | productCode
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "preferred test time and location"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                  text: 'Potential product codes (prototype only)'
                   },
                   value: {
                     text: test.productCodes | tagCodes | safe
