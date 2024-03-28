@@ -4,7 +4,7 @@
 {% if query.changing %}
   {% set nextPage='check-your-answers' %}
 {% else %}
-  {% set nextPage = 'vehicle-details' %}
+  {% set nextPage = 'phone-number-check' %}
 {% endif %}
 
 {% block pageTitle %}
@@ -21,7 +21,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="{{ nextPage }}">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form class="form" action="{{ nextPage }}" novalidate>
       {% call govukFieldset({
       legend: {
       text: question,
@@ -40,7 +46,7 @@
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-input--width-20"
-        }) }}
+        } | errorFilter(errors)) }}
         {{ govukInput({
         label: {
           text: "Confirm telephone number"
@@ -51,7 +57,7 @@
         type: "tel",
         autocomplete: "tel",
         classes: "govuk-input--width-20"
-        }) }}
+        } | errorFilter(errors)) }}
       {% endcall %}
       {{ govukButton({
       text: "Save and continue"

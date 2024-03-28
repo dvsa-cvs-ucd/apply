@@ -6,6 +6,9 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+const parsePhoneNumber = require('libphonenumber-js')
+
+
 const tass = require('./data/tass.json')
 
 vesKey = process.env.VES_API_KEY
@@ -30,13 +33,156 @@ router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
 })
 
 router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', {query: req.query}))
+router.get('/name-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['first-name'].length === 0) {
+    errorPresent = true
+    errors.push({href: '#first-name', text: 'Enter your first name'})
+  }
+  if (req.session.data['last-name'].length === 0) {
+    errorPresent = true
+    errors.push({href: '#last-name', text: 'Enter your last name'})
+  }
+  if (errorPresent) {
+    res.render('what-is-your-name.html', {query: req.query, errors})
+  } else {
+    res.redirect('/what-is-your-email-address')
+  }
+})
+
 router.get('/what-is-your-email-address', (req, res) => res.render('what-is-your-email-address.html', {query: req.query}))
+router.get('/email-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['email'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#email', text: 'Enter your email address' })
+  }
+  if (req.session.data['confirm-email'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#confirm-email', text: 'Confirm your email address' })
+  }
+  if (req.session.data['email'].trim() !== req.session.data['confirm-email'].trim() && !errorPresent) {
+    errorPresent = true
+    errors.push({ href: '#confirm-email', text: 'The email addresses must match' })
+  }
+  if (req.session.data['email'].match(/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/) === null && !errorPresent) {
+    errorPresent = true
+    errors.push({ href: '#email', text: 'Enter an email address in the correct format, like name@example.com'})
+  }
+  if (errorPresent) {
+    res.render('what-is-your-email-address.html', { query: req.query, errors })
+  } else {
+    res.redirect('/what-is-your-phone-number')
+  }
+})
+
 router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-phone-number.html', {query: req.query}))
+router.get('/phone-number-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  const phoneNumber = parsePhoneNumber(req.session.data['telephone-number'], 'GB')
+  if (req.session.data['telephone-number'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#telephone-number', text: 'Enter your telephone number' })
+  }
+  if (req.session.data['confirm-telephone-number'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#confirm-telephone-number', text: 'Confirm your telephone number' })
+  }
+  if (req.session.data['telephone-number'].trim() !== req.session.data['confirm-telephone-number'].trim() && !errorPresent) {
+    errorPresent = true
+    errors.push({ href: '#confirm-telephone-number', text: 'The telephone numbers must match' })
+  }
+  if (phoneNumber !== undefined &&!phoneNumber.isValid() && !errorPresent)  {
+    errorPresent = true
+    errors.push({ href: '#telephone-number', text: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192' })
+  }
+  if (errorPresent) {
+    res.render('what-is-your-phone-number.html', { query: req.query, errors })
+  } else {
+    res.redirect('/vehicle-details')
+  }
+})
 router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', {query: req.query}))
+router.get('/vin-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data.vin.length < 8) {
+    errorPresent = true
+    errors.push({ href: '#vin', text: 'Enter a VIN with the correct number of characters. Most vehicles registered after 1980 should have a 17 character VIN. Vehicles registered earlier or imported should have a 8 or 21 character VIN.' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-details', query: req.query, errors })
+    } else {
+      res.render('vehicle-details.html', { query: req.query, errors })
+    }
+  } else {
+    res.redirect('/vrm-check')
+  }
+})
+
 router.get('/vehicle-data', (req, res) => res.render('vehicle-data.html', {query: req.query}))
+
 router.get('/vehicle-category', (req, res) => res.render('vehicle-category.html', {query: req.query}))
+router.get('/vehicle-category-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['vehicle-category'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vehicle-category', text: 'Select a vehicle category'})
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-category', query: req.query, errors })
+    } else {
+      res.render('vehicle-category.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/test-type`)
+  }
+})
 router.get('/test-type', (req, res) => res.render('test-type.html'))
+router.get('/test-type-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['test-type'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#test-type', text: 'Select a technical test' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/test-type', query: req.query, errors})
+    } else {
+      res.render('test-type.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/application-type`)
+  }
+})
 router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
+router.get('/application-type-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['application-type'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#application-type', text: 'Select an application type' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/application-type', query: req.query, errors })
+    } else {
+      res.render('application-type.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/upload-form`)
+  }
+})
 
 router.get('/download-form', (req, res) => {
   const formToDownload = req.query['test-type'] ?? req.session.data['test-type']

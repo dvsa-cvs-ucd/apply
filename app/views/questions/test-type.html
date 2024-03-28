@@ -1,10 +1,16 @@
 {% set question = 'Select the technical test' %}
 {% set types = data.tass %}
-{% set nextPage = 'application-type' %}
+{% set nextPage = '/test-type-check' %}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
     <form action="{{ nextPage }}">
       {{ govukRadios({
       name: "test-type",
@@ -16,7 +22,7 @@
         }
       },
       items: types[data['vehicle-category']] | radiosFromObject
-      }) }}
+      } | errorFilter(errors)) }}
       {{ govukButton({
         text: "Save and continue"
       }) }}
