@@ -8,14 +8,20 @@
 {% else %}
   {% set vehicleCount = data.vehicles | length + 1 %}
   {% set vehicleIndex = vehicleCount %}
-  {% set nextPage = "/vrm-check" %}
+  {% set nextPage = "/vin-check" %}
   {% set vin = data['vin'] %}
   {% set vrm = data['vrm'] %}
 {% endif %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
     <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
-    <form class="form" action="{{ nextPage }}">
+    <form class="form" action="{{ nextPage }}" novalidate>
       {% if query.changing %}
         <input type="hidden" name="changing" value="{{query.index}}">
       {% endif %}
@@ -38,7 +44,7 @@
       value: vin,
       name: "vin",
       spellcheck: false
-    }) }}
+    }| errorFilter(errors)) }}
     {{ govukInput({
       label: {
       text: "Vehicle registration mark (VRM) or Trailer ID"

@@ -2,12 +2,18 @@
 {% if data['vehicle-confirmation'] == 'yes' %}
   {% set foundVehicleCategory %}{{ data.vehicle['typeApproval'] | typeApproval }}{% endset %}
 {% endif %}
-{% set nextPage = 'test-type' %}
+{% set nextPage = '/vehicle-category-check' %}
 
 {% set question = 'Select a vehicle category' %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
     <form class="form" action="{{ nextPage }}">
       {{ govukRadios({
       name: "vehicle-category",
@@ -19,7 +25,7 @@
         }
       },
       items: categories | radiosFromObject(foundVehicleCategory)
-      }) }}
+      } | errorFilter(errors)) }}
       {{ govukButton({
         text: "Save and continue"
       }) }}

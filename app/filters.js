@@ -121,3 +121,12 @@ addFilter('tagCodes', array => {
   const codes = array.map(item => item.includes('???') ? `<strong class="govuk-tag govuk-tag--red>${item}</strong>` : item.includes('XX-') ? `<strong class="govuk-tag govuk-tag--orange">${item}</strong>` : `<strong class="govuk-tag govuk-tag--${array.length > 1 ? 'yellow' : 'green'}">${item}</strong>`)
   return codes.join(' ')
 })
+
+addFilter('findError', (array, name) => array !== undefined && array.find(error => error.field === name))
+
+addFilter('errorFilter', (object, errors=[]) => {
+  let toReturn = { ...object }
+  const relevantError = errors.find(error => error.href.replace('#','') === object.name)
+  if (relevantError) toReturn.errorMessage = { text: relevantError.text}
+  return (toReturn)
+})

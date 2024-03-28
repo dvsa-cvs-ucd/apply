@@ -5,7 +5,7 @@
 {% if query.changing %}
   {% set nextPage = 'check-your-answers' %}
 {% else %}
-  {% set nextPage = 'what-is-your-email-address' %}
+  {% set nextPage = 'name-check' %}
 {% endif %}
 
 {% block pageTitle %}
@@ -22,7 +22,13 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="{{ nextPage }}">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: errors
+    }) }}
+    {% endif %}
+    <form class="form" action="{{ nextPage }}" novalidate>
       {% call govukFieldset({
       legend: {
       text: question,
@@ -39,7 +45,7 @@
         name: "first-name",
         autocomplete: "given-name",
         spellcheck: false
-        }) }}
+        } | errorFilter(errors)) }}
         {{ govukInput({
         label: {
         text: "Last name"
@@ -49,7 +55,7 @@
         name: "last-name",
         autocomplete: "family-name",
         spellcheck: false
-        }) }}
+        } | errorFilter(errors)) }}
         {{ govukInput({
         label: {
         text: "Company name (if relevant)"
