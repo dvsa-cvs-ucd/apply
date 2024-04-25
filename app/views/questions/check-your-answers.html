@@ -95,61 +95,68 @@
                 Not provided
               {% endif %}
             {% endset %}
-              <h3 class="govuk-heading-m">Vehicle {{ loop.index }}</h3>
-              {%- set changeVin -%}vehicle-details?changing=1&index={{ loop.index0 }}#vin{%- endset -%}
-              {%- set changeVrm -%}vehicle-details?changing=1&index={{ loop.index0 }}#vrm{%- endset -%}
-              {{ govukSummaryList({
-                rows: [
-                {
-                  key: {
-                    text: "Vehicle category"
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h3 class="govuk-summary-card__title">Vehicle {{ loop.index }}</h3>
+              </div>
+              <div class="govuk-summary-card__content">
+                {%- set changeVin -%}vehicle-details?changing=1&index={{ loop.index0 }}#vin{%- endset -%}
+                {%- set changeVrm -%}vehicle-details?changing=1&index={{ loop.index0 }}#vrm{%- endset -%}
+                {{ govukSummaryList({
+                  rows: [
+                  {
+                    key: {
+                      text: "Vehicle category"
+                    },
+                    value: {
+                      text: vehicle['category']
+                    }
                   },
-                  value: {
-                    text: vehicle['category']
+                  {
+                    key: {
+                      text: "Vehicle identification number (VIN)"
+                    },
+                    value: {
+                      text: vehicle['vin']
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: changeVin,
+                          text: "Change",
+                          visuallyHiddenText: "VIN"
+                        }
+                      ]
+                    }
                   },
-                  actions: {
-                  
+                  {
+                    key: {
+                      text: "Vehicle registration mark or trailer ID"
+                    },
+                    value: {
+                      html: vrm
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: changeVrm,
+                          text: "Change",
+                          visuallyHiddenText: "vrm"
+                        }
+                      ]
+                    }
                   }
-                },
-                {
-                  key: {
-                    text: "Vehicle identification number (VIN)"
-                  },
-                  value: {
-                    text: vehicle['vin']
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: changeVin,
-                        text: "Change",
-                        visuallyHiddenText: "VIN"
-                      }
-                    ]
-                  }
-                },
-                {
-                  key: {
-                    text: "Vehicle registration mark or trailer ID"
-                  },
-                  value: {
-                    html: vrm
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: changeVrm,
-                        text: "Change",
-                        visuallyHiddenText: "vrm"
-                      }
-                    ]
-                  }
-                }
-              ]
-            })}}
+                ]
+              })}}
+            </div>
+            </div>
             <h3 class="govuk-heading-m">Test applications for vehicle {{ loop.index }}</h3>
             {% for test in vehicle.tests %}
-              <h4 class="govuk-heading-s">{{ test.test }}</h4>
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h4 class="govuk-summary-card__title">{{ test.test }}</h4>
+              </div>
+              <div class="govuk-summary-card__content">
               {{ govukSummaryList({
                 rows: [
                  {
@@ -209,26 +216,22 @@
                   },
                   value: {
                     text: test.productCodes | tagCodes | safe
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "preferred test time and location"
-                      }
-                    ]
                   }
                  }
                 ]
               }) }}
+              </div>
+            </div>
             {% endfor %}
             <form action="/add-test">
               <input type="hidden" value="{{ loop.index0 }}" name="addTo">
-              <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for this vehicle</button>
+              <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for vehicle {{ loop.index }}</button>
             </form>
-            <hr class="govuk-!-margin-bottom-9 govuk-section-break--visible"></hr>
+            <hr class="govuk-!-margin-bottom-7 govuk-section-break--visible"></hr>
           {% endfor %}
+          <form action="/add-vehicle">
+            <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
+          </form>
         {% if data.myvt %}
         <h3 class="govuk-heading-m">Approve payment from your pre-funded account</h3>
         <p class="govuk-body">This gives the DVSA permission to collect the cost of the application from your pre-funded account.The payment will happen after your application has been processed.</p>
