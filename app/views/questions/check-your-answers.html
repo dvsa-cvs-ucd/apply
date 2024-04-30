@@ -83,11 +83,11 @@
           }
           ]})}}
           {% endif %}
-          <h2 class="govuk-heading-l govuk-!-margin-top-9">Your vehicles</h2>
-          <form action="/add-vehicle">
-            <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
-          </form>
+          <h2 class="govuk-heading-l govuk-!-margin-top-9">Your vehicles</h2> 
+          <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+          <!-- START OF VEHICLES -->
           {% for vehicle in data['vehicles'] %}
+          <div class="govuk-accordion__section">
             {% set vrm %}
               {% if vehicle.vrm %}
                 <span class="dvsa-vrm">{{ vehicle.vrm | vrm }}</span>
@@ -95,9 +95,17 @@
                 Not provided
               {% endif %}
             {% endset %}
+            <div class="govuk-accordion__section-header">
+              <h3 class="govuk-accordion__section-heading">
+                <span class="govuk-accordion__section-button" id="accordion-default-heading-{{loop.index}}">
+                  Vehicle {{ loop.index }}
+                </span>
+              </h3>
+            </div>
+            <div id="accordion-default-content-{{loop.index}}" class="govuk-accordion__section-content">
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h3 class="govuk-summary-card__title">Vehicle {{ loop.index }}</h3>
+                <h4 class="govuk-summary-card__title">Vehicle {{ loop.index }} details</h4>
               </div>
               <div class="govuk-summary-card__content">
                 {%- set changeVin -%}vehicle-details?changing=1&index={{ loop.index0 }}#vin{%- endset -%}
@@ -149,12 +157,13 @@
                 ]
               })}}
             </div>
-            </div>
-            <h3 class="govuk-heading-m">Test applications for vehicle {{ loop.index }}</h3>
+          </div>
+            <h4 class="govuk-heading-m">Test applications for vehicle {{ loop.index }}</h4>
+            <!-- START OF TESTS -->
             {% for test in vehicle.tests %}
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h4 class="govuk-summary-card__title">{{ test.test }}</h4>
+                <h5 class="govuk-summary-card__title">{{ test.test }}</h5>
               </div>
               <div class="govuk-summary-card__content">
               {{ govukSummaryList({
@@ -222,13 +231,17 @@
               }) }}
               </div>
             </div>
+          <!--- END OF TESTS -->
             {% endfor %}
             <form action="/add-test">
               <input type="hidden" value="{{ loop.index0 }}" name="addTo">
               <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for vehicle {{ loop.index }}</button>
             </form>
-            <hr class="govuk-!-margin-bottom-7 govuk-section-break--visible"></hr>
+          </div>
+          </div>
           {% endfor %}
+          <!--- END OF VEHICLES -->
+        </div>
           <form action="/add-vehicle">
             <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
           </form>

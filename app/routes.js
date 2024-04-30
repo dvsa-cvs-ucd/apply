@@ -254,11 +254,12 @@ router.get(['/remove-file'], (req, res) => {
 router.get(['/submit-test'], (req, res) => {
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   const currentFields = req.session.data
-  const currentVehicle = currentFields.vehicles.find(vehicle => currentFields['vin'] === vehicle.vin || currentFields['vrm'] === vehicle.vrm)
+  const currentVehicle = currentFields.vehicles.find(vehicle => currentFields['vin'] === vehicle.vin)
   const pcEndings = tass[currentFields['vehicle-category']][currentFields['test-type']].find(test => test.form === currentFields['application-type']).codes
   const prefix = currentFields['application-type'].includes('Annual Test') ? 'XX' : 'AN'
   const potentialPcs = pcEndings.map(ending => `${prefix}-${currentFields['test-time']}-${currentFields['test-location']}-${ending}`)
   if (currentVehicle) {
+    console.log("Updating vehicle")
     const currentTest = currentVehicle.tests.find(test => test['test'] === currentFields['application-type'])
 
     if (req.session.data.changedVehicle) {
@@ -279,6 +280,7 @@ router.get(['/submit-test'], (req, res) => {
       }
     }
   } else {
+    console.log("Adding vehicle")
     currentFields.vehicles.push({
       vin: currentFields['vin'],
       vrm: currentFields['vrm'],
@@ -298,7 +300,9 @@ router.get(['/submit-test'], (req, res) => {
   res.redirect(`${myvt}/check-your-answers`)
 })
 
-router.get('/check-your-answers', (req, res) => res.render('/check-your-answers.html', {query: req.query}))
+router.get('/check-your-answers', (req, res) => { 
+  res.render('/check-your-answers.html', {query: req.query})
+})
 
 router.get('/add-vehicle', (req, res) => {
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
@@ -309,6 +313,7 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data['application-type'] = undefined
   req.session.data['upload-form'] = undefined
   req.session.data['supporting-documentation'] = undefined
+  console.log(req.session.data)
   res.redirect(`${myvt}/vehicle-details`)
 })
 
