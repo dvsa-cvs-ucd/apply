@@ -43,7 +43,7 @@
     <meta property="og:image" content="{{ opengraphImageUrl | default(assetUrl + '/images/govuk-opengraph-image.png') }}">
     {% endif %}
   </head>
-  <body class="govuk-template__body {{ bodyClasses }}" {%- for attribute, value in bodyAttributes %} {{attribute}}="{{value}}"{% endfor %}>
+  <body class="govuk-template__body {{ bodyClasses }} govuk-frontend-supported" {%- for attribute, value in bodyAttributes %} {{attribute}}="{{value}}"{% endfor %}>
     <script{% if cspNonce %} nonce="{{ cspNonce }}"{% endif %}>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     {% block bodyStart %}{% endblock %}
 
