@@ -113,6 +113,14 @@ router.get('/vin-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#vin', text: 'Enter a VIN with the correct number of characters. Most vehicles registered after 1980 should have a 17 character VIN. Vehicles registered earlier or imported should have a 8 or 21 character VIN.' })
   }
+  if (req.session.data.vin.length > 0 && !(/^[a-zA-Z0-9 \u2013\u2014\u2212\-]+$/).test(req.session.data.vin)) {
+    errorPresent = true
+    errors.push({ href: '#vin', text: 'A vehicle identification number must only include the letters a to z or numbers.' })
+  }
+  if (req.session.data.vrm.length > 0 && !(/^[a-zA-Z0-9 \u2013\u2014\u2212\-]+$/).test(req.session.data.vrm)) {
+    errorPresent = true
+    errors.push({ href: '#vrm', text: 'A vehicle registration mark must only include the letters a to z or numbers.' })
+  }
   if (errorPresent) {
     if (req.session.data.myvt) {
       res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-details', query: req.query, errors })
