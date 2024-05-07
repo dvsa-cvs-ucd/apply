@@ -18,14 +18,14 @@
         <label class="govuk-label govuk-label govuk-!-font-weight-bold" for="supporting-documentation-upload">
           Choose supporting documents to upload
         </label>
-        <p class="govuk-body">Files must be smaller than 10MB and in either a .doc, .gif, .jpg, .pdf, .png, .txt, .xls, or .zip format.</p>
+        <p class="govuk-hint" id="supporting-documentation-upload-hint">Files must be smaller than 10MB and in either a .doc, .gif, .jpg, .pdf, .png, .txt, .xls, or .zip format.</p>
         <input
           class="govuk-file-upload"
           id="supporting-documentation-upload"
           name="supporting-documentation-upload"
+          aria-describedby="supporting-documentation-upload-hint"
           type="file"
           multiple
-          errorMessage="The selected file must be a .doc, .gif, .jpg, .pdf, .png, .txt, .xls, or .zip format"
         >
       </div>
       <input type="submit" class="govuk-button govuk-button--secondary" name="upload-multiple" value="Upload">
@@ -34,17 +34,18 @@
         <h3 class="govuk-heading-s">Uploaded files</h3>
         <ul class="govuk-list">
           {% for file in data['supporting-documentation'] %}
-            <div class="govuk-grid-row">
+          <li>
+            <div class="govuk-grid-row govuk-!-margin-bottom-1">
               <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-1">
                 {{ file }}
               </div>
               <div class="govuk-grid-column-one-third">
-                <strong class="govuk-tag govuk-tag--green govuk-!-margin-right-2">Uploaded</strong>
+                <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-1 govuk-!-margin-right-2">Uploaded</strong>
                 <a class="govuk-link govuk-link--no-visited-state" href="/remove-file?filename={{file}}">Remove<span class="govuk-visually-hidden">
                     {{ file }}</span></a>
               </div>
             </div>
-            <hr class="govuk-section-break--visible">
+            <hr aria-hidden="true" class="govuk-section-break--visible govuk-!-margin-bottom-3">
           </li>
         {% endfor %}
       </ul>

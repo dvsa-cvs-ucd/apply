@@ -8,21 +8,16 @@
       <p class="govuk-body">
         Upload the official document you have completed to apply for a {{ title }}.
       </p>
-
-      <div class="govuk-form-group">
-        <label class="govuk-label govuk-label govuk-!-font-weight-bold" for="supporting-documentation-upload">
-          Choose an application form to upload
-        </label>
-        <p class="govuk-body">The file must be smaller than 10MB and in either a .doc, .pdf, or .xls format.</p>
-        <input
-          class="govuk-file-upload"
-          id="sapplication-upload"
-          name="application-upload"
-          type="file"
-          multiple
-          errorMessage="The selected file must be a .doc, .pdf, or .xls format"
-        >
-      </div>
+      {{ govukFileUpload({
+      id: "application-upload",
+      name: "application-upload",
+      label: {
+      html: "<strong>Choose an application form to upload</strong>"
+      },
+      hint: {
+        text: "The file must be smaller than 10MB and in either a .doc, .pdf, or .xls format."
+      }
+      }) }}
       {{ govukButton({
       text: "Save and continue"
       }) }}
