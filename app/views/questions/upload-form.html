@@ -1,30 +1,32 @@
 {% set title = data['test-type'] %}
-{% set warning %}
-If your {{ title }} form is not complete, then it may cause problems with your application.
-{% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{ govukInsetText({
-      text: warning
-    }) }}
     <form class="form" action="upload-supporting-documentation">
       <div class="govuk-caption-m">{{ title }}</div>
       <h1 class='govuk-heading-l'>Upload application form</h1>
       <p class="govuk-body">
-        Upload your completed {{ title }} form below.
+        Upload the official document you have completed to apply for a {{ title }}.
       </p>
-      {{ govukFileUpload({
-      id: "application-upload",
-      name: "application-upload",
-      label: {
-      html: "<strong>Upload application form</strong>"
-      }
-      }) }}
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label govuk-!-font-weight-bold" for="supporting-documentation-upload">
+          Choose an application form to upload
+        </label>
+        <p class="govuk-body">The file must be smaller than 10MB and in either a .doc, .pdf, or .xls format.</p>
+        <input
+          class="govuk-file-upload"
+          id="sapplication-upload"
+          name="application-upload"
+          type="file"
+          multiple
+          errorMessage="The selected file must be a .doc, .pdf, or .xls format"
+        >
+      </div>
       {{ govukButton({
       text: "Save and continue"
       }) }}
     </form>
-    
+
   </div>
 </div>
