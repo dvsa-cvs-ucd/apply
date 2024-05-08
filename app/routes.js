@@ -190,7 +190,19 @@ router.get('/number-of-axles-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/test-type`)
+    switch (req.session.data['vehicle-category']) {
+      case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
+      case 'Public service vehicles (PSV), such as coaches or buses':
+      case 'Trailers':
+        res.redirect(`${myvt}/vehicle-configuration`)
+        break
+      case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+        res.redirect(`${myvt}/application-type`)
+        break
+      default:
+        res.redirect(`${myvt}/test-type`)
+        break
+    }
   }
 })
 
@@ -200,7 +212,7 @@ router.get('/unece-category-check', (req, res) => {
   let errors = []
   if (req.session.data.unece === undefined) {
     errorPresent = true
-    errors.push({ href: '#unece', text: 'Select an EU vehicle category' })
+    errors.push({ href: '#unece', text: 'Select an UNECE vehicle category' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
@@ -211,6 +223,26 @@ router.get('/unece-category-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/number-of-axles`)
+  }
+})
+
+router.get('/vehicle-configuration', (req, res) => res.render('vehicle-configuration.html', { query: req.query }))
+router.get('/vehicle-configuration-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data.unece === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vehicle-configuration', text: 'Select a vehicle configuration' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-configuration', query: req.query, errors })
+    } else {
+      res.render('vehicle-configuration.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/test-type`)
   }
 })
 
@@ -234,7 +266,7 @@ router.get('/vehicle-class-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/test-type`)
+    res.redirect(`${myvt}/number-of-axles`)
   }
 })
 
