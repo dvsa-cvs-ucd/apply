@@ -1,0 +1,37 @@
+{% set question = "Select the vehicle configuration" %}
+{% if query.changing %}
+  {% set nextPage = "/change-config" %}
+  {% set vehicleCount = data.vehicles | length %}
+  {% set vehicleIndex = query.index | int + 1 %}
+{% else %}
+  {% set vehicleCount = data.vehicles | length + 1 %}
+  {% set vehicleIndex = vehicleCount %}
+  {% set nextPage = "/vehicle-configuration-check" %}
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      }) }}
+    {% endif %}
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <form class="form" action="{{ nextPage }}">
+      {{ govukRadios({
+        name: 'vehicle-configuration',
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: data.vehicleConfigurations[data['vehicle-category']]
+      } | errorFilter(errors))  }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

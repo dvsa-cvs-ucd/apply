@@ -1,0 +1,64 @@
+{
+  "Heavy goods vehicle (HGV) or lorries (more than 3,500kg)": [
+    {
+      "text": "Rigid",
+      "value": "RIGID"
+    },
+    {
+      "text": "Articulated",
+      "value": "ARTICULATED"
+    }
+  ],
+  "Public service vehicles (PSV), such as coaches or buses": [
+    {
+      "text": "Rigid",
+      "value": "RIGID"
+    },
+    {
+      "text": "Articulated",
+      "value": "ARTICULATED"
+    }
+  ],
+  "Trailers": [
+    {
+      "text": "Centre axle drawbar",
+      "value": "CENTRE_AXLE_DRAWBAR"
+    },
+    {
+      "text": "Semi-car transporter",
+      "value": "SEMI_CAR_TRANSPORTER"
+    },
+    {
+      "text": "Semi-trailer",
+      "value": "SEMI_TRAILER"
+    },
+    {
+      "text": "Low loader",
+      "value": "LOW LOADER"
+    },
+    {
+      "text": "Other",
+      "value": "OTHER"
+    },
+    {
+      "text": "Drawbar",
+      "value": "DRAWBAR"
+    },
+    {
+      "text": "Four-in-line",
+      "value": "FOUR_IN_LINE"
+    },
+    {
+      "text": "Dolly",
+      "value": "DOLLY"
+    },
+    {
+      "text": "Full drawbar",
+      "value": "FULL_DRAWBAR"
+    },
+    {
+      "text": "Long semi-trailer",
+      "value": "LONG_SEMI_TRAILER"
+    }
+  ]
+}
