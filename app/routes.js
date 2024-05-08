@@ -150,9 +150,86 @@ router.get('/vehicle-category-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['vehicle-category']) {
+      case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
+        req.session.data.unece = 'N1'
+        res.redirect(`${myvt}/vehicle-class`)
+        break
+      case 'Cars or passenger vehicles (up to 8 seats)':
+        req.session.data.unece = 'M1'
+        res.redirect(`${myvt}/vehicle-class`)
+        break
+      default:
+        res.redirect(`${myvt}/unece-category`)
+        break
+    }
+  }
+})
+
+router.get('/number-of-axles', (req, res) => res.render('number-of-axles.html'))
+router.get('/number-of-axles-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['axles'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#axles', text: 'Select the number of axles' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/number-of-axles', query: req.query, errors })
+    } else {
+      res.render('number-of-axles.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/test-type`)
   }
 })
+
+router.get('/unece-category', (req, res) => res.render('unece-category.html', { query: req.query }))
+router.get('/unece-category-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data.unece === undefined) {
+    errorPresent = true
+    errors.push({ href: '#unece', text: 'Select an EU vehicle category' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/unece-category', query: req.query, errors })
+    } else {
+      res.render('unece-category.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/number-of-axles`)
+  }
+})
+
+router.get('/vehicle-class', (req, res) => res.render('vehicle-class.html', { query: req.query }))
+router.get('/vehicle-class-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['vehicle-class'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vehicle-class', text: 'Select a vehicle class' })
+  }
+  if (req.session.data['vehicle-category'] === 'Cars or passenger vehicles (up to 8 seats)' && req.session.data.wav === undefined) {
+    errorPresent = true
+    errors.push({ href: '#wav', text: 'Select an  Wheelchair Accessible Vehicle option' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-class', query: req.query, errors })
+    } else {
+      res.render('vehicle-class.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/test-type`)
+  }
+})
+
 router.get('/test-type', (req, res) => res.render('test-type.html'))
 router.get('/test-type-check', (req, res) => {
   let errorPresent = false
@@ -202,22 +279,23 @@ router.get('/download-form', (req, res) => {
 })
 
 router.get('/vrm-check', async (req, res) => {
-  const reg = { registrationNumber: req.session.data.vrm }
-  const response = await fetch('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', {
-    method: 'POST',
-    headers: {
-      'x-api-key': vesKey,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(reg)
-  })
-  req.session.data.vehicle = await response.json()
+  // const reg = { registrationNumber: req.session.data.vrm }
+  // const response = await fetch('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', {
+  //   method: 'POST',
+  //   headers: {
+  //     'x-api-key': vesKey,
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify(reg)
+  // })
+  // req.session.data.vehicle = await response.json()
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-  if (response.status === 200) {
-    res.redirect(`${myvt}/vehicle-data`)
-  } else {
-    res.redirect(`${myvt}/vehicle-category`)
-  }
+  res.redirect(`${myvt}/vehicle-category`)
+  // if (response.status === 200) {
+  //   res.redirect(`${myvt}/vehicle-data`)
+  // } else {
+  //   res.redirect(`${myvt}/vehicle-category`)
+  // }
 })
 
 router.get('/change-vehicle', (req, res) => {
@@ -267,7 +345,6 @@ router.get(['/submit-test'], (req, res) => {
   const prefix = currentFields['application-type'].includes('Annual Test') ? 'XX' : 'AN'
   const potentialPcs = pcEndings.map(ending => `${prefix}-${currentFields['test-time']}-${currentFields['test-location']}-${ending}`)
   if (currentVehicle) {
-    console.log("Updating vehicle")
     const currentTest = currentVehicle.tests.find(test => test['test'] === currentFields['application-type'])
 
     if (req.session.data.changedVehicle) {
@@ -288,7 +365,6 @@ router.get(['/submit-test'], (req, res) => {
       }
     }
   } else {
-    console.log("Adding vehicle")
     currentFields.vehicles.push({
       vin: currentFields['vin'],
       vrm: currentFields['vrm'],
@@ -317,11 +393,14 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data.vin = undefined
   req.session.data.vrm = undefined
   req.session.data['vehicle-category'] = undefined
+  req.session.data['vehicle-class'] = undefined
+  req.session.data.wav = undefined
+  req.session.data.axles = undefined
+  req.session.data.unece = undefined
   req.session.data['test-type'] = undefined
   req.session.data['application-type'] = undefined
   req.session.data['upload-form'] = undefined
   req.session.data['supporting-documentation'] = undefined
-  console.log(req.session.data)
   res.redirect(`${myvt}/vehicle-details`)
 })
 

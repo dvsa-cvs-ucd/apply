@@ -1,0 +1,62 @@
+{% set question = "Select a vehicle class" %}
+{% if query.changing %}
+  {% set nextPage = "/change-class" %}
+  {% set vehicleCount = data.vehicles | length %}
+  {% set vehicleIndex = query.index | int + 1 %}
+  {% set vehicleClass = data['vehicles'][query['index']]['vehicle-class'] %}
+{% else %}
+  {% set vehicleCount = data.vehicles | length + 1 %}
+  {% set vehicleIndex = vehicleCount %}
+  {% set nextPage = "/vehicle-class-check" %}
+  {% set vehicleClass = data['vehicle-class'] %}
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      }) }}
+    {% endif %}
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <form class="form" action="{{ nextPage }}">
+      {{ govukCheckboxes({
+        name: 'vehicle-class',
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: data.ivaSubClasses,
+        values: data['vehicle-class']
+      } | errorFilter(errors))  }}
+      {% if data['vehicle-category'] == 'Cars or passenger vehicles (up to 8 seats)' %}
+     {{ govukRadios({
+        classes: "govuk-radios--inline govuk-radios--small",
+        name: "wav",
+        fieldset: {
+          legend: {
+            text: "In addition to being one the above classes, is the vehicle a Wheelchair Accessible Vehicle (WAV)?"
+          }
+        },
+        value: data.wav,
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }| errorFilter(errors)) }}
+      {% endif %}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

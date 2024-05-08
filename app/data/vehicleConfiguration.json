@@ -1,0 +1,22 @@
+{
+  "Heavy goods vehicle (HGV) or lorries (more than 3,500kg)": [
+    "rigid",
+    "articulated"
+  ],
+  "Public service vehicles (PSV), such as coaches or buses)": [
+    "rigid",
+    "articulated"
+  ],
+  "Trailers": [
+    "centre axle drawbar",
+    "semi-car transporter",
+    "semi-trailer",
+    "low loader",
+    "other",
+    "drawbar",
+    "four-in-line",
+    "dolly",
+    "full drawbar",
+    "long semi-trailer"
+  ]
+}

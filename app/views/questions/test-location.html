@@ -5,35 +5,14 @@
 <p class="govuk-hint">
   Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to inspect your vehicle.
 </p>
-<p class="govuk-hint">For help choosing, <a class="govuk-link" href="https://www.gov.uk/mot-for-hgv-buses-and-trailers/book-your-test">find your nearest authorised testing facility or DVSA test station</a>.</p>
 {% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="test-time">
-      {{ govukRadios({
-        name: "test-location",
-        fieldset: {
-          legend: {
-            text: question,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          html: hint
-        },
-        items: [
-          {
-            value: "GV",
-            text: "DVSA test station"
-          },
-          {
-            value: "AT",
-            text: "Authorised testing facility (ATF)"
-          }
-        ]
-      }) }}
+    <form action="/submit-test">
+      <h1 class="govuk-heading-l">Test location question goes here</h1>
+      {{ hint | safe }}
+      <input type="hidden" name="test-location" value="GV">
       {{ govukButton({
       text: "Save and continue"
       }) }}

@@ -1,0 +1,47 @@
+{% set question = 'Vehicle configuration' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="/vehicle-dimensions-check">
+      {% call govukFieldset({
+        legend: {
+          text: "Vehicle configuration",
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+        }
+      }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Overall length (mm)"
+          },
+          id: "overall-length",
+          name: "overall-length",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Overall width (mm)"
+          },
+          id: "address-line-2",
+          name: "addressLine2",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Overall height (mm)"
+          },
+          id: "overall-height",
+          name: "overall-height",
+          classes: "govuk-input--width-10"
+        }) }}
+
+      {% endcall %}
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

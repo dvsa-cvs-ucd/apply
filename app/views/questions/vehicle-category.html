@@ -2,6 +2,8 @@
 {% if data['vehicle-confirmation'] == 'yes' %}
   {% set foundVehicleCategory %}{{ data.vehicle['typeApproval'] | typeApproval }}{% endset %}
 {% endif %}
+{% set vehicleCount = data.vehicles | length + 1 %}
+{% set vehicleIndex = vehicleCount %}
 {% set nextPage = '/vehicle-category-check' %}
 
 {% set question = 'Select a vehicle category' %}
@@ -14,6 +16,7 @@
     errorList: errors
     }) }}
     {% endif %}
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
     <form class="form" action="{{ nextPage }}">
       {{ govukRadios({
       name: "vehicle-category",
