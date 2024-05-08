@@ -1,0 +1,133 @@
+{
+  "Heavy goods vehicle (HGV) or lorries (more than 3,500kg)": [
+    {
+      "text": "N2",
+      "value": "N2",
+      "hint": {
+        "html": "Gross weight over 3,500kg but less than 12,000kg"
+      }
+    },
+    {
+      "text": "N3",
+      "value": "N3",
+      "hint": {
+        "html": "Gross weight over 12,000kg"
+      }
+    }
+  ],
+  "Light goods vehicles (LGV) or vans (less than 3,500kg)": [
+    {
+      "text": "N1",
+      "value": "N1",
+      "hint": {
+        "html": "Gross weight less than 3,500kg"
+      }
+    }
+  ],
+  "Trailers": [
+    {
+      "text": "O1",
+      "value": "O1",
+      "hint": {
+        "html": "Gross weight less than 750kg"
+      }
+    },
+    {
+      "text": "O2",
+      "value": "O2",
+      "hint": {
+        "html": "Gross weight over 750kg but less than 3,500kg"
+      }
+    },
+    {
+      "text": "O3",
+      "value": "O3",
+      "hint": {
+        "html": "Gross weight over 3,500kg but less than 10,000kg"
+      }
+    },
+    {
+      "text": "O4",
+      "value": "O4",
+      "hint": {
+        "html": "Gross weight over 10,000kg"
+      }
+    }
+  ],
+  "Public service vehicles (PSV), such as coaches or buses": [
+    {
+      "text": "M2",
+      "value": "M2",
+      "hint": {
+        "html": "Gross weight less than 5,000kg"
+      }
+    },
+    {
+      "text": "M3",
+      "value": "M3",
+      "hint": {
+        "html": "Gross weight over 5,000kg"
+      }
+    }
+  ],
+  "Cars or passenger vehicles (up to 8 seats)": [
+    {
+      "text": "M1",
+      "value": "M1",
+      "hint": {
+        "html": "Vehicle designed and constructed for the carriage of passengers and comprising no more than eight seats in addition to the driver's seat"
+      }
+    }
+  ],
+  "Motorcycles, 3-wheeled vehicles and quadricycles": [
+    {
+      "text": "L1",
+      "value": "L1",
+      "hint": {
+        "html": "<p class='govuk-hint'>Engine capacity less than 50cm³ and, whatever the means of propulsion, a <strong>maximum design speed less than 50km/h</strong>.</p><p class='govuk-hint'>For example an electric bicycle.</p>"
+      }
+    },
+    {
+      "text": "L2",
+      "value": "L2",
+      "hint": {
+        "html": "<p class='govuk-hint'>A three-wheeled vehicle, with an engine capacity less than 50cm³ and, whatever the means of propulsion, a <strong>maximum design speed less than 50km/h</strong>.</p><p class='govuk-hint'>For example an auto rickshaw.</p>"
+      }
+    },
+    {
+      "text": "L3",
+      "value": "L3",
+      "hint": {
+        "html": "<p class='govuk-hint'>A two-wheeled vehicle with an <strong>engine capacity more than 50cm³</strong> or, whatever the means of propulsion, a <strong>maximum design speed over 50km/h</strong>.</p><p class='govuk-hint'>For example a motorcycle.</p>"
+      }
+    },
+    {
+      "text": "L4",
+      "value": "L4",
+      "hint": {
+        "html": "<p class='govuk-hint'>A vehicle with three wheels asymmetrically arranged in relation to the longitudinal median plane with an <strong>engine capacity more than 50cm³</strong> or, whatever the means of propulsion, a <strong>maximum design speed over 50 km/h</strong><p class='govuk-hint'>For example a motorcycle with a sidecar.</p>"
+      }
+    },
+    {
+      "text": "L5",
+      "value": "L5",
+      "hint": {
+        "html": "<p class='govuk-hint'>A vehicle with three wheels symmetrically arranged in relation to the longitudinal median plane with an <strong>engine capacity more than 50cm³</strong> or, whatever the means of propulsion a <strong>maximum design speed over 50km/h</strong>.</p><p class='govuk-hint'>For example a motorised tricycle.</p>"
+      }
+    },
+    {
+      "text": "L6",
+      "value": "L6",
+      "hint": {
+        "html": "<p class='govuk-hint'>A vehicle with four wheels whose <strong>unladen mass is less than 350kg, not including the mass of the batteries in case of electric vehicles</strong>, whose <strong>maximum design speed is less than 45km/h</strong>, and whose <strong>engine capacity less than 50cm³</strong> for spark (positive) ignition engines, or whose <strong>maximum net power output does not exceed 4kW</strong> in the case of other internal combustion engines, or whose <strong>maximum continuous rated power does not exceed 4kW </strong>in the case of electric engines.</p><p class='govuk-hint'>For example golf carts and mobility scooters.</p>"
+      }
+    },
+    {
+      "text": "L7",
+      "value": "L7",
+      "hint": {
+        "html": "<p class='govuk-hint'>A vehicle with four wheels, <strong>other than that classified for the category L6</strong>, whose <strong>unladen mass is less than 400 kg (550 kg for vehicles intended for carrying goods), not including the mass of batteries in the case of electric vehicles</strong> and whose <strong>maximum continuous rated power does not exceed 15 kW.</strong><p class='govuk-hint'>For example microcars.</p>"
+      }
+    }
+  ]
+}

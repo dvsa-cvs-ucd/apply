@@ -1,0 +1,40 @@
+{% set question = "Select a UNECE category" %}
+{% if query.changing %}
+  {% set nextPage = "/change-class" %}
+  {% set vehicleCount = data.vehicles | length %}
+  {% set vehicleIndex = query.index | int + 1 %}
+  {% set vehicleClass = data['vehicles'][query['index']]['vehicle-class'] %}
+{% else %}
+  {% set vehicleCount = data.vehicles | length + 1 %}
+  {% set vehicleIndex = vehicleCount %}
+  {% set nextPage = "/unece-category-check" %}
+  {% set vehicleClass = data['vehicle-class'] %}
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      }) }}
+    {% endif %}
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <form class="form" action="{{ nextPage }}">
+      {{ govukRadios({
+        name: 'unece',
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: data.uneceCategories[data['vehicle-category']],
+        values: data.unece
+      } | errorFilter(errors))  }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

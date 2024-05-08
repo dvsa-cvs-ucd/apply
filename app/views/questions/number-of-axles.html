@@ -1,0 +1,42 @@
+{% set question = "Select the number of axles" %}
+{% if query.changing %}
+  {% set nextPage = "/change-axles" %}
+  {% set vehicleCount = data.vehicles | length %}
+  {% set vehicleIndex = query.index | int + 1 %}
+  {% set axles = data['vehicles'][query['index']]['axles'] %}
+  {% set axleOptions = data['vehicles'][query['index']]['vehicle-category'] | axleOptionCounter %}
+  {% else %}
+  {% set vehicleCount = data.vehicles | length + 1 %}
+  {% set vehicleIndex = vehicleCount %}
+  {% set nextPage = "/number-of-axles-check" %}
+  {% set axles = data['axles'] %}
+  {% set vrm = data['vrm'] %}
+  {% set axleOptions = data['vehicle-category'] | axleOptionCounter %}
+{% endif %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+     {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      }) }}
+    {% endif %}
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <form class="form" action="{{ nextPage }}">
+      {{ govukRadios({
+        name: 'axles',
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: axleOptions
+      } | errorFilter(errors))  }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>

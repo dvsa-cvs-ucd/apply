@@ -135,3 +135,32 @@ addFilter('errorFilter', (object, errors=[]) => {
   if (relevantError) toReturn.errorMessage = { text: relevantError.text}
   return (toReturn)
 })
+
+addFilter('axleOptionCounter', vehicle => {
+  const minMax = [0, 0]
+  switch (vehicle) {
+    case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
+      minMax[0] = 2
+      minMax[1] = 5
+      break
+    case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
+    case 'Public service vehicles (PSV), such as coaches or buses':
+    case 'Cars or passenger vehicles (up to 8 seats)':
+    case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+      minMax[0] = 2
+      minMax[1] = 3
+      break
+    case 'Trailers':
+    default:
+      minMax[0] = 1
+      minMax[1] = 6
+      break
+    }
+    const radios = Array((minMax[1] - minMax[0]) + 1).fill(0).map((val, index) => {
+      const radio = {}
+      radio['text'] = `${index + minMax[0]} axle${index + minMax[0] === 1 ? '' : 's'}`
+      radio['value'] = index + minMax [0]
+      return radio
+    })
+  return radios
+})
