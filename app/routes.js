@@ -13,15 +13,23 @@ const tass = require('./data/tass.json')
 
 vesKey = process.env.VES_API_KEY
 
-router.get('/myvt', (req, res) => {
+router.get('/start', (req, res) => res.redirect('/'))
+
+router.get('/no-pfa', (req, res) => {
+  req.session.data.pfa = false
   req.session.data.myvt = true
-  res.render('myvt.html')
+  res.redirect('/myvt')
 })
 
-router.get('/unauthenticated', (req, res) => {
-  req.session.data.myvt = false
-  res.redirect('/what-is-your-name')
+router.get('/pfa', (req, res) => {
+  req.session.data.pfa = true
+  req.session.data.myvt = true
+  res.redirect('/myvt')
 })
+
+router.get
+
+router.get('/unauthenticated', (req, res) => res.redirect('/'))
 
 router.get(['/apply-for-a-vehicle-test'], (req, res) => {
   req.session.data.myvt = true
