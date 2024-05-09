@@ -413,3 +413,14 @@ section.tab-content {
 section.tab-content.active-tab {
   display: block
 }
+
+.dvsa-panel__highlight {
+  background-color: govuk-colour("light-grey");
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+address {
+  @extend .govuk-body;
+  font-style: normal;
+}

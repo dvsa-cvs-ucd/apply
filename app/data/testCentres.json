@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Greenway Commercial Services",
+    "address": "123 Main Street, Cityville, CV1 2AB",
+    "phone": "+44 1234 567890",
+    "email": "info@greenwaycommercial.co.uk",
+    "website": "http://www.greenwaycommercial.co.uk",
+    "tested_at_this_centre": [
+      "HGV",
+      "Bus",
+      "Trailer",
+      "ADR and dangerous goods vehicles - amber category"
+    ],
+    "not_tested_at_this_centre": [
+      "LEZ phase 3"
+    ],
+    "availability": "Tests available"
+  },
+  {
+    "name": "Northgate Vehicle Testing",
+    "address": "45 Oak Avenue, Townsville, TS5 6YZ",
+    "phone": "+44 7890 123456",
+    "email": "info@northgatevt.co.uk",
+    "website": "http://www.northgatevt.co.uk",
+    "tested_at_this_centre": [
+      "HGV",
+      "Trailer"
+    ],
+    "not_tested_at_this_centre": [
+      "Bus",
+      "ADR and dangerous goods vehicles - amber category"
+    ],
+    "availability": "Fully booked"
+  },
+  {
+    "name": "Eastside Test Centre",
+    "address": "789 Elm Street, Villageton, VE2 3CD",
+    "phone": "+44 5678 901234",
+    "email": "info@eastside.com",
+    "website": "http://www.eastsidetestcentre.co.uk",
+    "tested_at_this_centre": [
+      "HGV",
+      "Bus"
+    ],
+    "not_tested_at_this_centre": [
+      "Trailer",
+      "LEZ phase 3"
+    ],
+    "availability": "Tests available"
+  },
+  {
+    "name": "Westend Vehicle Inspections",
+    "address": "321 Maple Lane, Countryside, CS4 5FG",
+    "phone": "+44 3456 789012",
+    "email": "info@westendinspections.com",
+    "website": "http://www.westendinspections.co.uk",
+    "tested_at_this_centre": [
+      "HGV"
+    ],
+    "not_tested_at_this_centre": [
+      "Bus",
+      "Trailer",
+      "ADR and dangerous goods vehicles - amber category",
+      "LEZ phase 3"
+    ],
+    "availability": "Tests available"
+  },
+  {
+    "name": "Southside MOT Centre",
+    "address": "567 Pine Road, Suburbia, SB8 9GH",
+    "phone": "+44 2345 678901",
+    "email": "info@southsidemot.co.uk",
+    "website": "http://www.southsidemot.co.uk",
+    "tested_at_this_centre": [
+      "Bus",
+      "Trailer",
+      "ADR and dangerous goods vehicles - amber category"
+    ],
+    "not_tested_at_this_centre": [
+      "HGV",
+      "LEZ phase 3"
+    ],
+    "availability": "Fully booked"
+  }
+]
