@@ -1,7 +1,17 @@
-{% set question = 'Test locations near ' %}
+{% set question = 'Find a test centre for an inspection' %}
+{% set title = data['test-type'] %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <h1 class="govuk-heading-l">{{ question }} {{ data['find-test-centre'] | upper }} </h1>
+    <div class="govuk-caption-m">{{ title }}</div>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+      Test locations near {{ data['find-test-centre'] | upper }}
+    </h1>
+    <p class="govuk-body">
+      <a href="test-location" class="govuk-link govuk-link--no-visited-state">Search again</a>
+    </p>
+    <div class="govuk-caption-m">Showing 1 to 5 of 50 results</div>
+    <hr aria-hidden="true" class="govuk-section-break--visible govuk-!-margin-bottom-3">
     <form action="/test-location-check">
     <ul class="govuk-list">
       {% for testCentre in data.testCentres %}
@@ -56,5 +66,41 @@
       {% endfor %}
     </ul>
     </form>
+    <nav class="govuk-pagination" role="navigation" aria-label="Pagination">
+      <ul class="govuk-pagination__list">
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+            1
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+            2
+          </a>
+        </li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+            3
+          </a>
+        </li>
+        <li class="govuk-pagination__item govuk-pagination__item--ellipses">⋯</li>
+        <li class="govuk-pagination__item">
+          <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 10">
+            10
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-pagination__next">
+        <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+          <span class="govuk-pagination__link-title">Next<span class="govuk-visually-hidden"> page</span></span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13"
+            width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path
+              d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z">
+            </path>
+          </svg></a>
+      </div>
+      <div class="page-count">Showing 1 to 5 of 50 results</div>
+    </nav>
   </div>
 </div>

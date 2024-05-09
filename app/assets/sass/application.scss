@@ -425,3 +425,11 @@ address {
   font-style: normal;
   margin-top: 0;
 }
+
+.page-count {
+  @extend .govuk-caption-m;
+  flex-grow: 1;
+  text-align: right;
+  height: 100%;
+  align-self: center;
+}
