@@ -140,11 +140,11 @@ addFilter('axleOptionCounter', vehicle => {
   const minMax = [0, 0]
   switch (vehicle) {
     case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
+    case 'Public service vehicles (PSV), such as coaches or buses':
       minMax[0] = 2
       minMax[1] = 5
       break
     case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
-    case 'Public service vehicles (PSV), such as coaches or buses':
     case 'Cars or passenger vehicles (up to 8 seats)':
     case 'Motorcycles, 3-wheeled vehicles and quadricycles':
       minMax[0] = 2
@@ -169,14 +169,19 @@ addFilter('limitTo', (array, number) => array.slice(0, number))
 
 addFilter('date', string => {
   const formatter = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' })
+  const date = new Date()
   switch (string) {
     case 'nextWeek':
-      const date = new Date()
       date.setDate(date.getDate() + 7)
       return formatter.format(date)
       break
+    case 'fourWeeks':
+      date.setDate(date.getDate() + 28)
+      return formatter.format(date)
+      break
     default:
-      formatter.format(new Date())
+      return formatter.format(date)
+      break
   }
 })
 

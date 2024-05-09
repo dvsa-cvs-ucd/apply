@@ -5,15 +5,16 @@
     "phone": "+44 1234 567890",
     "email": "info@greenwaycommercial.co.uk",
     "website": "http://www.greenwaycommercial.co.uk",
-    "tested_at_this_centre": [
+    "testedHere": [
       "HGV",
       "Bus",
       "Trailer",
       "ADR and dangerous goods vehicles - amber category"
     ],
-    "not_tested_at_this_centre": [
+    "notTestedHere": [
       "LEZ phase 3"
     ],
+    "siteRestrictions" : ["Max door height is 5.2 metres"],
     "availability": "Tests available"
   },
   {
@@ -22,14 +23,15 @@
     "phone": "+44 7890 123456",
     "email": "info@northgatevt.co.uk",
     "website": "http://www.northgatevt.co.uk",
-    "tested_at_this_centre": [
+    "testedHere": [
       "HGV",
       "Trailer"
     ],
-    "not_tested_at_this_centre": [
+    "notTestedHere": [
       "Bus",
       "ADR and dangerous goods vehicles - amber category"
     ],
+    "siteRestrictions" : ["Max door height is 5.5 metres"],
     "availability": "Fully booked"
   },
   {
@@ -38,14 +40,15 @@
     "phone": "+44 5678 901234",
     "email": "info@eastside.com",
     "website": "http://www.eastsidetestcentre.co.uk",
-    "tested_at_this_centre": [
+    "testedHere": [
       "HGV",
       "Bus"
     ],
-    "not_tested_at_this_centre": [
+    "notTestedHere": [
       "Trailer",
       "LEZ phase 3"
     ],
+    "siteRestrictions" : ["Max door height is 5.2 metres"],
     "availability": "Tests available"
   },
   {
@@ -54,15 +57,16 @@
     "phone": "+44 3456 789012",
     "email": "info@westendinspections.com",
     "website": "http://www.westendinspections.co.uk",
-    "tested_at_this_centre": [
+    "testedHere": [
       "HGV"
     ],
-    "not_tested_at_this_centre": [
+    "notTestedHere": [
       "Bus",
       "Trailer",
       "ADR and dangerous goods vehicles - amber category",
       "LEZ phase 3"
     ],
+    "siteRestrictions" : ["Max door height is 4.8 metres"],
     "availability": "Tests available"
   },
   {
@@ -71,15 +75,16 @@
     "phone": "+44 2345 678901",
     "email": "info@southsidemot.co.uk",
     "website": "http://www.southsidemot.co.uk",
-    "tested_at_this_centre": [
+    "testedHere": [
       "Bus",
       "Trailer",
       "ADR and dangerous goods vehicles - amber category"
     ],
-    "not_tested_at_this_centre": [
+    "notTestedHere": [
       "HGV",
       "LEZ phase 3"
     ],
+    "siteRestrictions" : ["Max door height is 4.9 metres"],
     "availability": "Fully booked"
   }
 ]
