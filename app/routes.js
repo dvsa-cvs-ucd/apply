@@ -197,6 +197,7 @@ router.get('/number-of-axles-check', (req, res) => {
         res.redirect(`${myvt}/vehicle-configuration`)
         break
       case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+        req.session.data['test-type'] = 'Motorcycle Single Vehicle Approval'
         res.redirect(`${myvt}/application-type`)
         break
       default:
@@ -289,6 +290,7 @@ router.get('/test-type-check', (req, res) => {
     res.redirect(`${myvt}/application-type`)
   }
 })
+
 router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
 router.get('/application-type-check', (req, res) => {
   let errorPresent = false
@@ -306,6 +308,31 @@ router.get('/application-type-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/upload-form`)
+  }
+})
+
+router.get('/test-location', (req, res) => res.render('test-location.html', {query: req.query}))
+router.get('/test-location-check', (req, res) => {
+  if (req.query.find === 'find')  {
+    let errorPresent = false
+    let errors = []
+    if (req.session.data['find-test-centre'] === '') {
+      errorPresent = true
+      errors.push({ href: '#find-test-centre', text: 'Enter a postcode' })
+    }
+    if (errorPresent) {
+      if (req.session.data.myvt) {
+        res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-location', query: req.query, errors })
+      } else {
+        res.render('test-location.html', { query: req.query, errors })
+      }
+    } else {
+      const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+      res.redirect(`${myvt}/test-location-list`)
+    }
+  } else {
+    req.session.data.testCentre = req.session.data['select-test-centre']
+    res.redirect('/submit-test')
   }
 })
 
@@ -398,7 +425,8 @@ router.get(['/submit-test'], (req, res) => {
           test: currentFields['application-type'], 
           form: currentFields['application-upload'], 
           productCodes: potentialPcs,
-          location: currentFields['test-location'], 
+          location: currentFields['test-location'],
+          testCentre: currentFields.testCentre,
           time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']
         })
@@ -414,6 +442,7 @@ router.get(['/submit-test'], (req, res) => {
           test: currentFields['application-type'], 
           form: currentFields['application-upload'],
           productCodes: potentialPcs,
+          testCentre: currentFields.testCentre,
           location: currentFields['test-location'],
           time: currentFields['test-time'], 
           supporting: currentFields['supporting-documentation']

@@ -1,21 +1,73 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% set question = 'Select a type of test centre for an inspection' %}
-{% set hint %}
-<p class="govuk-hint">
-  Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to inspect your vehicle.
-</p>
-{% endset %}
-
+{% set question = 'Find a test centre for an inspection' %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="/submit-test">
-      <h1 class="govuk-heading-l">Test location question goes here</h1>
-      {{ hint | safe }}
-      <input type="hidden" name="test-location" value="GV">
-      {{ govukButton({
-      text: "Save and continue"
+    {% if errors | length > 0 %}
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
       }) }}
+    {% endif %}
+    <form action="/test-location-check">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            {{ question }}
+          </h1>
+        </legend>
+        <p id="find-test-centre-hint" class="govuk-hint">
+          Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to
+          inspect your vehicle.
+        </p>
+      <div class="dvsa-panel__highlight">
+          {{ govukInput({
+              label: {
+                text: "Enter a postcode"
+              },
+              hint: {
+                text: "For example SW1A 2AA"
+              },
+              classes: "govuk-input--width-10",
+              id: "find-test-centre",
+              name: "find-test-centre"
+            } | errorFilter(errors)) }} 
+        <button class="govuk-button" type="submit" name="find" value="find">
+          Find
+        </button>
+      </div>
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Select a recently selected test centre</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">
+              Name
+            </th>
+            <th scope="col" class="govuk-table__header">
+              Availability
+            </th>
+            <th scope="col" class="govuk-table__header">
+              Select
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        {% for testCentre in data.testCentres | limitTo(3) %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">
+            {{ testCentre.name }}
+          </td>
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag{{ testCentre.availability | availabilityTag}} govuk-!-margin-bottom-1">{{ testCentre.availability }}</strong><br>
+            <span class="govuk-body-s">Before {{ 'nextWeek' | date }}</span>
+          </td>
+          <td class="govuk-table__cell">
+            <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1" type="submit" name="select-test-centre" value="{{ testCentre.name }}">Select <span class="govuk-visually-hidden">{{ testCentre.name }}</span></button>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      </fieldset>
     </form>
   </div>
 </div>

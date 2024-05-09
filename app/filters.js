@@ -164,3 +164,20 @@ addFilter('axleOptionCounter', vehicle => {
     })
   return radios
 })
+
+addFilter('limitTo', (array, number) => array.slice(0, number))
+
+addFilter('date', string => {
+  const formatter = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' })
+  switch (string) {
+    case 'nextWeek':
+      const date = new Date()
+      date.setDate(date.getDate() + 7)
+      return formatter.format(date)
+      break
+    default:
+      formatter.format(new Date())
+  }
+})
+
+addFilter('availabilityTag', string => string === 'Tests available' ? '--green' : string === 'Fully booked' ? '--red' : '--blue')
