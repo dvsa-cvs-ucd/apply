@@ -7,6 +7,7 @@
   <div class="govuk-width-container app-width-container">
     <nav>
       <dl class="nav-card-list">
+        {% if data.pfa %}
         <div class="nav-card">
           <dt>
             <a aria-describedby="facility-management" href="#">Facility management</a>
@@ -15,6 +16,7 @@
             View today’s completed tests and search past transactions.
           </dd>
         </div>
+        {% endif %}
         <div class="nav-card">
           <dt>
             <a aria-describedby="apply-for-a-vehicle-test" href="apply-for-a-vehicle-test">Apply for a vehicle test</a>
@@ -28,7 +30,7 @@
             <a aria-describedby="user-settings" href="#">User settings</a>
           </dt>
           <dd id="user-settings">
-            View your personal details. Add and remove team members.
+            View your personal details.{% if data.pfa %} Add and remove team members.{% endif %}
           </dd>
         </div>
       </dl>

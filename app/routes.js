@@ -231,7 +231,7 @@ router.get('/vehicle-configuration', (req, res) => res.render('vehicle-configura
 router.get('/vehicle-configuration-check', (req, res) => {
   let errorPresent = false
   let errors = []
-  if (req.session.data.unece === undefined) {
+  if (req.session.data['vehicle-configuration'] === undefined) {
     errorPresent = true
     errors.push({ href: '#vehicle-configuration', text: 'Select a vehicle configuration' })
   }
