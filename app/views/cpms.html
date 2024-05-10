@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template  flexbox no-flexboxtweener">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Card Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="public/cpms/scp_main.css" type="text/css" rel="stylesheet">
+    <link href="public/cpms/main.css" rel="stylesheet" media="all">
+    <link type="text/css" rel="stylesheet" href="public/cpms/scp_custom.css">
+    <!-- <script src="../scripts/jquery.min.js?v=15.6.0-24051"></script>
+    <script src="../scripts/common.js?v=15.6.0-24051"></script>
+    <script src="../dwr/engine.js"></script>
+    <script src="../dwr/util.js"></script>
+    <script src="../dwr/interface/CardNumberCallback.js"></script>
+    <script src="../scripts/mootools.js?v=15.6.0-24051"></script> -->
+  </head>
+  <!-- <body onload="cardPage()" id="scp_cardPage_body"> -->
+  <body onload="cardPage()" id="scp_cardPage_body">
+      <a href="#main-content" id="skip-link" class="govuk-skip-link">Skip to main content</a>
+      <header class="govuk-header " role="banner" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo app-header__logo">
+      <!-- <a href="https://design-system.service.gov.uk/" class="govuk-header__link govuk-header__link--homepage">
+        <span class="govuk-header__logotype">
+          <svg aria-hidden="true" focusable="false" class="govuk-header__logotype-crown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 97" height="30" width="36">
+            <path fill="currentColor" fill-rule="evenodd" d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
+            <image src="../sites/468!!!ecom/images/govuk-logotype-crown.png" xlink:href="" class="govuk-header__logotype-crown-fallback-image" width="36" height="32"></image>
+          </svg>
+          <span class="govuk-header__logotype-text">
+            GOV.UK
+          </span>
+        </span>
+        <span class="govuk-header__product-name">
+          Design System
+        </span>
+      </a> -->
+    </div>
+  </div>
+</header>
+
+
+      <div class="govuk-width-container ">
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          <div class="govuk-heading-xl" id="readTitle" role="status">Card Details</div>  
+          <div class="helpandcancel">
+            <a href="#" id="scp_customer_framework_helpLink" class="scp_framework_helpLink" onclick="revealModal('scp_helpPage')">Payment Help</a>
+            <a href="/scp/flow/start_flow?execution=e1s2&amp;cpid=bjdd1375ulpgf0ic0qch0qgmluvtkcs&amp;uiid=DFLT%3A468%3A372892694%3AECOM%3Aen%3A&amp;_eventId=cancel" id="scp_customer_framework_cancelLink" class="scp_framework_cancelLink">Cancel</a>
+          </div>
+          <div class="scp_test_environment_warning">WARNING - This website is for internal testing only. You cannot buy or pay for goods or services here.</div>
+            <div class="scp_framework">
+              <div class="scp_framework_header">
+              <div class="scp_framework_header_left">
+<!---->
+</div>
+<div class="scp_framework_header_middle">
+<!---->
+</div>
+<div class="scp_framework_header_right">
+<!---->
+</div>
+</div>
+<div class="scp_view">
+<div class="scp_view_inner" id="scp_view_inner">
+<div class="scp_page_container" id="scp_cardPage_container">
+<div id="scp_cardPage_container_error_parent">
+<div class="scp_error_text" id="scp_cardPage_container_error" aria-hidden="true" tabindex="-1"></div>
+</div>
+<div class="scp_card_images" id="scp_card_images">
+<img class="scp_card_image" src="public/MOTO.png" alt="Moto" id="scp_card_image_MOTO.png"><img class="scp_card_image" src="public/VISA.gif" alt="Visa" id="scp_card_image_VISA.gif"><img class="scp_card_image" src="public/ELEC.gif" alt="Electron" id="scp_card_image_ELEC.gif"><img class="scp_card_image" src="public/MCRD.png" alt="MasterCard" id="scp_card_image_MCRD.png"><img class="scp_card_image" src="public/DELT.gif" alt="Visa Debit" id="scp_card_image_DELT.gif"></div>
+<div class="scp_form_container" id="scp_cardForm_container">
+<form method="post" class="scp_form" action="/apply-for-a-vehicle-test/apply/confirmation" id="scp_cardForm" autocomplete="off" aria-label="Card details">
+<div>
+<input type="hidden" name="uiid" value="DFLT:468:372892694:ECOM:en:"><input type="hidden" name="cpid" value="bjdd1375ulpgf0ic0qch0qgmluvtkcs">
+</div>
+<div class="scp_text scp_xml_text" id="scp_cardPage_mandatoryFields">
+<div class="scp_xml_container_text">All fields marked * are mandatory</div>
+</div>
+<div class="scp_text_field" id="scp_cardPage_amount">
+<span class="scp_text_field_label" id="scp_cardPage_amount_label">Amount</span><span class="scp_text_field_value" id="scp_cardPage_amount_value">£500.00</span>
+</div>
+<div class="scp_input_container" id="scp_cardPage_cardNumber">
+<div id="scp_cardPage_cardNumber_error_parent">
+<div class="scp_error_text" id="scp_cardPage_cardNumber_error" aria-hidden="true" tabindex="-1"></div>
+</div>
+<label class="scp_label_inline" id="scp_cardPage_cardNumber_label" for="scp_cardPage_cardNumber_input">Card Number*</label><input autocomplete="off" maxlength="19" type="text" class="scp_text_input" name="cardNumber" aria-required="true" aria-label="Card Number" aria-describedby="scp_cardPage_cardNumber_error" id="scp_cardPage_cardNumber_input" value="" onchange="validateCardNumber()" onkeypress="return checkNum(event)">
+<div class="scp_popup_help" id="scp_cardPage_cardNumber_popupHelp">
+<div class="scp_popup_help_inner" tabindex="0" id="scp_cardPage_cardNumber_popupHelp_inner" role="tooltip">
+<img src="public/Tooltip.svg" id="scp_cardPage_cardNumber_popupHelp_image" alt="Show help information" width="14" height="14"><div class="scp_popup_help_text" id="scp_cardPage_cardNumber_popupHelp_inner_popup_helpText">The long number of the card you want to use</div>
+</div>
+</div>
+</div>
+<div class="scp_input_container" id="scp_cardPage_expiryDate">
+<div id="scp_cardPage_expiryDate_error_parent">
+<div class="scp_error_text" id="scp_cardPage_expiryDate_error" aria-hidden="true" tabindex="-1"></div>
+</div>
+<label class="scp_label_inline scp_mandatory" id="scp_cardPage_expiryDate_label">Expiry Date*</label><input size="2" maxlength="2" class="scp_text_input" autocomplete="off" type="text" name="expiryDate" id="scp_cardPage_expiryDate_input" aria-label="Month" aria-required="true" aria-describedby="scp_cardPage_expiryDate_error" value="" onkeypress="return checkNum(event)"><label class="scp_card_date_separator" id="scp_cardPage_expiryDate_label2">
+                /
+            </label><input size="2" maxlength="2" class="scp_text_input" autocomplete="off" type="text" name="expiryDate2" id="scp_cardPage_expiryDate_input2" aria-label="Year" aria-required="true" aria-describedby="scp_cardPage_expiryDate_error" value="" onkeypress="return checkNum(event)">
+<div class="scp_popup_help" id="scp_cardPage_expiryDate_popupHelp">
+<div class="scp_popup_help_inner" tabindex="0" id="scp_cardPage_expiryDate_popupHelp_inner" role="tooltip">
+<img src="public/Tooltip.svg" id="scp_cardPage_expiryDate_popupHelp_image" alt="Show help information" width="14" height="14"><div class="scp_popup_help_text" id="scp_cardPage_expiryDate_popupHelp_inner_popup_helpText">The expiry date shown on the card</div>
+</div>
+</div>
+</div>
+<div class="scp_input_container" id="scp_cardPage_csc">
+<div id="scp_cardPage_csc_error_parent">
+<div class="scp_error_text" id="scp_cardPage_csc_error" aria-hidden="true" tabindex="-1"></div>
+</div>
+<label class="scp_label_inline scp_mandatory" id="scp_cardPage_csc_label" for="scp_cardPage_csc_input">Security code*</label><input autocomplete="off" maxlength="4" type="tel" class="scp_tel_input" name="csc" aria-required="true" aria-label="Security Code" aria-describedby="scp_cardPage_csc_error" id="scp_cardPage_csc_input" value="" size="5" onkeypress="return checkNum(event)">
+<div class="scp_popup_help" id="scp_cardPage_csc_popupHelp">
+<div class="scp_popup_help_inner" tabindex="0" id="scp_cardPage_csc_popupHelp_inner" role="tooltip">
+<img src="public/Tooltip.svg" id="scp_cardPage_csc_popupHelp_image" alt="Show help information" width="14" height="14"><div class="scp_popup_help_text" id="scp_cardPage_csc_popupHelp_inner_popup_helpText">The card security code on the back of the card</div>
+</div>
+</div>
+</div>
+<div class="scp_input_container" id="scp_cardPage_storedCard_payment">
+<input type="checkbox" name="storeCardOption" id="scp_cardPage_storedCard_payment_input" value="true"><label id="scp_cardPage_storedCard_payment_label" for="scp_cardPage_storedCard_payment_input">Tick the box if you would like to Store the card  after the payment has been processed</label>
+</div>
+<div class="scp_input_hidden">
+<input type="hidden" name="javaScriptEnabled" id="scp_hidden_javaScriptEnabled" value="true">
+</div>
+<div class="axis_button_container" id="scp_button_container">
+<input type="submit" class="scp_button" value="Continue" name="_eventId_continue" id="scp_cardPage_buttonsNoBack_continue_button"><input type="submit" class="scp_button" value="Reset" name="_eventId_reset" id="scp_cardPage_buttonsNoBack_reset_button">
+</div>
+</form>
+</div>
+<div class="scp_static_text" id="scp_secureLinks">Note: Clicking on the links below will open a new browser window.</div>
+<div class="scp_secure_logos">
+<div class="scp_secure_logo">
+<img src="public/mastercard_securecode.jpg" id="scp_secureLinks_mcrd_logo" alt="MasterCard SecureCode logo"><a target="_blank" class="scp_3dsecure_logo" href="https://www.mastercard.co.uk/en-gb/personal/safety-security/identity-check.html" aria-label="Mastercard: Learn more">Mastercard: Learn more</a>
+</div>
+<div class="scp_secure_logo">
+<img src="public/verified_by_visa.jpg" id="scp_secureLinks_visa_logo" alt="Verified By Visa logo"><a target="_blank" class="scp_3dsecure_logo" href="https://www.visa.co.uk/sca-merchants.html" aria-label="Visa: Learn more">Visa: Learn more</a>
+</div>
+</div>
+</div>
+<div class="scp_modalPage" id="scp_helpPage" style="display:none;">
+<div class="scp_modal_background">
+<!---->
+</div>
+<div class="scp_help">
+<div class="scp_help_top">
+<div class="scp_help_top_right">
+<a class="scp_help_close" onclick="return hideModal('scp_helpPage');" onkeypress="return hideModal('scp_helpPage');" href="/scp/flow/start_flow?execution=e1s2&amp;cpid=bjdd1375ulpgf0ic0qch0qgmluvtkcs&amp;uiid=DFLT%3A468%3A372892694%3AECOM%3Aen%3A&amp;_eventId=helpclose">[Close]</a>
+</div>
+<h3 class="scp_heading" id="scp_cardPage_help_header">Card Page Help</h3>
+</div>
+<div class="scp_help_body">
+<div class="scp_help_content">
+<p class="scp_help_title" id="scp_help_title_card" style="cursor: pointer;">Card Number <a class="scp_help_show_hide_link" href="#" id="scp_help_show_hide_card_link">Show/Hide</a>
+</p>
+<p class="scp_help_text" id="scp_help_text_card" style="display: none;">Enter your credit or debit card number. Visa, Mastercard, Switch and Delta are accepted. The card number should be entered without any spaces.</p>
+<p class="scp_help_title" id="scp_help_title_expiry" style="cursor: pointer;">Expiry Date <a class="scp_help_show_hide_link" href="#" id="scp_help_show_hide_expiry_link">Show/Hide</a>
+</p>
+<p class="scp_help_text" id="scp_help_text_expiry" style="display: none;">Every card has an expiry date. Select the drop down arrow to display a valid list of card expiry dates. The expiry date has two parts: mm the month of expiry, yy the year of expiry.</p>
+<p class="scp_help_title" id="scp_help_title_csc" style="cursor: pointer;">Card Security Code <a class="scp_help_show_hide_link" href="#" id="scp_help_show_hide_csc_link">Show/Hide</a>
+</p>
+<p class="scp_help_text" id="scp_help_text_csc" style="display: none;">Please enter the Card Security Code. This is typically the last three digits of the number printed on the signature strip on the back of your card.</p>
+</div>
+</div>
+<div class="scp_help_bottom">
+<div class="scp_help_bottom_right">
+<a class="scp_help_close" onclick="return hideModal('scp_helpPage');" onkeypress="return hideModal('scp_helpPage');" href="/scp/flow/start_flow?execution=e1s2&amp;cpid=bjdd1375ulpgf0ic0qch0qgmluvtkcs&amp;uiid=DFLT%3A468%3A372892694%3AECOM%3Aen%3A&amp;_eventId=helpclose">[Close]</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+                
+				// var control = document.getElementById('scp_cardPage_cardNumber_input');
+				// control.focus();
+				// control.select();
+				
+            </script>
+</div>
+</div>
+<div class="scp_framework_footer">
+<div class="scp_framework_footer_left">
+<!---->
+</div>
+<div class="scp_framework_footer_middle">
+<!---->
+</div>
+<div class="scp_framework_footer_right">
+<!---->
+</div>
+</div>
+</div>
+
+               
+            
+            
+        </main>
+      </div>
+
+      
+      
+       
+      <footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+    
+       
+      </div>
+      <div class="govuk-footer__meta-item">
+      
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script type="text/javascript">
+    //write title into title header
+    // document.getElementById("readTitle").innerHTML = document.title;  
+  </script>
+</body></html>

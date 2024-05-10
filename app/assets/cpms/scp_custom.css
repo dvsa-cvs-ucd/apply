@@ -1,0 +1,277 @@
+
+.govuk-header {
+    
+    border-bottom: 10px solid #1d70b8 !important;
+    
+}
+
+
+
+.govuk-main-wrapper {
+  
+    background-color: #fff !important; 
+}
+
+
+.govuk-template {
+	
+    overflow: auto;
+   
+}
+
+
+
+.scp_input_container {
+  
+    padding: 10px;
+}
+
+div#scp_button_container {
+    padding-top: 30px;
+}
+
+
+.helpandcancel {
+	
+	float: right;
+
+	
+}
+
+
+a#scp_customer_framework_helpLink, a#scp_customer_framework_cancelLink {
+	
+	padding-right: 15px;
+
+} 
+
+.scp_help_top {
+    background-color: #000;
+	color: #fff;
+   
+}
+	
+.scp_help_top_right {
+	
+    display: none;
+}
+	
+	
+* {
+		
+		font-family: "GDS Transport",Arial,sans-serif;
+		
+}
+
+
+.scp_button 
+{
+    font-family: "GDS Transport",Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+   
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+  
+    margin-top: 0;
+    margin-bottom: 22px;
+    padding: 8px 10px 7px;
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: #fff;
+    background-color: #00703c;
+    -webkit-box-shadow: 0 2px 0 #002d18;
+    box-shadow: 0 2px 0 #002d18;
+    text-align: center;
+    vertical-align: top;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+
+.scp_button:hover {
+	
+    background-color: #005a30;
+}
+
+.scp_input_container input {
+    border: 2px solid #0b0c0c !important;
+    max-width: 41ex;
+}
+
+.scp_text_input, input[type=tel] {
+	font-family: "GDS Transport",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.25;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    height: 2.5rem;
+    margin-top: 0;
+    padding: 5px;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.scp_input_container input:focus, .scp_text_input:active, .scp_text_input:focus, 
+input[type=tel]:active, input[type=tel]:focus {
+border: 2px solid #0b0c0c;
+outline: 3px solid #fd0;
+	outline-offset: 0;
+	-webkit-box-shadow: inset 0 0 0 2px;
+	box-shadow: inset 0 0 0 2px
+}
+
+
+input#scp_cardPage_expiryDate_input, input#scp_cardPage_expiryDate_input2 {
+
+    max-width: 5.4ex;
+	padding: 6px;
+}
+
+
+input#scp_cardPage_cardNumber_input {
+	
+	max-width: 23ex;
+	padding:6px;
+}
+
+input#scp_cardPage_csc_input {
+	
+	max-width: 7.2ex;
+	padding: 6px;
+}
+
+body {
+    margin: 0;
+	background-color: #fff
+}
+
+.govuk-header__container {
+
+    padding-top: 40px;
+   
+}
+
+
+input#scp_additionalInformationPage_address_1_input, input#scp_additionalInformationPage_address_2_input, input#scp_additionalInformationPage_address_3_input   {
+	
+	display: none;
+}
+
+
+input#scp_additionalInformationPage_county_input{
+	
+	
+	display: none;
+	
+}
+
+
+input#scp_additionalInformationPage_country_input {
+	
+	display: none;
+}
+
+
+input#scp_additionalInformationPage_postcode_input {
+	
+	display: none;
+}
+
+
+label#scp_additionalInformationPage_address_1_label, label#scp_additionalInformationPage_address_2_label, label#scp_additionalInformationPage_address_3_label {
+
+display: none;
+
+
+}
+
+
+div#scp_additionalInformationPage_address_1, div#scp_additionalInformationPage_address_2, div#scp_additionalInformationPage_address_3 {
+	
+	display: none;
+}
+
+div#scp_additionalInformationPage_county, label#scp_additionalInformationPage_country_label, label#scp_additionalInformationPage_postcode_label, div#scp_additionalInformationPage_country, div#scp_additionalInformationPage_postcode
+ {
+	
+	display: none;
+}
+
+
+
+.scp_heading {
+font-family: "GDS Transport",Arial,sans-serif;
+font-size: 32px;
+}
+
+.scp_wallet_provider {
+border: 2px solid #58585B;
+}
+
+#scp_cardPage_header, #scp_additionalInformationPage_header {
+    display: none;
+}
+
+.scp_popup_help_inner {
+    display: none;
+}
+
+#scp_cardPage_cardNumber_label:after {
+    content: "The long number of the card you want to use";
+    display:inline-block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-weight: normal;
+}
+
+#scp_cardPage_expiryDate_label:after {
+    content: "The expiry date shown on the card";
+    display:inline-block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-weight: normal;
+}
+
+#scp_cardPage_csc_label:after {
+    content: "The card security code on the back of the card";
+    display:inline-block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-weight: normal;
+}
+
+#scp_additionalInformationPage_cardholderName_label:after {
+    content: "The name as it appears on the card";
+    display:inline-block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-weight: normal;
+}
+
+.scp_mandatory {
+    font-weight: bold;
+}
+
+.scp_label_inline {
+    padding-right: 2em;
+    font-weight: bold;
+}
+
+.scp_page_container {
+    border: 0 !important;
+}

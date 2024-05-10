@@ -237,13 +237,25 @@
           <form action="/add-vehicle">
             <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
           </form>
-        {% if data.myvt %}
+        {% if data.pfa %}
         <h3 class="govuk-heading-m">Approve payment from your pre-funded account</h3>
         <p class="govuk-body">This gives the DVSA permission to collect the cost of the application from your pre-funded account.The payment will happen after your application has been processed.</p>
-        {% endif %}
         <form action="confirmation">
+          {% else %}
+          <div class="govuk-inset-text govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+            <p class="govuk-body">Selecting 'Proceed to payment' will take you to our payment provider Customer
+              Payment Management System. </p>
+          
+            <p class="govuk-body">Make sure you have your card details in front of you, as you will have 30 minutes to complete
+              your payment. This is to keep your information safe and secure. Any details you enter will not be shared.</p>
+          
+            <p class="govuk-body"><strong>To get an email confirmation of your payment, enter your email address when asked to on
+                the ‘Additional Details’ page.</strong></p>
+          </div>
+        <form action="/cpms">
+        {% endif %}
           <div class="govuk-button-group">
-            <button value="payment" class="govuk-button">{%- if data.myvt -%}Accept and approve payment{%- else -%}Submit{%- endif -%}</button>
+            <button value="payment" class="govuk-button">{%- if data.pfa -%}Accept and approve payment{%- else -%}Proceed to payment{%- endif -%}</button>
           </div>
         </form>
       </div>

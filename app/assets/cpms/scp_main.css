@@ -1,0 +1,1408 @@
+/**  Apple Pay Button css start */
+apple-pay-button {
+    --apple-pay-button-width: 150px;
+    --apple-pay-button-height: 30px;
+    --apple-pay-button-border-radius: 3px;
+    --apple-pay-button-padding: 0px 0px;
+    --apple-pay-button-box-sizing: border-box;
+}
+
+.apple-pay-div {
+    transform: translateY(55%);
+}
+
+/**  Apple Pay Button css end */
+
+/** Modal Box css.*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: -5em; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    top: -125px
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.left {
+    margin: auto;
+    width: 5%;
+    padding: 10px;
+    align-items: left;
+}
+
+.right {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+.selectdiv {
+    position: relative;
+    float: left;
+    min-width: 200px;
+
+}
+
+.column-padded label {
+    padding-left: 3px;
+}
+
+/*To remove button from IE11, thank you Matt */
+select::-ms-expand {
+    display: none;
+}
+
+.selectdiv:after {
+    content: '<  >';
+    font: 17px "Consolas", monospace;
+    color: #333;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 1px;
+    /*Adjust for position however you want*/
+    top: 18px;
+    padding: 0 0 2px;
+    /*left line */
+    position: absolute;
+    pointer-events: none;
+}
+
+.selectdiv select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add some styling */
+    display: block;
+    width: 17em;
+    max-width: 17em;
+    height: 50px;
+    float: right;
+    margin: 5px 0px;
+    padding: 0px 10px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #333;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #cccccc;
+    -ms-word-break: normal;
+    word-break: normal;
+}
+
+.row-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.row-center-border {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 5px;
+}
+
+.row-center-border-pay {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 5px;
+}
+
+.column {
+    display: flex;
+    align-content: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 9px;
+}
+
+.column-padded {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 25px;
+    padding-bottom: 5px;
+}
+
+/*
+ * Heading styles
+ */
+h1.scp_heading {
+}
+
+h2.scp_heading {
+}
+
+h3.scp_heading {
+}
+
+div.scp_heading {
+}
+
+p.scp_heading {
+}
+
+img.scp_heading {
+}
+
+/*
+ * Style for the <div> that contains the card images
+ */
+.scp_card_images {
+}
+
+/*
+ * Style for individual card images (<img> elements)
+ */
+.scp_card_image {
+	padding: 0.4em !important;
+}
+
+img.scp_card_image {
+	width: 60px;
+	height: 40px;
+}
+
+img#scp_secureLinks_mcrd_logo {
+	width: 180px;
+	height: 75px;
+	display: block !important;
+}
+
+img#scp_secureLinks_visa_logo {
+	width: 130px;
+	height: 75px;
+	display: block !important;
+}
+
+.scp_secure_logo {
+	display: inline-block;
+	text-align: center;
+}
+
+.scp_secure_logo img {
+	display: block;
+}
+
+/*
+ * Styles for a 'text field' (static text followed by a value that varies at runtime)
+ */
+.scp_xml_container_text {
+	margin: 0.5em 0 0.5em 0;
+}
+
+.scp_text_field {
+	margin: 0.5em 0 0.5em 0;
+}
+
+span#scp_cardPage_amount_label {
+	margin-right: 0.5em;
+}
+
+.scp_text_field_label {
+}
+
+.scp_text_field_value {
+
+}
+
+.scp_text {
+}
+
+.scp_static_text {
+}
+
+.scp_xml_text {
+}
+
+.scp_formatted_text {
+}
+
+/*
+ * Style for the text that warns you you're in a test environment
+ */
+.scp_test_environment_warning {
+	margin: 1em;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+/****************************************************
+ * Styles used to implement 'popup' help for
+ * individual input items, etc.
+ ****************************************************/
+
+.scp_popup_help {
+	display: inline;
+}
+
+/*
+ * Div that holds the help icon and (normally hidden)
+ * help text
+ */
+.scp_popup_help_inner {
+	display: inline;
+	cursor: help;
+}
+
+.scp_popup_help_inner:hover img
+{
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+.scp_popup_help_inner:focus-within
+{
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+/*
+ * Help text when hidden
+ */
+.scp_popup_help > div.scp_popup_help_inner > div {
+	display: none;
+}
+
+/*
+ *  Help text when displayed
+ */
+.scp_popup_help > div.scp_popup_help_inner:hover > div {
+	position: absolute;
+	display: block;
+	z-index: 999;
+	margin-left: 15em;
+}
+
+/*
+ *  Help text when displayed
+ */
+.scp_popup_help > div.scp_popup_help_inner:focus > div {
+	position: absolute;
+	display: block;
+	z-index: 999;
+	margin-left: 15em;
+}
+
+.scp_popup_help_text {
+	background-color: #fff;
+	padding: 0.5em;
+	border: 1px solid #000;
+	min-width: 15em;
+}
+
+
+/*************************************************
+ * Styles for input elements
+ *************************************************/
+
+/*
+ * Div that contains all of the elements relating to
+ * a particular input field
+ */
+.scp_input_container {
+	clear: left;
+}
+
+.scp_input_container input {
+	border: 1px solid #000;
+}
+
+.scp_input_container input:focus{
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+/*
+ * Div that contains all of the elements relating to
+ * a particular select field
+ */
+.scp_select_container {
+	margin-bottom: 0.5em;
+}
+
+.scp_select_select {
+	max-width: 25em;
+	border: 1px solid #000;
+}
+/*
+ * Div that contains the hidden input field
+ */
+.scp_input_hidden {
+	display: none;
+}
+
+/*
+ * Style for input field description
+ */
+.scp_desc_text {
+}
+
+/*
+ * Style for input field label when labels are
+ * configured to appear above the input fields
+ */
+.scp_label_block {
+	display: block;
+	margin: 0em;
+	width: 15em;
+}
+
+/*
+ * Style for input field label when labels are
+ * configured to appear to the left of the input fields
+ */
+.scp_label_inline {
+	display: block;
+	float: left;
+	margin: 0em;
+	width: 15em;
+}
+
+/*
+ * Additional styling that is to be applied to mandatory
+ * field labels
+ */
+.scp_mandatory {
+	font-weight: bold;
+}
+
+/*
+ * Style for a text input field
+ */
+.scp_text_input {
+}
+
+/*
+ * Style for a disabled text input field
+ */
+.scp_text_input[disabled] {
+	background-color: #DDDDDD;
+}
+
+/*
+ * Style for the label that separates the month and year parts
+ * of a card date input field
+ */
+.scp_card_date_separator {
+}
+
+/*
+ * Style used to display input validation errors
+ */
+.scp_error_text {
+	font-weight: bold;
+	color: #AD0000;
+}
+
+.scp_message_text {
+	font-weight: bold;
+	color: #000fff;
+	margin: 0.5em 0;
+}
+
+/*
+ * Style for drop down list of Countries
+ */
+.scp_select_select:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+/***************************************************************
+ * Other form-related styles
+ ***************************************************************/
+
+/*
+ * Style for a submit button
+ */
+.scp_button {
+}
+
+.scp_button:focus{
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+/*
+ * Div that contains a form
+ */
+.scp_form_container {
+}
+
+/*
+ * Style for <form> elements
+ */
+.scp_form {
+	padding: 0;
+}
+
+/*
+ * Style for <fieldset> elements
+ */
+fieldset.scp_fieldset {
+	padding-right: 1em;
+	padding-left: 1em;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em
+}
+
+/*********************************************************
+ * Styles for security-related elements
+ *********************************************************/
+#scp_threeDSecurePage_authorisation_javascript
+{
+	display: none;
+}
+/*
+ * Style for the IFrame that hosts the 3-D Secure page
+ */
+
+.scp_threeDSecure_iframe {
+	width: 70%;
+	height: 30em;
+	min-height: 450px;
+	min-width: 440px;
+	visibility: hidden;
+}
+
+/*
+ * Style for a 3-D Secure logo (an <a href=...> element
+ * whose content is the actual image)
+ */
+.scp_3dsecure_logo {
+	margin: 0.5em;
+	color:#225078;
+}
+
+.scp_3dsecure_logo:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+/*
+ * Style for a Trustwave logo (an <a href=...> element
+ * whose content is the actual image)
+ */
+.scp_trustwave_logo {
+	margin: 0.5em;
+}
+
+/**************************************************************
+ * The following styles relate to the purchase details table.
+ **************************************************************/
+
+/*
+ * The table itself
+ */
+.scp_purchase_details {
+	border: solid;
+	border-width: 2px;
+	border-collapse: collapse;
+}
+
+/*
+ * Table caption
+ */
+.scp_purchase_details > caption {
+	text-align: left;
+}
+
+/*
+ * All cells in the header row
+ */
+.scp_purchase_details > thead > tr > th {
+	border: solid;
+	border-width: 1px;
+	padding: 0.2em;
+	font-weight: bold;
+}
+
+/*
+ * All cells in body rows
+ */
+.scp_purchase_details > tbody > tr > td {
+	border: solid;
+	border-width: 1px;
+	padding: 0.2em;
+}
+
+/*
+ * Right-justify amounts
+ */
+.scp_amount {
+	text-align: right;
+}
+
+/*
+ * The <tbody> section that displays the items being purchased
+ */
+.scp_purchase_details_items {
+
+}
+
+/*
+ * The <tbody> section that displays surcharge details
+ */
+.scp_purchase_details_surcharge {
+}
+
+.scp_purchase_details_surcharge_summary {
+	font-style: italic;
+	background-color: yellow;
+}
+
+.scp_purchase_details_surcharge_label {
+}
+
+.scp_purchase_details_surcharge_value {
+}
+
+/*
+ * The <tfoot> that contains the purchase total row
+ */
+.scp_purchase_details_total {
+	font-weight: bold;
+}
+
+/*************************************************************
+ * The following styles relate to the card details definition list
+ *************************************************************/
+
+/*
+ * The definition list
+ */
+
+dl.scp_card_details {
+}
+
+dt.scp_card_details {
+	width: 12em;
+	float:left;
+}
+
+/*
+ * Styling for individual definition terms
+ */
+.scp_card_details_cardNumber {
+}
+
+.scp_card_details_cardholderName {
+}
+
+.scp_card_details_email {
+}
+
+.scp_card_details_expiryDate {
+}
+
+.scp_card_details_startDate {
+}
+
+.scp_card_details_issueNumber {
+}
+
+/**********************************************************
+ * Styling for the framework that surrounds each form
+ **********************************************************/
+.scp_framework {
+}
+
+.scp_framework_header {
+}
+
+.scp_framework_header_left {
+	float: left;
+}
+
+.scp_framework_header_middle {
+	margin: 0 auto;
+}
+
+.scp_framework_header_right {
+	float: right;
+}
+
+.scp_view {
+	clear: both;
+}
+
+.scp_view_inner {
+	text-align: left;
+}
+
+.scp_page_container {
+	margin-top: 1em;
+	border: 1px solid #ddd;
+	padding: 0.5em;
+}
+
+.scp_purchase_details_col_class{
+	width: 25%;
+}
+
+#scp_confirmationPage_purchaseDetails_container {
+	margin: 0.5em;
+}
+
+#scp_confirmationPage_cardDetails_container {
+	margin: 0.5em;
+}
+
+#scp_confirmationPage_dccDetails_container {
+	margin: 0.5em;
+}
+
+.scp_framework_footer {
+}
+
+.scp_framework_footer_left {
+	float: left;
+}
+
+.scp_framework_footer_middle {
+	margin: 0 auto;
+}
+
+.scp_framework_footer_right {
+	float: right;
+}
+
+/**********************************************************
+ * Styles relating to the modal window that displays
+ * help text
+ **********************************************************/
+
+/*
+ * Class for divs that hold (normally hidden) modal windows.
+ */
+.scp_modalPage {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+
+/*
+ * A modal window's background. This is used to 'grey out' the
+ * part of the original form that is visible behind a modal window.
+ */
+.scp_modal_background {
+	filter: Alpha(Opacity = 40);
+	-moz-opacity: 0.4;
+	opacity: 0.4;
+	width: 100%;
+	height: 100%;
+	background-color: #999999;
+	position: absolute;
+	z-index: 500;
+}
+
+.scp_help {
+	background-color: #fff;
+	border: solid 1px #777;
+	box-shadow: 0px 0px 15px #777;
+	position: relative;
+	z-index: 1000;
+	width: 70%;
+	height: 70%;
+	overflow: auto;
+	top: 15%;
+	left: 15%;
+}
+
+.scp_help div.css_inner_help span {
+	display: block;
+}
+
+.scp_help_top {
+	background-color: #ccc;
+	color: #000;
+	margin: 0.2em;
+	padding: 0.5em;
+}
+
+.scp_help_top_right {
+	float: right;
+}
+
+.scp_help_bottom {
+	color: #000;
+	margin: 0.2em;
+	padding: 0.5em;
+}
+
+.scp_help_bottom_right {
+	text-align: right;
+}
+
+.scp_help_title {
+	font-weight: bold;
+	padding: 0.5em;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	margin-bottom: 0.5em;
+	position: relative;
+}
+
+.scp_help_title:hover {
+	background-color: #C9E4F1;
+}
+
+.scp_help_show_hide_link {
+	font-size: 0.7em;
+	right: 1em;
+	position: absolute;
+}
+
+.scp_help_close {
+	font-weight: bold;
+}
+
+.scp_help_body {
+	padding: 10px;
+}
+
+#scp_wallet_image_VCO {
+	line-height: 9em;
+}
+
+.scp_wallet_image#scp_wallet_incontext_PPAL  {
+	margin-top: 3em;
+}
+
+/*******************************************
+ * Default style for the busy indicator
+ *******************************************/
+
+#busy_indicator_text {
+	font-size: 1.2em;
+	font-weight: bold;
+	border: 2px solid #666;
+	background-color: #fff;
+	padding: 1em 3em;
+
+	/*
+	 * Don't change the following properties unless
+	 * you're sure you know what you're doing!
+	 */
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1000;
+	overflow: hidden;
+	width: auto;
+	height: auto;
+}
+
+/**************************************************************
+ * The following styles relate to the Wallet selection styling.
+ **************************************************************/
+.scp_wallet_providers {
+	min-width: 16em;
+	margin: 0.5em;
+}
+
+.scp_wallet_provider {
+	clear: left;
+	min-height: 10em;
+	margin-bottom: 0.5em;
+	cursor: pointer;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.scp_exp_dates{
+	display: inline-block;
+}
+
+.scp_wallet_provider:hover {
+	background-color: #C9E4F1;
+	border: 2px solid #666;
+}
+
+.scp_wallet_provider:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123, 255, 0.25);
+}
+
+#scp_wallet_provider_V_ME {
+	cursor: inherit;
+}
+
+div.scp_wallet_image {
+	float: left;
+	min-width: 14em;
+	text-align:center;
+	padding: 0.5em;
+}
+
+img.scp_wallet_image, img#scp_wallet_PING_payment {
+	height: auto;
+	max-width: 11em;
+	border: none;
+	max-height: 9em;
+}
+
+#scp_wallet_image_V_ME {
+	padding-top: 4em;
+}
+
+#scp_wallet_image_PING {
+	padding-top: 3em;
+}
+
+.scp_wallet_description_wrapper {
+	cursor: pointer;
+	margin-left: 17em;
+}
+
+.scp_wallet_header {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding: 0.5em 0.5em 0 0;
+}
+
+.scp_wallet_description {
+	padding: 0 0.5em 0.5em 0;
+}
+
+.scp_wallet_header_V_ME, .scp_wallet_description_V_ME {
+	cursor: pointer;
+}
+
+/**************************************************************
+ * The following styles relate to the Capita Wallet
+ * management styling.
+ **************************************************************/
+.scp_stored_wallet_card_container_cardImage {
+	float: left;
+	width: 6em;
+}
+
+.scp_stored_wallet_card_container_expiryDate > .scp_stored_card_label {
+}
+
+.scp_stored_wallet_card_container_cardActions {
+	position: absolute;
+	top: 1em;
+	margin-top: 0.5em;
+}
+
+.scp_stored_card_select_card {
+	margin-left: 24em;
+}
+
+.scp_stored_wallet_card_container_expiryDate {
+}
+
+.scp_stored_wallet_card_container_cardErrors {
+	min-width: 19em;
+}
+
+.scp_stored_card_label {
+	float: left;
+	min-width: 11em;
+	font-weight: bold;
+}
+
+#scp_new_card_text {
+	font-weight: bold;
+}
+
+.scp_stored_card_value {
+	padding-bottom: 0.5em;
+}
+
+.scp_stored_card_value_card {
+}
+
+.scp_stored_card {
+	text-align: left;
+	margin: 0.5em 0;
+	position: relative;
+	min-height: 5em;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+}
+
+.scp_select_stored_card {
+	padding: 2em 0 1em;
+	float: left;
+	width: 85%;
+	border-radius: 6px 0 0 6px;
+}
+
+.scp_select_stored_card:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.3rem rgba(0,123, 255, 0.25);
+}
+
+.scp_select_stored_card:hover{
+	border: 2px solid #666;
+}
+
+.scp_delete_stored_card {
+	border-left: 1px solid #ccc;
+	padding: 1.5em 0;
+	margin-left: 85%;
+	text-align: center;
+	border-radius: 0 6px 6px 0;
+}
+
+.scp_delete_stored_card:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.3rem rgba(0,123, 255, 0.25);
+}
+
+.scp_delete_stored_card:hover{
+	border: 2px solid #666;
+}
+
+.scp_new_stored_card {
+	padding: 1em 0.5em 2em 0.5em;
+	min-height: 4em;
+	border-radius: 6px;
+}
+
+.scp_new_stored_card:hover{
+	border: 2px solid #666;
+}
+
+.scp_new_stored_card:focus {
+	border-color: #80bdff;
+	outline: 0;
+	box-shadow: 0 0 0 0.3rem rgba(0,123, 255, 0.25);
+}
+
+.scp_delete_text
+{
+	padding-top:0.2em;
+}
+
+.scp_delete_confirmation {
+	background-color: #fff;
+	border: solid 1px #777;
+	box-shadow: 0px 0px 15px #777;
+	position: relative;
+	z-index: 1000;
+	width: 70%;
+	height: 20%;
+	overflow: auto;
+	top: 35%;
+	left: 15%;
+	min-height: 15em;
+	padding: 0.5em;
+}
+
+.scp_delete_confirmation div.css_inner_help span {
+	display: block;
+}
+
+.scp_select_stored_card:hover, .scp_new_stored_card:hover {
+	background-color: #C9E4F1;
+}
+
+.scp_delete_stored_card:hover {
+	background-color: #d28686;
+}
+
+.scp_stored_card_default_image {
+	position: absolute;
+	top: 4px;
+	left: 2px;
+	width: 21px;
+	height: auto;
+}
+
+.scp_stored_wallet_card_container_cardLastFourDigits {
+	margin-top: 0.5em;
+}
+
+.scp_text_field_div_label {
+	font-weight: bold;
+	float: left;
+	width: 10em;
+}
+
+.scp_card_new_button, .scp_card_selection_button, .scp_card_delete_button {
+	min-width: 5em;
+}
+
+.scp_stored_card_expired, .scp_stored_card_not_accepted {
+	font-weight: bold;
+	color: #ff0000;
+	white-space: nowrap;
+	margin-top: 0.5em;
+	text-align: left;
+}
+
+.scp_stored_card_image {
+	margin: 0.3em 0 0 1em;
+	width: 64px;
+	height: 40px;
+}
+
+img.scp_stored_card_image_fade {
+	opacity:0.5;
+	filter:alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.scp_stored_card_expired_or_not_accepted, .scp_stored_card_expired_or_not_accepted:hover {
+	cursor: default !important;
+	background-color: #F2DEDE;
+	border: 1px solid #EBCCD1;
+}
+
+#scp_card_image_newPaymentMethod {
+}
+
+.scp_wallet_owner_name {
+	font-weight: bold;
+}
+
+.scp_wallet_js_disabled_description {
+	display: block;
+	margin-top: 1em;
+	font-weight: bold;
+	color: #ff0000;
+}
+
+#scp_storeCardSelectionPage_walletOwner_header {
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	padding: 1em 0 1em 5em;
+	background: url("../images/wallet.png") no-repeat;
+	background-size: 55px;
+	background-position: 1em;
+	background-color: #fff;
+}
+
+#scp_confirmationPage_dccDetails_acceptance p {
+	font-size: 0.75em;
+	font-style: italic;
+}
+
+#scp_confirmationPage_dccDetails_acceptance {
+}
+
+
+label#scp_confirmationPage_dccDetails_choice_1, label#scp_confirmationPage_dccDetails_choice_2 {
+	width: 20em;
+	display: inline-block;
+}
+#scp_confirmationPage_dccDetails_choice_1_input,#scp_confirmationPage_dccDetails_choice_2_input {
+	display: inline-block;
+	float: left;
+	margin-right: 0.5em;
+}
+
+#scp_confirmationPage_dccDetails_choice_2 {
+	margin-bottom: 1.5em;
+}
+
+.scp_framework_subMerchantName {
+	margin: 0.1em;
+	padding: 0.2em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	display: inline-block;
+	width: 10em;
+	background-color: #04476f;
+}
+
+#scp_confirmationPage_dccDetails_choice_container {
+	border: none;
+	display: inline-block;
+}
+
+#scp_cardPage_buttons_back_button, #scp_cardPage_buttons_continue_button {
+	margin-right: 0.2em !important;
+}
+
+#scp_additionalInformationPage_buttons_continue_button, #scp_additionalInformationPage_buttons_back_button,
+#scp_tdsv2AdditionalInfoPage_buttons_continue_button, #scp_tdsv2AdditionalInfoPage_buttons_back_button {
+	margin-right: 0.2em !important;
+}
+
+#scp_confirmationPage_buttons_payment_button {
+	margin-right: 0.2em !important;
+}
+
+#scp_storeCardConfirmationPage_buttons_save_button, #scp_storeCardConfirmationPage_buttons_cancel_button {
+	margin-right: 0.2em !important;
+}
+
+#scp_storeCardSelectionPage_deleteConfirmation_deleteCancelled_button {
+	margin-right: 0.2em !important;
+}
+
+#scp_cardPage_buttonsNoBack_continue_button, #scp_cardPage_buttonsNoBack_reset_button {
+	margin-right: 0.2em !important;
+}
+
+/**************************************************************
+ * The following styles relate to resolutions up to 640px.
+ **************************************************************/
+@media screen and (min-device-width: 1px) and (max-device-width:640px), screen and (min-width: 1px) and (max-width:640px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	div.scp_wallet_image {
+		float: none !important;
+		border-right: none !important;
+	}
+	.scp_wallet_header, .scp_wallet_description {
+		margin-left: 0.5em !important;
+	}
+
+	.scp_stored_card_label {
+		float: inherit;
+	}
+
+	.scp_select_stored_card {
+		width: 85%;
+		min-height: 5.6em;
+	}
+
+	.scp_delete_stored_card {
+		padding: 2.5em 0;
+		height: 8.8em;
+	}
+
+	.scp_stored_wallet_card_container_cardImage {
+		height: 6em;
+	}
+
+	.scp_stored_wallet_card_container_expiryDate {
+		float: none !important;
+	}
+
+	.scp_stored_wallet_card_container_cardActions {
+		position: inherit !important;
+		top: inherit !important;
+		margin-top: 0px !important;
+		margin-left: 0em;
+		clear: left;
+	}
+
+	.scp_stored_card_select_card {
+		margin-left: 0 !important;
+	}
+
+	.scp_stored_card_action_container {
+		margin-left: 0em !important;
+	}
+
+	.scp_text_input {
+		max-width: 20em;
+	}
+
+	.scp_wallet_description_wrapper {
+		margin-left: inherit;
+	}
+
+	.scp_help {
+		width: inherit;
+		z-index: 2000;
+		top: 0;
+		left: 0;
+		height: 100%;
+		border: none;
+	}
+
+	.scp_help_top {
+		width: 97% !important;
+		position: fixed;
+		margin: inherit;
+		padding: inherit;
+	}
+
+	.scp_help_top_right {
+		margin-right: 1.5em;
+	}
+
+	.scp_help > .scp_help_body {
+		margin-top: 5em;
+	}
+
+	.scp_delete_confirmation {
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+
+	.scp_wallet_header {
+		text-decoration: underline;
+	}
+
+	.scp_label_inline {
+		float: inherit;
+	}
+
+	.scp_popup_help > div.scp_popup_help_inner:hover > div {
+		margin-left: 0em;
+	}
+
+	.scp_popup_help > div.scp_popup_help_inner:focus > div {
+		margin-left: 0em;
+	}
+
+}
+
+/*********************************************************************************************
+ * The following styles relate to resolutions up to 480px.
+
+ * The height for classes scp_select_stored_card,scp_new_stored_card, scp_delete_stored_card
+   is changed to 10.9em so that focus ring can surround to respective div properly even after
+   content gets resized.To test these changes we need to remove the code below the comment
+   "styles relate to resolutions up to 480px" and  class "scp_select_stored_card" in
+   bootstrap-custom.css file as these changes overrides the changes of scp_main.css.
+ ********************************************************************************************/
+@media screen and (min-device-width: 1px) and (max-device-width:480px), screen and (min-width: 1px) and (max-width:480px), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	.scp_stored_wallet_card_container_cardImage {
+		float: none !important;
+		width: 100%;
+		height: 4em;
+	}
+	.scp_stored_card_select_card {
+		text-align: center;
+	}
+	.scp_card_selection_button {
+		width: 90%;
+	}
+	.scp_stored_card_label {
+		float: left;
+	}
+
+	.scp_stored_card {
+		min-width: 95%;
+		height: 11em;
+	}
+
+	.scp_select_stored_card {
+		height: 10.9em;
+		width: 80%;
+	}
+
+	.scp_new_stored_card {
+		height: 10.9em;
+	}
+
+	.scp_delete_stored_card {
+		height: 10.9em;
+		padding: 4em 0 0 0;
+		margin-left: 80%;
+	}
+
+	.scp_stored_card_select_card {
+		text-align: center;
+	}
+
+	.scp_stored_wallet_card_container_cardLastFourDigits, .scp_stored_wallet_card_container_expiryDate, .scp_stored_wallet_card_container_cardErrors {
+		padding-left: 1em;
+	}
+
+	.scp_card_selection_button {
+		width: 90%;
+	}
+
+	#wallet_selected_card_image {
+		float: none !important;
+	}
+
+	#scp_landingPage_title {
+		font-size: 1.2em;
+	}
+
+	#scp_landingPage_buttons_login_button {
+		font-size: 1.5em;
+		width: 95%;
+	}
+
+	#scp_landingPage_container {
+		background-size: 20em;
+		background-position: left bottom 3em;
+	}
+
+	.scp_text_field_label {
+		width: inherit;
+		display: block;
+	}
+
+	.scp_text_input {
+		max-width: 15em;
+	}
+
+	#scp_confirmationPage_dccDetails_choice_container {
+		border: none;
+		padding: 0;
+	}
+	#scp_confirmationPage_dccDetails_choice_2 {
+		margin-bottom: 0em;
+	}
+
+	label#scp_confirmationPage_dccDetails_choice_1, label#scp_confirmationPage_dccDetails_choice_2 {
+		width: 10em;
+		display: inline-block;
+	}
+}
