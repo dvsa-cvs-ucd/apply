@@ -1,6 +1,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% set question = 'Find a test centre for an inspection' %}
+{% set question = 'Select your preferred test centre' %}
 {% set title = data['test-type'] %}
 
 <div class="govuk-grid-row">
@@ -24,7 +24,7 @@
               </h1>
             </legend>
             <p id="find-test-centre-hint" class="govuk-hint">
-              Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to
+              This is a provisional selection and may change later. Even if you think your vehicle doesn't need an inspection, you must select an option. The DVSA reserves the right to
               inspect your vehicle.
             </p>
           <div class="dvsa-panel__highlight">
@@ -48,7 +48,7 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
             <table class="govuk-table">
-              <caption class="govuk-table__caption govuk-table__caption--m">Select a recently selected test centre</caption>
+              <caption class="govuk-table__caption govuk-table__caption--m">Recently selected test centres</caption>
               <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header">
