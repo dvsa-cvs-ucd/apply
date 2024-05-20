@@ -291,6 +291,59 @@ router.get('/test-type-check', (req, res) => {
   }
 })
 
+router.get('/vehicle-being-tested-alongside-mot', (req, res) => res.render('vehicle-being-tested-alongside-mot.html'))
+router.get('/mot-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['tested-with-mot'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#tested-with-mot', text: 'Select whether your vehicle is being tested with an MOT' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/vehicle-being-tested-alongside-mot', query: req.query, errors})
+    } else {
+      res.render('vehicle-being-tested-alongside-mot.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    if (req.session.data['tested-with-mot'] === 'yes') {
+      res.redirect('/submit-test')
+    } else {
+      res.redirect(`${myvt}/where-are-you-planning-to-take-your-vehicle`)
+    }
+  }
+})
+
+router.get('/where-are-you-planning-to-take-your-vehicle', (req, res) => res.render('where-are-you-planning-to-take-your-vehicle.html'))
+router.get('/taking-vehicle-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['taking-vehicle'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#taking-vehicle', text: 'Select where you are planning to take your vehicle' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/where-are-you-planning-to-take-your-vehicle', query: req.query, errors})
+    } else {
+      res.render('where-are-you-planning-to-take-your-vehicle.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['taking-vehicle']) {
+      case 'gvts':
+      case 'unknown':
+        res.redirect(`${myvt}/test-location`)
+        break
+      case 'atf':
+      case 'potf':
+        res.redirect('/submit-test')
+        break
+    } 
+  }
+})
+
 router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
 router.get('/application-type-check', (req, res) => {
   let errorPresent = false
@@ -382,7 +435,7 @@ router.get(['/upload-check'], (req, res) => {
   req.session.data.uploaded = undefined
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   if (req.query.continue) {
-    res.redirect(`${myvt}/test-location`)
+    res.redirect(`${myvt}/vehicle-being-tested-alongside-mot`)
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['supporting-documentation-upload'].length !== 0) {
       req.session.data.error = false

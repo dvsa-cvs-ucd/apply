@@ -1,3 +1,28 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-inset-text">
+      <p class="govuk-body">
+        Before you start, you need to download and fill in a test application form. Information is available to help you <a class="govuk-link" href="#">find and complete the form.</a>
+      </p>
+      {% if data.pfa %}
+      <p class="govuk-body">
+        We take the payment when you apply. Make sure there are enough funds in your pre-funded account to pay the <a class="govuk-link" href="#">cost of your vehicle test.</a>
+      </p>
+      <p class="govuk-body">
+        So that we take the correct amount from your pre-funded account, you will need to enter some vehicle details.
+      </p>
+      {% else %}
+      <p class="govuk-body">
+        We take the payment when you apply. Please ensure you have a credit or debit card to hand to pay the <a class="govuk-link" href="#">cost of your vehicle test.</a>
+      </p>
+      <p class="govuk-body">
+        So that we take the correct amount for your test, you will need to enter some vehicle details.
+      </p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
 {% set question = "Enter your vehicle's details" %}
 {% if query.changing %}
   {% set nextPage = "/change-vehicle" %}
@@ -15,12 +40,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {% if errors | length > 0 %}
-    {{ govukErrorSummary({
+      {{ govukErrorSummary({
     titleText: "There is a problem",
     errorList: errors
     }) }}
     {% endif %}
-    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }}
+    </div>
     <form class="form" action="{{ nextPage }}" novalidate>
       {% if query.changing %}
         <input type="hidden" name="changing" value="{{query.index}}">
@@ -45,7 +71,7 @@
       name: "vin",
       spellcheck: false
     }| errorFilter(errors)) }}
-    {{ govukInput({
+      {{ govukInput({
       label: {
       text: "Vehicle registration mark (VRM) or Trailer ID"
       },
