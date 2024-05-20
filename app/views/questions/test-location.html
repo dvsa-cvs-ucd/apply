@@ -1,6 +1,6 @@
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
-{% set question = 'Select your preferred test centre' %}
+{% set question = 'Find your preferred test centre' %}
 {% set title = data['test-type'] %}
 
 <div class="govuk-grid-row">
@@ -30,10 +30,10 @@
           <div class="dvsa-panel__highlight">
               {{ govukInput({
                   label: {
-                    text: "Enter a postcode"
+                    text: "Enter a location or a postcode"
                   },
                   hint: {
-                    text: "For example SW1A 2AA"
+                    text: "For example, Nottingham or SW1A 2AA"
                   },
                   classes: "govuk-input--width-10",
                   id: "find-test-centre",
