@@ -1,0 +1,49 @@
+{% set question = 'Where are you planning to take your vehicle?' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form class="form" action="/taking-vehicle-check">
+     {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {{ govukRadios({
+        name: "taking-vehicle",
+        fieldset: {
+          legend: {
+            text: question,
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "gvts",
+            text: "A DVSA test station"
+          },
+          {
+            value: "potf",
+            text: "A privately owned testing facility"
+          },
+          {
+            value: "atf",
+            text: "An authorised testing facility (ATF)"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "unknown",
+            text: "I don't know"
+          }
+        ]
+      } | errorFilter(errors)) }}
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
