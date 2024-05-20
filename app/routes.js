@@ -318,7 +318,7 @@ router.get('/test-location-check', (req, res) => {
     let errors = []
     if (req.session.data['find-test-centre'] === '') {
       errorPresent = true
-      errors.push({ href: '#find-test-centre', text: 'Enter a postcode' })
+      errors.push({ href: '#find-test-centre', text: 'Enter a location or a postcode' })
     }
     if (errorPresent) {
       if (req.session.data.myvt) {
