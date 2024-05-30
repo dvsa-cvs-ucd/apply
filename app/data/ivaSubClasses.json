@@ -3,63 +3,63 @@
     "text": "Class N",
     "value": "N",
     "hint": {
-      "text":  "Left hand drive"
+      "text":  "Left-hand drive."
     }
   },
   {
     "text": "Class P",
     "value": "P",
     "hint": {
-      "text":  "Personal import"
+      "text":  "Personal import."
     }
   },
   {
     "text": "Class A",
     "value": "A",
     "hint": {
-      "text":  "Amateur built"
+      "text":  "Amateur built."
     }
   },
   {
     "text": "Class S",
     "value": "S",
     "hint": {
-      "text":  "Rebuilt vehicle"
+      "text":  "Rebuilt vehicle."
     }
   },
   {
     "text": "Class C",
     "value": "C",
     "hint": {
-      "text":  "A vehicle built by a person in the business of building vehicles using parts of a vehicle registered in the UK"
+      "text":  "A vehicle built by a person in the business of building vehicles using parts of a vehicle registered in the UK."
     }
   },
   {
     "text": "Class L",
     "value": "L",
     "hint": {
-      "text":  "A vehicle manufactured in very low volume"
+      "text":  "A vehicle manufactured in very low volume."
     }
   },
   {
     "text": "Class T",
     "value": "T",
     "hint": {
-      "text":  "Armoured vehicle"
+      "text":  "Armoured vehicle."
     }
   },
   {
     "text": "Class E",
     "value": "E",
     "hint": {
-      "text":  "European Approved to the IVA standard of a Member State"
+      "text":  "European Approved to the Individual Vehicle approval (IVA) standard of a member state."
     }
   },
   {
     "text": "Class M",
     "value": "M",
     "hint": {
-      "text":  "Hearse, Motor Ambulance or Motor Caravan"
+      "text":  "Hearse, motor ambulance or motor caravan."
     }
   },
   {
@@ -70,7 +70,7 @@
     "value": "R",
     "behaviour": "exclusive",
     "hint": {
-      "text":  "A vehicle not meeting any  other category and therefore requiring Normal IVA"
+      "text":  "A vehicle not meeting any  other category and for that reason does not require a Normal Individual Vehicle Approval (IVA)."
     }
   }
 ]
