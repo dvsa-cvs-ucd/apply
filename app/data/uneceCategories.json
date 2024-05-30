@@ -4,14 +4,14 @@
       "text": "N2",
       "value": "N2",
       "hint": {
-        "html": "Gross weight over 3,500kg but less than 12,000kg"
+        "html": "Gross weight over 3,500kg but less than 12,000kg."
       }
     },
     {
       "text": "N3",
       "value": "N3",
       "hint": {
-        "html": "Gross weight over 12,000kg"
+        "html": "Gross weight over 12,000kg."
       }
     }
   ],
@@ -20,7 +20,7 @@
       "text": "N1",
       "value": "N1",
       "hint": {
-        "html": "Gross weight less than 3,500kg"
+        "html": "Gross weight less than 3,500kg."
       }
     }
   ],
@@ -29,28 +29,28 @@
       "text": "O1",
       "value": "O1",
       "hint": {
-        "html": "Gross weight less than 750kg"
+        "html": "Gross weight less than 750kg."
       }
     },
     {
       "text": "O2",
       "value": "O2",
       "hint": {
-        "html": "Gross weight over 750kg but less than 3,500kg"
+        "html": "Gross weight over 750kg but less than 3,500kg."
       }
     },
     {
       "text": "O3",
       "value": "O3",
       "hint": {
-        "html": "Gross weight over 3,500kg but less than 10,000kg"
+        "html": "Gross weight over 3,500kg but less than 10,000kg."
       }
     },
     {
       "text": "O4",
       "value": "O4",
       "hint": {
-        "html": "Gross weight over 10,000kg"
+        "html": "Gross weight over 10,000kg."
       }
     }
   ],
@@ -59,14 +59,14 @@
       "text": "M2",
       "value": "M2",
       "hint": {
-        "html": "Gross weight less than 5,000kg"
+        "html": "Gross weight less than 5,000kg."
       }
     },
     {
       "text": "M3",
       "value": "M3",
       "hint": {
-        "html": "Gross weight over 5,000kg"
+        "html": "Gross weight over 5,000kg."
       }
     }
   ],
@@ -75,7 +75,7 @@
       "text": "M1",
       "value": "M1",
       "hint": {
-        "html": "Vehicle designed and constructed for the carriage of passengers and comprising no more than eight seats in addition to the driver's seat"
+        "html": "Vehicle designed and constructed for the carriage of passengers and comprising no more than eight seats in addition to the driver's seat."
       }
     }
   ],
@@ -105,7 +105,7 @@
       "text": "L4",
       "value": "L4",
       "hint": {
-        "html": "<p class='govuk-hint'>A vehicle with three wheels asymmetrically arranged in relation to the longitudinal median plane with an <strong>engine capacity more than 50cm³</strong> or, whatever the means of propulsion, a <strong>maximum design speed over 50 km/h</strong><p class='govuk-hint'>For example a motorcycle with a sidecar.</p>"
+        "html": "<p class='govuk-hint'>A vehicle with three wheels asymmetrically arranged in relation to the longitudinal median plane with an <strong>engine capacity more than 50cm³</strong> or, whatever the means of propulsion, a <strong>maximum design speed over 50 km/h</strong>.<p class='govuk-hint'>For example a motorcycle with a sidecar.</p>"
       }
     },
     {
