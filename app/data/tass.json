@@ -78,7 +78,7 @@
         "form": "RPC Euro V/VI"
       }
     ],
-    "Individual Vehicle Approval": [
+    "Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "000"
@@ -242,7 +242,7 @@
         "form": "Declaration of testing of an approved exhaust abatement device"
       }
     ],
-    "Individual Vehicle Approval": [
+    "Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "000"
@@ -287,7 +287,7 @@
         "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
       }
     ],
-    "Voluntary Individual Vehicle Approval": [
+    "Voluntary Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "YJ7"
@@ -363,7 +363,7 @@
         "form": "TES2 Application for ID numbers New Trailers"
       }
     ],
-    "Individual Vehicle Approval": [
+    "Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "???"
@@ -557,7 +557,7 @@
         "form": "Declaration of testing of an approved exhaust abatement device"
       }
     ],
-    "Individual Vehicle Approval": [
+    "Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "???"
@@ -646,7 +646,7 @@
     ]
   },
   "Cars or passenger vehicles (up to 8 seats)": {
-    "Individual Vehicle Approval": [
+    "Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "???"
@@ -691,7 +691,7 @@
         "form": "IVA 9 Application for a Model Report or Tilt at a non DVSA Site"
       }
     ],
-    "Voluntary Individual Vehicle Approval": [
+    "Voluntary Individual Vehicle Approval (IVA)": [
       {
         "codes": [
           "YJ4"
