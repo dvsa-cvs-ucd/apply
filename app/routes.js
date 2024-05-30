@@ -214,7 +214,7 @@ router.get('/unece-category-check', (req, res) => {
   let errors = []
   if (req.session.data.unece === undefined) {
     errorPresent = true
-    errors.push({ href: '#unece', text: 'Select an UNECE vehicle category' })
+    errors.push({ href: '#unece', text: 'Select a design and construction category' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
