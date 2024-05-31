@@ -2,21 +2,27 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-inset-text">
       <p class="govuk-body">
-        Before you start, you need to download and fill in a test application form. Information is available to help you <a class="govuk-link" href="#">find and complete the form.</a>
+        Before you start, you need to download and fill in an application form.
       </p>
       {% if data.pfa %}
       <p class="govuk-body">
-        We take the payment when you apply. Make sure there are enough funds in your pre-funded account to pay the <a class="govuk-link" href="#">cost of your vehicle test.</a>
+        We take the payment when you apply. Make sure there are enough funds in your pre-funded account. 
       </p>
       <p class="govuk-body">
         So that we take the correct amount from your pre-funded account, you will need to enter some vehicle details.
       </p>
+      <p class="govuk-body">
+        Information is available to help you understand the <a class="govuk-link" href="https://www.gov.uk/browse/driving/manufacture-adapt-vehicle">forms and costs required to get a vehicle approved</a>.
+      </p>
       {% else %}
       <p class="govuk-body">
-        We take the payment when you apply. Please ensure you have a credit or debit card to hand to pay the <a class="govuk-link" href="#">cost of your vehicle test.</a>
+        We take the payment when you apply. Make sure you have a credit or debit card available to pay. 
       </p>
       <p class="govuk-body">
-        So that we take the correct amount for your test, you will need to enter some vehicle details.
+        So that we charge the correct amount for your test, you will need to enter some vehicle details.
+      </p>
+      <p class="govuk-body">
+        Information is available to help you understand the <a class="govuk-link" href="https://www.gov.uk/browse/driving/manufacture-adapt-vehicle">forms and costs required to get a vehicle approved</a>.
       </p>
       {% endif %}
     </div>
