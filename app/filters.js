@@ -142,7 +142,7 @@ addFilter('axleOptionCounter', vehicle => {
     case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
     case 'Public service vehicles (PSV), such as coaches or buses':
       minMax[0] = 2
-      minMax[1] = 5
+      minMax[1] = 3
       break
     case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
     case 'Cars or passenger vehicles (up to 8 seats)':
@@ -153,7 +153,7 @@ addFilter('axleOptionCounter', vehicle => {
     case 'Trailers':
     default:
       minMax[0] = 1
-      minMax[1] = 6
+      minMax[1] = 5
       break
     }
     const radios = Array((minMax[1] - minMax[0]) + 1).fill(0).map((val, index) => {
