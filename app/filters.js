@@ -141,7 +141,7 @@ addFilter('axleOptionCounter', vehicle => {
   switch (vehicle) {
     case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
       minMax[0] = 2
-      minMax[1] = 3
+      minMax[1] = 5
       break
     case 'Public service vehicles (PSV), such as coaches or buses':
       minMax[0] = 2
