@@ -261,6 +261,10 @@ router.get('/unece-category-check', (req, res) => {
       case 'Motorcycles, 3-wheeled vehicles and quadricycles':
         res.redirect(`${myvt}/number-of-wheels`)
         break
+      case 'Cars or passenger vehicles (up to 8 seats)':
+      case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
+        res.redirect(`${myvt}/test-type`)
+        break
       default:
         res.redirect(`${myvt}/number-of-axles`)
         break
@@ -308,7 +312,7 @@ router.get('/vehicle-class-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/number-of-axles`)
+    res.redirect(`${myvt}/test-type`)
   }
 })
 
