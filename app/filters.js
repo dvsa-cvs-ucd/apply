@@ -8,8 +8,8 @@ const addFilter = govukPrototypeKit.views.addFilter
 
 // Add your filters here
 
-addFilter('radiosFromObject', (object, preselect) => Object.keys(object).map(key => ({text: key, value: key, checked: preselect === key})))
-addFilter('formsToRadio', list => list.map(item => ({ text: item.form, value: item.form }) ))
+addFilter('radiosFromObject', (object, preselect) => Object.keys(object).map(key => ({ text: key, value: key, checked: preselect === key })))
+addFilter('formsToRadio', list => list.map(item => ({ text: item.form, value: item.form })))
 addFilter('findTestUrl', (string, testInventory) => {
   let url;
   Object.keys(testInventory).forEach(vehicle => {
@@ -23,12 +23,12 @@ addFilter('findTestUrl', (string, testInventory) => {
 })
 
 addFilter('vrm', string => {
-    const plateRegex = /^[A-Z]{2}\d{2}[A-Z]{3}$/;
-    if (!plateRegex.test(string)) {
-      return string;
-    }
-    const formattedPlate = string.replace(/(\d{2})([A-Z]{3})/, '$1 $2');
-    return formattedPlate;
+  const plateRegex = /^[A-Z]{2}\d{2}[A-Z]{3}$/;
+  if (!plateRegex.test(string)) {
+    return string;
+  }
+  const formattedPlate = string.replace(/(\d{2})([A-Z]{3})/, '$1 $2');
+  return formattedPlate;
 })
 
 addFilter('typeApproval', string => {
@@ -66,7 +66,7 @@ addFilter('typeApproval', string => {
     default:
       vehicle = 'Unknown'
   }
-    return vehicle
+  return vehicle
 })
 
 function replaceProductCodeComponent(string) {
@@ -87,26 +87,26 @@ function replaceProductCodeComponent(string) {
     case 'GV':
       replacement = 'at a DVSA test station'
       break
-    }
+  }
   return replacement
 }
 
 addFilter('productCode', string => string.split('-').map(component => replaceProductCodeComponent(component)).slice(1, 3).join(', '))
 
-addFilter('split', (string , delimiter) =>  string.split(delimiter ?? '').filter(item => item !== ''))
+addFilter('split', (string, delimiter) => string.split(delimiter ?? '').filter(item => item !== ''))
 
 addFilter('endSegment', string => string.split('/').pop())
 
 addFilter('statusClass', string => {
   let tag = 'govuk-tag--';
-  switch(string) {
+  switch (string) {
     case 'submitted':
     default:
       tag += 'grey'
       break
     case 'accepted':
-     tag += 'blue'
-     break
+      tag += 'blue'
+      break
     case 'rejected':
       tag += 'red'
       break
@@ -118,21 +118,21 @@ addFilter('statusClass', string => {
 })
 
 addFilter('tagCodes', array => {
-  const codes = array.map(item => 
-    item.includes('???') ? 
-      `<strong class="govuk-tag govuk-tag--red">${item}</strong>` : 
-    item.includes('XX-') ? 
-      `<strong class="govuk-tag govuk-tag--orange">${item}</strong>` : 
-      `<strong class="govuk-tag govuk-tag--${array.length > 1 ? 'yellow' : 'green'}">${item}</strong>`)
+  const codes = array.map(item =>
+    item.includes('???') ?
+      `<strong class="govuk-tag govuk-tag--red">${item}</strong>` :
+      item.includes('XX-') ?
+        `<strong class="govuk-tag govuk-tag--orange">${item}</strong>` :
+        `<strong class="govuk-tag govuk-tag--${array.length > 1 ? 'yellow' : 'green'}">${item}</strong>`)
   return codes.join(' ')
 })
 
 addFilter('findError', (array, name) => array !== undefined && array.find(error => error.field === name))
 
-addFilter('errorFilter', (object, errors=[]) => {
+addFilter('errorFilter', (object, errors = []) => {
   let toReturn = { ...object }
-  const relevantError = errors.find(error => error.href.replace('#','') === object.name)
-  if (relevantError) toReturn.errorMessage = { text: relevantError.text}
+  const relevantError = errors.find(error => error.href.replace('#', '') === object.name)
+  if (relevantError) toReturn.errorMessage = { text: relevantError.text }
   return (toReturn)
 })
 
@@ -140,6 +140,9 @@ addFilter('axleOptionCounter', vehicle => {
   const minMax = [0, 0]
   switch (vehicle) {
     case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
+      minMax[0] = 2
+      minMax[1] = 3
+      break
     case 'Public service vehicles (PSV), such as coaches or buses':
       minMax[0] = 2
       minMax[1] = 3
@@ -155,13 +158,13 @@ addFilter('axleOptionCounter', vehicle => {
       minMax[0] = 1
       minMax[1] = 5
       break
-    }
-    const radios = Array((minMax[1] - minMax[0]) + 1).fill(0).map((val, index) => {
-      const radio = {}
-      radio['text'] = `${index + minMax[0]} axle${index + minMax[0] === 1 ? '' : 's'}`
-      radio['value'] = index + minMax [0]
-      return radio
-    })
+  }
+  const radios = Array((minMax[1] - minMax[0]) + 1).fill(0).map((val, index) => {
+    const radio = {}
+    radio['text'] = `${index + minMax[0]} axle${index + minMax[0] === 1 ? '' : 's'}`
+    radio['value'] = index + minMax[0]
+    return radio
+  })
   return radios
 })
 
