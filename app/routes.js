@@ -208,6 +208,39 @@ router.get('/number-of-axles-check', (req, res) => {
   }
 })
 
+router.get('/number-of-wheels', (req, res) => res.render('number-of-wheels.html'))
+router.get('/number-of-wheels-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['number-of-wheels'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#number-of-wheels', text: 'Select the number of wheels' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/number-of-wheels', query: req.query, errors })
+    } else {
+      res.render('number-of-axles.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['vehicle-category']) {
+      case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
+      case 'Public service vehicles (PSV), such as coaches or buses':
+      case 'Trailers':
+        res.redirect(`${myvt}/vehicle-configuration`)
+        break
+      case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+        req.session.data['test-type'] = 'Motorcycle Single Vehicle Approval'
+        res.redirect(`${myvt}/test-type`)
+        break
+      default:
+        res.redirect(`${myvt}/test-type`)
+        break
+    }
+  }
+})
+
 router.get('/unece-category', (req, res) => res.render('unece-category.html', { query: req.query }))
 router.get('/unece-category-check', (req, res) => {
   let errorPresent = false
@@ -224,7 +257,14 @@ router.get('/unece-category-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/number-of-axles`)
+    switch (req.session.data['vehicle-category']) {
+      case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+        res.redirect(`${myvt}/number-of-wheels`)
+        break
+      default:
+        res.redirect(`${myvt}/number-of-axles`)
+        break
+    }
   }
 })
 
