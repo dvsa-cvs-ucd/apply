@@ -352,11 +352,12 @@ router.get('/mot-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    if (req.session.data['tested-with-mot'] === 'yes') {
-      res.redirect('/submit-test')
-    } else {
-      res.redirect(`${myvt}/where-are-you-planning-to-take-your-vehicle`)
-    }
+    res.redirect(`${myvt}/test-location`)
+    // if (req.session.data['tested-with-mot'] === 'yes') {
+    //   res.redirect('/submit-test')
+    // } else {
+    //   res.redirect(`${myvt}/where-are-you-planning-to-take-your-vehicle`)
+    // }
   }
 })
 
@@ -419,11 +420,7 @@ router.get('/test-location-check', (req, res) => {
       errors.push({ href: '#find-test-centre', text: 'Enter a location or a postcode' })
     }
     if (errorPresent) {
-      if (req.session.data.myvt) {
-        res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-location', query: req.query, errors })
-      } else {
-        res.render('test-location.html', { query: req.query, errors })
-      }
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-location', query: req.query, errors })
     } else {
       const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
       res.redirect(`${myvt}/test-location-list`)
