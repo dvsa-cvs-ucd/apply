@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="govuk-grid-row">
-          <div class="govuk-grid-column-full">
+          <div class="govuk-grid-column-two-thirds  ">
             <table class="govuk-table">
               <caption class="govuk-table__caption govuk-table__caption--m">Recently selected test centres</caption>
               <thead class="govuk-table__head">
@@ -54,9 +54,9 @@
                   <th scope="col" class="govuk-table__header">
                     Name
                   </th>
-                  <th scope="col" class="govuk-table__header">
+                  <!-- <th scope="col" class="govuk-table__header">
                     Availability
-                  </th>
+                  </th> -->
                   <th scope="col" class="govuk-table__header">
                     <span class="govuk-visually-hidden">Select</span>
                   </th>
@@ -68,10 +68,10 @@
                 <td class="govuk-table__cell">
                   {{ testCentre.name }}
                 </td>
-                <td class="govuk-table__cell">
+                <!-- <td class="govuk-table__cell">
                   <strong class="govuk-tag govuk-tag{{ testCentre.availability | availabilityTag}} govuk-!-margin-bottom-1">{{ testCentre.availability }}</strong><br>
                   <span class="govuk-body-s">Before {{ 'fourWeeks' | date }}</span>
-                </td>
+                </td> -->
                 <td class="govuk-table__cell">
                   <button class="govuk-button govuk-button--secondary govuk-!-margin-bottom-1" type="submit" name="select-test-centre" value="{{ testCentre.name }}">Select <span class="govuk-visually-hidden">{{ testCentre.name }}</span></button>
                 </td>
