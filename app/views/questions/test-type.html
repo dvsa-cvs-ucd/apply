@@ -21,7 +21,7 @@
         classes: "govuk-fieldset__legend--l"
         }
       },
-      items: types[data['vehicle-category']] | radiosFromObject
+      items: types[data['vehicle-category']] | radiosFromObject(data['test-type'])
       } | errorFilter(errors)) }}
       {{ govukButton({
         text: "Save and continue"
