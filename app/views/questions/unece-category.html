@@ -8,7 +8,12 @@
   {% set vehicleCount = data.vehicles | length + 1 %}
   {% set vehicleIndex = vehicleCount %}
   {% set nextPage = "/unece-category-check" %}
-  {% set vehicleClass = data['vehicle-class'] %}
+  {% set vehicleCategory = data['vehicle-category'] %}
+  {% if vehicleCategory == 'Motorcycles, 3-wheeled vehicles and quadricycles' %}
+  {% set uneceCategories = data.uneceCategories[vehicleCategory][data['number-of-wheels']] %}
+  {% else %}
+  {% set uneceCategories = data.uneceCategories[vehicleCategory] %}
+  {% endif %}
 {% endif %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -32,7 +37,7 @@
         hint: {
           text: "You might know the categories in relation to the European Union (EU) or the United Nations Economic Commission for Europe (UNECE)."
         },
-        items: data.uneceCategories[data['vehicle-category']],
+        items: uneceCategories,
         values: data.unece
       } | errorFilter(errors))  }}
       {{ govukButton({

@@ -168,6 +168,9 @@ router.get('/vehicle-category-check', (req, res) => {
         req.session.data.unece = 'M1'
         res.redirect(`${myvt}/vehicle-class`)
         break
+      case 'Motorcycles, 3-wheeled vehicles and quadricycles':
+        res.redirect(`${myvt}/number-of-wheels`)
+        break
       default:
         res.redirect(`${myvt}/unece-category`)
         break
@@ -220,24 +223,11 @@ router.get('/number-of-wheels-check', (req, res) => {
     if (req.session.data.myvt) {
       res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/number-of-wheels', query: req.query, errors })
     } else {
-      res.render('number-of-axles.html', { query: req.query, errors })
+      res.render('number-of-wheels.html', { query: req.query, errors })
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    switch (req.session.data['vehicle-category']) {
-      case 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)':
-      case 'Public service vehicles (PSV), such as coaches or buses':
-      case 'Trailers':
-        res.redirect(`${myvt}/vehicle-configuration`)
-        break
-      case 'Motorcycles, 3-wheeled vehicles and quadricycles':
-        req.session.data['test-type'] = 'Motorcycle Single Vehicle Approval'
-        res.redirect(`${myvt}/test-type`)
-        break
-      default:
-        res.redirect(`${myvt}/test-type`)
-        break
-    }
+    res.redirect(`${myvt}/unece-category`)
   }
 })
 
@@ -259,8 +249,7 @@ router.get('/unece-category-check', (req, res) => {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     switch (req.session.data['vehicle-category']) {
       case 'Motorcycles, 3-wheeled vehicles and quadricycles':
-        res.redirect(`${myvt}/number-of-wheels`)
-        break
+        req.session.data['test-type'] = 'Motorcycle Single Vehicle Approval'
       case 'Cars or passenger vehicles (up to 8 seats)':
       case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
         res.redirect(`${myvt}/test-type`)
