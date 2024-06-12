@@ -396,6 +396,10 @@ router.get('/application-type-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     switch (req.session.data['application-type']) {
+      case 'VTG10 Notifiable Alteration':
+      case 'VTG10 Notifiable Alteration with Model Report Only':
+        res.redirect(`${myvt}/notifiable-alteration`)
+        break
       case 'PSV417 Application for COIF':
         res.redirect(`${myvt}/size-of-psv`)
         break
@@ -403,6 +407,26 @@ router.get('/application-type-check', (req, res) => {
         res.redirect(`${myvt}/upload-form`)
         break
     }
+  }
+})
+
+router.get('/notifiable-alteration', (req, res) => res.render('notifiable-alteration.html', {query: req.query}))
+router.get('/notifiable-alteration-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['notifiable-alteration'] === undefined) {
+    console.log(errorPresent)
+    errors.push({ href: '#notifiable-alteration', text: 'Select if the plated details will change' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/notifiable-alteration', query: req.query, errors })
+    } else {
+      res.render('notifiable-alteration.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/upload-form`)
   }
 })
 
