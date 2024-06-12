@@ -85,14 +85,14 @@
         "text": "L1",
         "value": "L1",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the engine capacity is less than 50cm³</li><li class='govuk-hint'>whatever the means of propulsion, the maximum design speed is less than 50km/h</li><li class='govuk-hint'>for example an electric bicycle.</li></ul>"
+          "html": "These vehicles have an engine cylinder capacity that <p class="govuk-body govuk-!-font-weight-bold">does not exceed 50cm³</p> (in the case of thermic engines), and a maximum design speed that <p class="govuk-body govuk-!-font-weight-bold">does not exceed 50 kilometres per hour</p>. For example, an electric bicycle."
         }
       },
       {
         "text": "L3",
         "value": "L3",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'> <li class='govuk-hint'> the engine capacity is more than 50cm³; or</li><li class='govuk-hint'> whatever the means of propulsion, the maximum design speed is over 50km/h </li> <li class='govuk-hint'> for example a motorcycle </li></ul>"
+          "html": "These vehicles have an engine cylinder capacity that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50cm³</p> (in the case of thermic engines), or have a maximum design speed that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50 kilometres per hour</p>. For example, a motorcycle."
         }
       }
     ],
@@ -101,21 +101,21 @@
         "text": "L2",
         "value": "L2",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the engine capacity is less than 50cm³; and</li><li class='govuk-hint'>whatever the means of propulsion, the maximum design speed is less than 50km/h</li><li class='govuk-hint'>for example an auto rickshaw</li></ul>"
+          "html": "These vehicles have <p class="govuk-body govuk-!-font-weight-bold">wheels in any arrangement</p>, an engine cylinder capacity that <p class="govuk-body govuk-!-font-weight-bold">does not exceed 50cm³</p> (in the case of thermic engines), and a maximum design speed that <p class="govuk-body govuk-!-font-weight-bold">does not exceed 50 kilometres per hour</p>. For example, an auto rickshaw. "
         }
       },
       {
         "text": "L4",
         "value": "L4",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the engine capacity is more than 50cm³; or</li><li class='govuk-hint'>whatever the means of propulsion, the maximum design speed is over 50 km/h</li><li class='govuk-hint'>the three wheels are in an off-centre arrangement, like a motorcycle and sidecar</li></ul>"
+          "html": "These vehicles have <p class="govuk-body govuk-!-font-weight-bold">wheels asymmetrically arranged</p> in relation to the longitudinal median plane, an engine cylinder capacity that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50cm³</p> (in the case of thermic engines), or have a maximum design speed that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50 kilometres per hour</p>. For example, a motorcycle with a sidecar."
         }
       },
       {
         "text": "L5",
         "value": "L5",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the engine capacity is more than 50cm³; or</li><li class='govuk-hint'>whatever the means of propulsion, the maximum design speed is over 50km/h</li><li class='govuk-hint'>the three wheels are in a symmetrical arrangement, like a motorised tricycle</li></ul>"
+          "html": "These vehicles have <p class="govuk-body govuk-!-font-weight-bold">wheels symmetrically arranged</p> in relation to the longitudinal median plane, an engine cylinder capacity that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50cm³</p> (in the case of thermic engines), or have a maximum design speed that <p class="govuk-body govuk-!-font-weight-bold">exceeds 50 kilometres per hour</p>. For example, a motorised tricycle."
         }
       }
     ],
@@ -124,14 +124,14 @@
         "text": "L6",
         "value": "L6",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the unladen mass is less than 350kg, not including the mass of the batteries in case of electric vehicles</li><li class='govuk-hint'>the maximum design speed is less than 45km/h</li><li class='govuk-hint'>the engine capacity is less than 50cm³ for spark (positive) ignition engines; or</li><li class='govuk-hint'>the maximum net power output does not exceed 4kW in the case of other internal combustion engines; or</li><li class='govuk-hint'>the maximum continuous rated power does not exceed 4kW in the case of electric engines</li><li class='govuk-hint'>for example golf carts and mobility scooters</li></ul>"
+          "html": "These vehicles have an unladen mass that is <p class="govuk-body govuk-!-font-weight-bold">not more than 350kg</p> (not including the mass of the batteries in the case of electric vehicles). For vehicles with electric engines, the maximum continuous rated power <p class="govuk-body govuk-!-font-weight-bold">does not exceed 4kW</p>. For example, a golf cart or mobility scooter."
         }
       },
       {
         "text": "L7",
         "value": "L7",
         "hint": {
-          "html": "<ul class='govuk-list govuk-list--bullet'><li class='govuk-hint'>the unladen mass is less than 400 kg (550 kg for vehicles intended for carrying goods), not including the mass of batteries in the case of electric vehicles; and</li><li class='govuk-hint'>the maximum continuous rated power does not exceed 15 kW</li><li class='govuk-hint'>for example microcars</li></ul>"
+          "html": "These vehicles have an unladen mass that is <p class="govuk-body govuk-!-font-weight-bold">not more than 400kg or 550kg</p> for vehicles intended for carrying goods (not including the mass of batteries in the case of electric vehicles). For vehicles with electric engines, the maximum continuous rated power <p class="govuk-body govuk-!-font-weight-bold">does not exceed 15kW</p>. For example, microcars."
         }
       }
     ]
