@@ -1,0 +1,38 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form action="/size-of-psv-check" method="post">
+      {{ govukRadios({
+        idPrefix: "size-of-psv",
+        name: "size-of-psv",
+        classes: 'govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: "Can your vehicle carry 23 or more passengers?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "large",
+            text: "Yes"
+          },
+          {
+            value: "small",
+            text: "No"
+          }
+        ]
+      } | errorFilter(errors)) }}
+    
+      {{ govukButton({
+        text: 'Save and continue'
+      }) }}
+    </form>
+  </div>
+</div>

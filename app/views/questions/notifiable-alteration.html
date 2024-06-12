@@ -1,0 +1,60 @@
+{% if data['vehicle-category'] == 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)' %}
+{% set letter = 'A' %}
+{% else %}
+{% set letter = 'T' %}
+{% endif %}
+{% set explainer %}
+<p class="govuk-hint">The Ministry Plate or Plating Certificate may include the details of:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li class="govuk-hint">the serial number</li>
+  <li class="govuk-hint">the gross weight, train weight, and maximum train weight</li>
+  <li class="govuk-hint">the length and width</li>
+  <li class="govuk-hint">the axle weights</li>
+  <li class="govuk-hint">the conditions about the use of tyres</li>
+</ul>
+<p class="govuk-hint">If you make changes to these specifications, you may need to update one of these documents – VTG6{{letter}}, VTG7{{letter}} – to
+  reflect the new details.</p>
+
+{% endset %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form action="/notifiable-alteration-check" method="post">
+      {{ govukRadios({
+        idPrefix: "notifiable-alteration",
+        name: "notifiable-alteration",
+        classes: 'govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: "Will your alteration change the details on the Ministry Plate or Plating Certificate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: explainer
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      } | errorFilter(errors)) }}
+    
+      {{ govukButton({
+        text: 'Save and continue'
+      }) }}
+    </form>
+  </div>
+</div>

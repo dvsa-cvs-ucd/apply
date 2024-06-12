@@ -1,0 +1,38 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form action="/seat-belt-check" method="post">
+      {{ govukRadios({
+        idPrefix: "seat-belt-installation",
+        name: "seat-belt-installation",
+        classes: 'govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: "Does your vehicle need a seat belt installation check as part of your test?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      } | errorFilter(errors)) }}
+    
+      {{ govukButton({
+        text: 'Save and continue'
+      }) }}
+    </form>
+  </div>
+</div>

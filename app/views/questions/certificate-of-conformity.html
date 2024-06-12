@@ -1,0 +1,41 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form action="/coc-check" method="post">
+      {{ govukRadios({
+        idPrefix: "coc",
+        name: "coc",
+        classes: 'govuk-radios--inline',
+        fieldset: {
+          legend: {
+            text: "Does your vehicle have a Certificate of Conformity for its type approval?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+        text: "This is a document issued by the manufacturer of your vehicle to certify the vehicle has been produced under the same production processes and systems as an example of the type which has achieved Type Approval."
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      } | errorFilter(errors)) }}
+    
+      {{ govukButton({
+        text: 'Save and continue'
+      }) }}
+    </form>
+  </div>
+</div>
