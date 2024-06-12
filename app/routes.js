@@ -341,7 +341,7 @@ router.get('/mot-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/test-location`)
+    res.redirect(`${myvt}/upload-form`)
     // if (req.session.data['tested-with-mot'] === 'yes') {
     //   res.redirect('/submit-test')
     // } else {
@@ -395,7 +395,74 @@ router.get('/application-type-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/upload-form`)
+    switch (req.session.data['application-type']) {
+      case 'PSV417 Application for COIF':
+        res.redirect(`${myvt}/size-of-psv`)
+        break
+      default:
+        res.redirect(`${myvt}/upload-form`)
+        break
+    }
+  }
+})
+
+router.get('/size-of-psv', (req, res) => res.render('size-of-psv.html', {query: req.query}))
+router.get('/size-of-psv-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['size-of-psv'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#size-of-psv', text: 'Select if your vehicle has 23 or more seats' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/size-of-psv', query: req.query, errors })
+    } else {
+      res.render('size-of-psv.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/certificate-of-conformity`)
+  }
+})
+
+router.get('/certificate-of-conformity', (req, res) => res.render('certificate-of-conformity.html', {query: req.query}))
+router.get('/coc-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['coc'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#coc', text: 'Select if your vehicle has a Certificate of Conformity' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/certificate-of-conformity', query: req.query, errors })
+    } else {
+      res.render('certificate-of-conformity.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/seat-belt-installation`)
+  }
+})
+
+router.get('/seat-belt-installation', (req, res) => res.render('seat-belt-installation.html', {query: req.query}))
+router.get('/seat-belt-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['seat-belt-installation'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#seat-belt-installation', text: 'Select if you need a seat belt installation check' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/seat-belt-installation', query: req.query, errors })
+    } else {
+      res.render('seat-belt-installation.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/vehicle-being-tested-alongside-mot`)
   }
 })
 
@@ -466,7 +533,7 @@ router.get(['/upload-check'], (req, res) => {
   req.session.data.uploaded = undefined
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
   if (req.query.continue) {
-    res.redirect(`${myvt}/vehicle-being-tested-alongside-mot`)
+    res.redirect(`${myvt}/test-location`)
   } else {
     if (req.query['upload-multiple'] !== undefined && req.query['supporting-documentation-upload'].length !== 0) {
       req.session.data.error = false
