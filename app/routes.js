@@ -446,7 +446,7 @@ router.get('/size-of-psv-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/certificate-of-conformity`)
+    res.redirect(`${myvt}/seat-belt-installation`)
   }
 })
 
