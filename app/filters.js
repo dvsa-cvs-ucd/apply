@@ -189,3 +189,17 @@ addFilter('date', string => {
 })
 
 addFilter('availabilityTag', string => string === 'Tests available' ? '--green' : string === 'Fully booked' ? '--red' : '--blue')
+
+addFilter('timeNow', string => {
+  const timeNow = new Date()
+  const formatter = new Intl.DateTimeFormat('en-GB', { timeStyle: 'short'})
+  return formatter.format(timeNow)
+})
+
+addFilter('dateNow', string => {
+  const dateNow = new Date()
+  const formatter = new Intl.DateTimeFormat('en-GB', { weekday: 'long', month: 'long', day: 'numeric' })
+  return formatter.format(dateNow)
+})
+
+addFilter('obfuscateNumber', string => `${string.slice(0, 2)}${'x'.repeat(string.slice(2, -2).length)}${string.slice(-2)}`)

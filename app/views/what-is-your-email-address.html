@@ -29,6 +29,7 @@
     }) }}
     {% endif %}
     <form class="form" action="{{ nextPage}}" novalidate>
+      <div class="govuk-caption-l">Create an account</div>
       {% call govukFieldset({
       legend: {
       text: question,
@@ -36,7 +37,7 @@
       isPageHeading: true
       }
       }) %}
-      <p class="govuk-hint">We will send updates about your application to your email address.</p>
+      <p class="govuk-hint">You will use your email to sign in.</p>
         {{ govukInput({
         label: {
         text: "Email address"
