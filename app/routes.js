@@ -13,8 +13,6 @@ const tass = require('./data/tass.json')
 
 vesKey = process.env.VES_API_KEY
 
-router.get('/start', (req, res) => res.redirect('/'))
-
 router.get('/no-pfa', (req, res) => {
   req.session.data.pfa = false
   req.session.data.myvt = true
@@ -83,7 +81,7 @@ router.get('/email-check', (req, res) => {
   if (errorPresent) {
     res.render('what-is-your-email-address.html', { query: req.query, errors })
   } else {
-    res.redirect('/what-is-your-phone-number')
+    res.redirect('/check-your-email')
   }
 })
 
@@ -111,7 +109,7 @@ router.get('/phone-number-check', (req, res) => {
   if (errorPresent) {
     res.render('what-is-your-phone-number.html', { query: req.query, errors })
   } else {
-    res.redirect('/vehicle-details')
+    res.redirect('/check-your-phone')
   }
 })
 router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', {query: req.query}))
