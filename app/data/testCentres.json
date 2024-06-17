@@ -1,6 +1,7 @@
 [
   {
     "name": "Greenway Commercial Services",
+    "number": "P12345",
     "address": "123 Main Street, Cityville, CV1 2AB",
     "phone": "+44 1234 567890",
     "email": "info@greenwaycommercial.co.uk",
@@ -14,11 +15,14 @@
     "notTestedHere": [
       "LEZ phase 3"
     ],
-    "siteRestrictions" : ["Max door height is 5.2 metres"],
+    "siteRestrictions": [
+      "Max door height is 5.2 metres"
+    ],
     "availability": "Tests available"
   },
   {
     "name": "Northgate Vehicle Testing",
+    "number": "P12345",
     "address": "45 Oak Avenue, Townsville, TS5 6YZ",
     "phone": "+44 7890 123456",
     "email": "info@northgatevt.co.uk",
@@ -31,11 +35,14 @@
       "Bus",
       "ADR and dangerous goods vehicles - amber category"
     ],
-    "siteRestrictions" : ["Max door height is 5.5 metres"],
+    "siteRestrictions": [
+      "Max door height is 5.5 metres"
+    ],
     "availability": "Fully booked"
   },
   {
     "name": "Eastside Test Centre",
+    "number": "P12345",
     "address": "789 Elm Street, Villageton, VE2 3CD",
     "phone": "+44 5678 901234",
     "email": "info@eastside.com",
@@ -48,11 +55,14 @@
       "Trailer",
       "LEZ phase 3"
     ],
-    "siteRestrictions" : ["Max door height is 5.2 metres"],
+    "siteRestrictions": [
+      "Max door height is 5.2 metres"
+    ],
     "availability": "Tests available"
   },
   {
     "name": "Westend Vehicle Inspections",
+    "number": "P12345",
     "address": "321 Maple Lane, Countryside, CS4 5FG",
     "phone": "+44 3456 789012",
     "email": "info@westendinspections.com",
@@ -66,11 +76,14 @@
       "ADR and dangerous goods vehicles - amber category",
       "LEZ phase 3"
     ],
-    "siteRestrictions" : ["Max door height is 4.8 metres"],
+    "siteRestrictions": [
+      "Max door height is 4.8 metres"
+    ],
     "availability": "Tests available"
   },
   {
     "name": "Southside MOT Centre",
+    "number": "P12345",
     "address": "567 Pine Road, Suburbia, SB8 9GH",
     "phone": "+44 2345 678901",
     "email": "info@southsidemot.co.uk",
@@ -84,7 +97,9 @@
       "HGV",
       "LEZ phase 3"
     ],
-    "siteRestrictions" : ["Max door height is 4.9 metres"],
+    "siteRestrictions": [
+      "Max door height is 4.9 metres"
+    ],
     "availability": "Fully booked"
   }
 ]
