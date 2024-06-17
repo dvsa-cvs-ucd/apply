@@ -317,6 +317,81 @@ $chevron-altitude-calculated: 5.655px;
   }
 }
 
+.money-display-list {
+  display: flex;
+  min-height: 8.5rem;
+  margin-right: $govuk-gutter-half;
+  padding: 0;
+  float: left;
+  flex-flow: row wrap;
+
+  @include govuk-media-query($until: tablet) {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.money-display {
+  display: flex;
+  width: 18rem;
+  flex-grow: 1;
+
+  @include govuk-media-query($until: desktop) {
+    margin: govuk-spacing(3) $govuk-gutter-half;
+    gap: govuk-spacing(4);
+  }
+
+  flex-flow: column;
+
+  @include govuk-media-query($until: tablet) {
+    width: 100%;
+  }
+
+  gap: govuk-spacing(6);
+  margin: 0 $govuk-gutter-half;
+  padding: govuk-spacing(4) govuk-spacing(5);
+  background-color: govuk-colour("light-grey", $legacy: "grey-3");
+
+  dt {
+    @extend .govuk-heading-s;
+    margin: 0;
+    order: 2;
+  }
+
+  dd {
+    @extend .govuk-heading-l;
+    margin: 0;
+    order: 1;
+  }
+}
+
+.money-display-s {
+  @extend .money-display;
+  width: 100%;
+  margin: govuk-spacing(3) 0;
+  padding: govuk-spacing(2) govuk-spacing(3);
+
+  dt {
+    @extend .govuk-body;
+  }
+
+  dd {
+    @extend .govuk-heading-m;
+  }
+}
+
+.money-display-divider {
+  margin-top: govuk-spacing(6);
+  margin-bottom: govuk-spacing(7);
+  border-top: 1px solid $govuk-border-colour;
+}
+
+.money-display-divider-s {
+  margin: 0;
+  margin-bottom: govuk-spacing(2);
+  border-top: 2px solid $govuk-brand-colour;
+}
+
 @keyframes phonePopUp {
   from {
     bottom: -25rem;
@@ -431,5 +506,118 @@ $chevron-altitude-calculated: 5.655px;
       }
     }
   }
+}
+
+@keyframes notificationSlide {
+  from {
+    opacity: 0;
+    right: -21rem;
+  }
+
+  to {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+.notification-win {
+  .icon-win {
+    width: 3rem;
+    height: auto;
+    display: block;
+    }
+  .icon-mac {
+    display: none;
+  }
+  .application-win {
+    display: block;
+  }
+
+  .application-mac {
+    display: none;
+  }
+  .email-notification {
+    animation-name: notificationSlide;
+    animation-duration: .25s;
+    animation-timing-function: ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    position: fixed;
+    bottom: 0;
+    right: -21rem;
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    height: auto;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    p {
+      font-family: sans-serif;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+  .notification-sender {
+    color: #fff;
+    font-weight: 700;
+  }
+  .notification-subject, .application-win {
+    color: #a3a8a9;
+    font-weight: 400;
+  }
+}
+
+.notification-mac {
+  .icon-win {
+    display: none;
+  }
+  .icon-mac {
+    width: 2.25rem;
+    height: 2.25rem;
+    display: block;
+  }
+  .application-win {
+    display: none;
+  }
+  .application-mac {
+    display: block;
+    font-weight: 700;
+  }
+  .email-notification {
+    animation-name: notificationSlide;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    gap: 1rem;
+    position: fixed;
+    top: 0;
+    right: -21rem;
+    width: 20rem;
+    padding: 1rem;
+    margin: 1rem;
+    height: auto;
+    border-radius: 1rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+    box-shadow: 0px 0px 0px 1px rgba(90, 90, 90, 1.0);
+    backdrop-filter: blur(20px);
+  .notification-sender {
+    font-weight: 700;
+  }
+  .notification-content {
+    p {
+      color: white;
+      font-family: sans-serif;
+      font-size: .85rem;
+      margin: 0;
+    }
+  }
+} 
 }
   

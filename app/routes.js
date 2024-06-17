@@ -81,7 +81,7 @@ router.get('/email-check', (req, res) => {
   if (errorPresent) {
     res.render('what-is-your-email-address.html', { query: req.query, errors })
   } else {
-    res.redirect('/what-is-your-phone-number')
+    res.redirect('/check-your-email')
   }
 })
 

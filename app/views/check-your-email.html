@@ -1,5 +1,5 @@
 
-{% from "phone.html" import phone with context %}
+{% from "email-notification.html" import emailNotification with context %}
 {% extends "layouts/main.html" %}
 
 {% block beforeContent %}
@@ -13,17 +13,19 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">Check your phone</h1>
-    <p class="govuk-body">We have sent a one-time code to <strong>{{ data['telephone-number'] | obfuscateNumber }}</strong>.</p>
+    <div class="govuk-caption-l">Create an account</div>
+    <h1 class="govuk-heading-l">Check your email</h1>
+    <p class="govuk-body">We have sent a one-time code to <strong>{{ data['email'] }}</strong>.</p>
     <p class="govuk-body">Enter the one-time code in the box below to confirm your phone number.</p>
   </div>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <form action="/what-is-your-phone-number">
     {{
       govukInput({
         label: {
-          text: 'Your one-time phone code'
+          text: 'Your one-time email code'
         },
         classes: 'govuk-input--width-5'
       })
@@ -33,6 +35,7 @@
         text: 'Continue'
       })
     }}
+    </form>
   </div>
 </div>
 <div class="govuk-grid-row">
@@ -42,6 +45,6 @@
 </div>
 
 
-{{ phone("DVSA", "Your one time phone code is 53821") }}
+{{ emailNotification("DVSA", "Your one-time email code is 53821") }}
 
 {% endblock %}
