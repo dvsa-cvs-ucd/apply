@@ -10,22 +10,24 @@
       {{ govukRadios({
         idPrefix: "seat-belt-installation",
         name: "seat-belt-installation",
-        classes: 'govuk-radios--inline',
         fieldset: {
           legend: {
-            text: "Does your vehicle need a seat belt installation check as part of your test?",
+            text: "Include a seat belt installation check",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "This will take place as part of the test."
+        },
         items: [
           {
             value: "yes",
-            text: "Yes"
+            text: "Include a seat belt installation check"
           },
           {
             value: "no",
-            text: "No"
+            text: "Do not include a seat belt installation check"
           }
         ]
       } | errorFilter(errors)) }}
