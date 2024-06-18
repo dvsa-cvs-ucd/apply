@@ -7,7 +7,8 @@
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "govuk-frontend": "5.0.0",
-    "govuk-prototype-kit": "13.16.0",
+    "govuk-notifications": "1.0.8",
+    "govuk-prototype-kit": "13.16.2",
     "libphonenumber-js": "^1.10.59"
   },
   "devDependencies": {

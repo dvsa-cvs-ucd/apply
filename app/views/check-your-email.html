@@ -1,8 +1,9 @@
 
-{% from "email-notification.html" import emailNotification with context %}
 {% extends "layouts/main.html" %}
+{% from "govukNotifications/components/email.njk" import "govukNotificationsEmail" %}
 
 {% block beforeContent %}
+  {{ govukNotificationsEmail("DVSA", "Your one-time email code is 53821") }}
   {% if not query.changing %}
     <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
   {% endif %}
@@ -43,8 +44,5 @@
     <a href="govuk-link govuk-link--no-visited-state">Send me a new code</a>
   </div>
 </div>
-
-
-{{ emailNotification("DVSA", "Your one-time email code is 53821") }}
 
 {% endblock %}
