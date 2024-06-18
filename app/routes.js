@@ -36,29 +36,29 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
-  res.render('apply-for-a-vehicle-test/apply.html', {path : req.path, query: req.query})
+  res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
-router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', {query: req.query}))
+router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', { query: req.query }))
 router.get('/name-check', (req, res) => {
   let errorPresent = false
   let errors = []
   if (req.session.data['first-name'].length === 0) {
     errorPresent = true
-    errors.push({href: '#first-name', text: 'Enter your first name'})
+    errors.push({ href: '#first-name', text: 'Enter your first name' })
   }
   if (req.session.data['last-name'].length === 0) {
     errorPresent = true
-    errors.push({href: '#last-name', text: 'Enter your last name'})
+    errors.push({ href: '#last-name', text: 'Enter your last name' })
   }
   if (errorPresent) {
-    res.render('what-is-your-name.html', {query: req.query, errors})
+    res.render('what-is-your-name.html', { query: req.query, errors })
   } else {
     res.redirect('/what-is-your-email-address')
   }
 })
 
-router.get('/what-is-your-email-address', (req, res) => res.render('what-is-your-email-address.html', {query: req.query}))
+router.get('/what-is-your-email-address', (req, res) => res.render('what-is-your-email-address.html', { query: req.query }))
 router.get('/email-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -76,7 +76,7 @@ router.get('/email-check', (req, res) => {
   }
   if (req.session.data['email'].match(/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/) === null && !errorPresent) {
     errorPresent = true
-    errors.push({ href: '#email', text: 'Enter an email address in the correct format, like name@example.com'})
+    errors.push({ href: '#email', text: 'Enter an email address in the correct format, like name@example.com' })
   }
   if (errorPresent) {
     res.render('what-is-your-email-address.html', { query: req.query, errors })
@@ -85,7 +85,7 @@ router.get('/email-check', (req, res) => {
   }
 })
 
-router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-phone-number.html', {query: req.query}))
+router.get('/what-is-your-phone-number', (req, res) => res.render('what-is-your-phone-number.html', { query: req.query }))
 router.get('/phone-number-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -102,7 +102,7 @@ router.get('/phone-number-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#confirm-telephone-number', text: 'The telephone numbers must match' })
   }
-  if (phoneNumber !== undefined &&!phoneNumber.isValid() && !errorPresent)  {
+  if (phoneNumber !== undefined && !phoneNumber.isValid() && !errorPresent) {
     errorPresent = true
     errors.push({ href: '#telephone-number', text: 'Enter a telephone number, like 01632 960 001, 07700 900 982 or +44 808 157 0192' })
   }
@@ -112,7 +112,7 @@ router.get('/phone-number-check', (req, res) => {
     res.redirect('/check-your-phone')
   }
 })
-router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', {query: req.query}))
+router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', { query: req.query }))
 router.get('/vin-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -139,15 +139,15 @@ router.get('/vin-check', (req, res) => {
   }
 })
 
-router.get('/vehicle-data', (req, res) => res.render('vehicle-data.html', {query: req.query}))
+router.get('/vehicle-data', (req, res) => res.render('vehicle-data.html', { query: req.query }))
 
-router.get('/vehicle-category', (req, res) => res.render('vehicle-category.html', {query: req.query}))
+router.get('/vehicle-category', (req, res) => res.render('vehicle-category.html', { query: req.query }))
 router.get('/vehicle-category-check', (req, res) => {
   let errorPresent = false
   let errors = []
   if (req.session.data['vehicle-category'] === undefined) {
     errorPresent = true
-    errors.push({ href: '#vehicle-category', text: 'Select a vehicle category'})
+    errors.push({ href: '#vehicle-category', text: 'Select a vehicle category' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
@@ -313,7 +313,7 @@ router.get('/test-type-check', (req, res) => {
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
-      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/test-type', query: req.query, errors})
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-type', query: req.query, errors })
     } else {
       res.render('test-type.html', { query: req.query, errors })
     }
@@ -333,7 +333,7 @@ router.get('/mot-check', (req, res) => {
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
-      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/vehicle-being-tested-alongside-mot', query: req.query, errors})
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vehicle-being-tested-alongside-mot', query: req.query, errors })
     } else {
       res.render('vehicle-being-tested-alongside-mot.html', { query: req.query, errors })
     }
@@ -358,7 +358,7 @@ router.get('/taking-vehicle-check', (req, res) => {
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
-      res.render('apply-for-a-vehicle-test/apply.html', { path : '/apply-for-a-vehicle-test/apply/where-are-you-planning-to-take-your-vehicle', query: req.query, errors})
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/where-are-you-planning-to-take-your-vehicle', query: req.query, errors })
     } else {
       res.render('where-are-you-planning-to-take-your-vehicle.html', { query: req.query, errors })
     }
@@ -373,11 +373,11 @@ router.get('/taking-vehicle-check', (req, res) => {
       case 'potf':
         res.redirect('/submit-test')
         break
-    } 
+    }
   }
 })
 
-router.get('/application-type', (req, res) => res.render('application-type.html', {query: req.query}))
+router.get('/application-type', (req, res) => res.render('application-type.html', { query: req.query }))
 router.get('/application-type-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -408,7 +408,7 @@ router.get('/application-type-check', (req, res) => {
   }
 })
 
-router.get('/notifiable-alteration', (req, res) => res.render('notifiable-alteration.html', {query: req.query}))
+router.get('/notifiable-alteration', (req, res) => res.render('notifiable-alteration.html', { query: req.query }))
 router.get('/notifiable-alteration-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -428,7 +428,7 @@ router.get('/notifiable-alteration-check', (req, res) => {
   }
 })
 
-router.get('/size-of-psv', (req, res) => res.render('size-of-psv.html', {query: req.query}))
+router.get('/size-of-psv', (req, res) => res.render('size-of-psv.html', { query: req.query }))
 router.get('/size-of-psv-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -448,7 +448,7 @@ router.get('/size-of-psv-check', (req, res) => {
   }
 })
 
-router.get('/certificate-of-conformity', (req, res) => res.render('certificate-of-conformity.html', {query: req.query}))
+router.get('/certificate-of-conformity', (req, res) => res.render('certificate-of-conformity.html', { query: req.query }))
 router.get('/coc-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -468,7 +468,7 @@ router.get('/coc-check', (req, res) => {
   }
 })
 
-router.get('/seat-belt-installation', (req, res) => res.render('seat-belt-installation.html', {query: req.query}))
+router.get('/seat-belt-installation', (req, res) => res.render('seat-belt-installation.html', { query: req.query }))
 router.get('/seat-belt-check', (req, res) => {
   let errorPresent = false
   let errors = []
@@ -488,14 +488,14 @@ router.get('/seat-belt-check', (req, res) => {
   }
 })
 
-router.get('/test-location', (req, res) => res.render('test-location.html', {query: req.query}))
+router.get('/test-location', (req, res) => res.render('test-location.html', { query: req.query }))
 router.get('/test-location-check', (req, res) => {
-  if (req.query.find === 'find')  {
+  if (req.query.find === 'find') {
     let errorPresent = false
     let errors = []
     if (req.session.data['find-test-centre'] === '') {
       errorPresent = true
-      errors.push({ href: '#find-test-centre', text: 'Enter a location or a postcode' })
+      errors.push({ href: '#find-test-centre', text: 'Enter a test centre name, test centre number, address, postcode, phone number or email.' })
     }
     if (errorPresent) {
       res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-location', query: req.query, errors })
@@ -547,8 +547,8 @@ router.get('/change-vehicle', (req, res) => {
   res.redirect(`${myvt}/check-your-answers`)
 })
 
-router.get('/upload-form', (req, res) => res.render('/upload-form', {query: req.query}))
-router.get('/upload-supporting-documentation', (req, res) => res.render('/upload-supporting-documentation', {query: req.query}))
+router.get('/upload-form', (req, res) => res.render('/upload-form', { query: req.query }))
+router.get('/upload-supporting-documentation', (req, res) => res.render('/upload-supporting-documentation', { query: req.query }))
 
 router.get(['/upload-check'], (req, res) => {
   req.session.data.removed = undefined
@@ -588,19 +588,19 @@ router.get(['/submit-test'], (req, res) => {
     const currentTest = currentVehicle.tests.find(test => test['test'] === currentFields['application-type'])
 
     if (req.session.data.changedVehicle) {
-      req.session.data.changedVehicle = false 
+      req.session.data.changedVehicle = false
     } else {
       if (currentTest) {
         currentTest['form'] = currentFields['application-upload'],
-        currentTest['supporting'] = currentFields['supporting-documentation']
+          currentTest['supporting'] = currentFields['supporting-documentation']
       } else {
-        currentVehicle.tests.push({ 
-          test: currentFields['application-type'], 
-          form: currentFields['application-upload'], 
+        currentVehicle.tests.push({
+          test: currentFields['application-type'],
+          form: currentFields['application-upload'],
           productCodes: potentialPcs,
           location: currentFields['test-location'],
           testCentre: currentFields.testCentre,
-          time: currentFields['test-time'], 
+          time: currentFields['test-time'],
           supporting: currentFields['supporting-documentation']
         })
       }
@@ -612,22 +612,22 @@ router.get(['/submit-test'], (req, res) => {
       category: currentFields['vehicle-category'],
       tests: [
         {
-          test: currentFields['application-type'], 
+          test: currentFields['application-type'],
           form: currentFields['application-upload'],
           productCodes: potentialPcs,
           testCentre: currentFields.testCentre,
           location: currentFields['test-location'],
-          time: currentFields['test-time'], 
+          time: currentFields['test-time'],
           supporting: currentFields['supporting-documentation']
         }
-        ]
+      ]
     })
   }
   res.redirect(`${myvt}/check-your-answers`)
 })
 
-router.get('/check-your-answers', (req, res) => { 
-  res.render('/check-your-answers.html', {query: req.query})
+router.get('/check-your-answers', (req, res) => {
+  res.render('/check-your-answers.html', { query: req.query })
 })
 
 router.get('/add-vehicle', (req, res) => {

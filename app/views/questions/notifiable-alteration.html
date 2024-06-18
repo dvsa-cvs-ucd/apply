@@ -1,10 +1,10 @@
 {% if data['vehicle-category'] == 'Heavy goods vehicle (HGV) or lorries (more than 3,500kg)' %}
-{% set letter = 'A' %}
+  {% set letter = 'A' %}
 {% else %}
-{% set letter = 'T' %}
+  {% set letter = 'T' %}
 {% endif %}
 {% set explainer %}
-<p class="govuk-hint">The Ministry Plate or Plating Certificate may include the details of:</p>
+<p class="govuk-hint">These paper documents show important details about the vehicle. The ministry plate or plating certficiate can include::</p>
 <ul class="govuk-list govuk-list--bullet">
   <li class="govuk-hint">the serial number</li>
   <li class="govuk-hint">the gross weight, train weight, and maximum train weight</li>
@@ -12,15 +12,14 @@
   <li class="govuk-hint">the axle weights</li>
   <li class="govuk-hint">the conditions about the use of tyres</li>
 </ul>
-<p class="govuk-hint">If you make changes to these specifications, you may need to update one of these documents – VTG6{{letter}}, VTG7{{letter}} – to
-  reflect the new details.</p>
-
+<p class="govuk-hint">If the vehicle details change as part of the alterations, then you may need to complete a VTG788/789 form. This notifies the DVSA of the changes, so they can issue a VTG6/7 certificate.</p>
+<h2 class="govuk-heading-m">Changes to the vehicle details as a result of the alterations</h2>
 {% endset %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {% if errors | length > 0 %}
-    {{ govukErrorSummary({
+      {{ govukErrorSummary({
     titleText: "There is a problem",
     errorList: errors
     }) }}
@@ -29,10 +28,9 @@
       {{ govukRadios({
         idPrefix: "notifiable-alteration",
         name: "notifiable-alteration",
-        classes: 'govuk-radios--inline',
         fieldset: {
           legend: {
-            text: "Will your alteration change the details on the Ministry Plate or Plating Certificate?",
+            text: "Vehicle details on the ministry plate or plating certificate",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -43,15 +41,15 @@
         items: [
           {
             value: "yes",
-            text: "Yes"
+            text: "The vehicle details are changing"
           },
           {
             value: "no",
-            text: "No"
+            text: "The vehicle details are staying the same"
           }
         ]
       } | errorFilter(errors)) }}
-    
+
       {{ govukButton({
         text: 'Save and continue'
       }) }}
