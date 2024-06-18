@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form>
+      {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        Your account details have been set
+      </h3>
+      <p class="govuk-body">You can now sign in using the details you provided</p>
+      {% endset %}
+      
+      {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+      }) }}
+      <h1 class="govuk-heading-l">
+        Sign in to your account
+      </h1>
+      {{ govukInput(
+        {
+          label: {
+            text: 'Your email address'
+          },
+          classes: 'govuk-!-width-three-quarters',
+          name: 'sign-in-email',
+          id: 'sign-in-email',
+          autocomplete: 'email',
+          spellcheck: false,
+          type: 'email'
+        }
+      )}}
+      {{ govukPasswordInput({
+      label: {
+      text: "Password"
+      },
+      classes: 'govuk-!-width-three-quarters',
+      name: "sign-in-password",
+      id: "sign-in-password"
+      }) }}
+      {{ govukButton({
+        text: 'Sign in'
+      })}}
+        <a class="govuk-link govuk-link--no-visited-state govuk-!-display-block" href="#">Forgotten your password?</a></form>
+      </form>
+  </div>
+</div>
+
+{% endblock %}

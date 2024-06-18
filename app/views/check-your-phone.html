@@ -3,7 +3,7 @@
 {% from "govukNotifications/components/phone.njk" import "govukNotificationsPhone" %}
 
 {% block beforeContent %}
-{{ govukNotificationsPhone("DVSA", "Your one-time phone code is 53821") }}
+{{ govukNotificationsPhone("DVSA", "Your one-time phone code is 94827") }}
   {% if not query.changing %}
     <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
   {% endif %}
@@ -21,19 +21,21 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    {{
-      govukInput({
-        label: {
-          text: 'Your one-time phone code'
-        },
-        classes: 'govuk-input--width-5'
-      })
-    }}
-    {{
-      govukButton({
-        text: 'Continue'
-      })
-    }}
+    <form action="/set-password">
+      {{
+        govukInput({
+          label: {
+            text: 'Your one-time phone code'
+          },
+          classes: 'govuk-input--width-5'
+        })
+      }}
+      {{
+        govukButton({
+          text: 'Continue'
+        })
+      }}
+    </form>
   </div>
 </div>
 <div class="govuk-grid-row">
