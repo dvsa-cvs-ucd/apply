@@ -10,22 +10,24 @@
       {{ govukRadios({
         idPrefix: "size-of-psv",
         name: "size-of-psv",
-        classes: 'govuk-radios--inline',
         fieldset: {
           legend: {
-            text: "Can your vehicle carry 23 or more passengers?",
+            text: "Select the number of passengers the vehicle can carry",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "Do not include the driver."
+        },
         items: [
           {
             value: "large",
-            text: "Yes"
+            text: "23 or more"
           },
           {
             value: "small",
-            text: "No"
+            text: "22 or less"
           }
         ]
       } | errorFilter(errors)) }}
