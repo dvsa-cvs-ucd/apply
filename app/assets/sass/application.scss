@@ -11,6 +11,42 @@ html {
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'UK-VRM';
+  src: url('../uk-vrm.ttf');
+}
+
+.dvsa-vrm {
+  display: inline-block;
+  min-width: 9.375rem;
+  font: 1.8rem 'UK-VRM', Verdana, sans-serif;
+  padding: govuk-spacing(1) .2rem;
+  text-align: center;
+  background-color: #fd0;
+  border-radius: .25rem;
+  text-transform: uppercase
+}
+
+.dvsa-panel__highlight {
+  background-color: govuk-colour("light-grey");
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+address {
+  @extend .govuk-body;
+  font-style: normal;
+  margin-top: 0;
+}
+
+.page-count {
+  @extend .govuk-caption-m;
+  flex-grow: 1;
+  text-align: right;
+  height: 100%;
+  align-self: center;
+}
+
 body {
   // Reset default margin
   margin: 0;
