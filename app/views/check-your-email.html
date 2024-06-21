@@ -17,7 +17,7 @@
     <div class="govuk-caption-l">Create an account</div>
     <h1 class="govuk-heading-l">Check your email</h1>
     <p class="govuk-body">We have sent a one-time code to <strong>{{ data['email'] }}</strong>.</p>
-    <p class="govuk-body">Enter the one-time code in the box below to confirm your email address.</p>
+    <p class="govuk-body">To confirm it's your email address, we will send you a one-time email code.</p>
   </div>
 </div>
 <div class="govuk-grid-row">
@@ -26,7 +26,7 @@
     {{
       govukInput({
         label: {
-          text: 'Your one-time email code'
+          text: 'Enter your one-time email code'
         },
         classes: 'govuk-input--width-5'
       })
@@ -41,7 +41,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="govuk-link govuk-link--no-visited-state">Send me a new code</a>
+    <a href="govuk-link govuk-link--no-visited-state">Request a new code</a>
   </div>
 </div>
 
