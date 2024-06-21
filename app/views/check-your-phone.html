@@ -14,9 +14,10 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-caption-l">Create an account</div>
     <h1 class="govuk-heading-l">Check your phone</h1>
     <p class="govuk-body">We have sent a one-time code to <strong>{{ data['telephone-number'] | obfuscateNumber }}</strong>.</p>
-    <p class="govuk-body">Enter the one-time code in the box below to confirm your phone number.</p>
+    <p class="govuk-body">To confirm it's your phone number, we will send you a one-time phone code.</p>
   </div>
 </div>
 <div class="govuk-grid-row">
@@ -25,7 +26,7 @@
       {{
         govukInput({
           label: {
-            text: 'Your one-time phone code'
+            text: 'Enter your one-time phone code'
           },
           classes: 'govuk-input--width-5'
         })
@@ -40,7 +41,7 @@
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="govuk-link govuk-link--no-visited-state">Send me a new code</a>
+    <a href="govuk-link govuk-link--no-visited-state">Request a new code</a>
   </div>
 </div>
 
