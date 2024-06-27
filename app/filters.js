@@ -203,3 +203,5 @@ addFilter('dateNow', string => {
 })
 
 addFilter('obfuscateNumber', string => string !== undefined ? `${string.slice(0, 2)}${'x'.repeat(string.slice(2, -2).length)}${string.slice(-2)}` : '07xxxxxx00')
+
+addFilter('includes', (string, check) => string.includes(check))

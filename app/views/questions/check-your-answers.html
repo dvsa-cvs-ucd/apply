@@ -153,6 +153,40 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    key: {
+                      text: "Design and construction category"
+                    },
+                    value: {
+                      html: vehicle.unece
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: '#',
+                          text: "Change",
+                          visuallyHiddenText: "category"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    key: {
+                      text: "Number of axles"
+                    },
+                    value: {
+                      html: vehicle.axles
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: '#',
+                          text: "Change",
+                          visuallyHiddenText: "category"
+                        }
+                      ]
+                    }
                   }
                 ]
               })}}
@@ -166,6 +200,187 @@
                 <h5 class="govuk-summary-card__title">{{ test.test }}</h5>
               </div>
               <div class="govuk-summary-card__content">
+                {% if test.test | includes('VTG10') %}
+              {{ govukSummaryList({
+                rows: [
+                 {
+                  key: {
+                    text: 'Application form'
+                  },
+                  value: {
+                    text: test.form
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "application form"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Supporting documents'
+                  },
+                  value: {
+                    text: test.supporting
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Changes to the vehicle details as a result of the alterations'
+                  },
+                  value: {
+                    text: test.notifiableAlteration
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                  text: 'Preferred location'
+                  },
+                  value: {
+                    text: test.testCentre
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "preferred test location"
+                      }
+                    ]
+                  }
+                 }
+                ]
+              }) }}
+              {% elseif test.test | includes('COIF') %}
+              {{ govukSummaryList({
+                rows: [
+                 {
+                  key: {
+                    text: 'Application form'
+                  },
+                  value: {
+                    text: test.form
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "application form"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Supporting documents'
+                  },
+                  value: {
+                    text: test.supporting
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Number of passengers the vehicle can carry'
+                  },
+                  value: {
+                    text: test.sizeOfPsv
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Include a seat belt installation check'
+                  },
+                  value: {
+                    text: test.seatBeltInstallation
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                    text: 'Will the vehicle will have a test and an MOT?'
+                  },
+                  value: {
+                    text: test.mot
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 },
+                 {
+                  key: {
+                  text: 'Preferred location'
+                  },
+                  value: {
+                    text: test.testCentre
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "preferred test location"
+                      }
+                    ]
+                  }
+                 }
+                ]
+              }) }}
+              {% else %}
               {{ govukSummaryList({
                 rows: [
                  {
@@ -221,6 +436,7 @@
                  }
                 ]
               }) }}
+              {% endif %}
               </div>
             </div>
           <!--- END OF TESTS -->
