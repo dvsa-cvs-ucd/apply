@@ -1,0 +1,17 @@
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">No results found</h1>
+      <p class="govuk-body">
+        There are no test centres that match your search. Try checking your search criteria and searching again.
+      </p>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+
+      {{ govukButton({
+      text: "Go back"
+    }) }}
+    </div>
+  </div>
+{% endblock %}
