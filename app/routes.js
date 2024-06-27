@@ -597,6 +597,10 @@ router.get(['/submit-test'], (req, res) => {
         currentVehicle.tests.push({
           test: currentFields['application-type'],
           form: currentFields['application-upload'],
+          notifiableAlteration: currentFields['notifiable-alteration'],
+          sizeOfPsv: currentFields['size-of-psv'],
+          seatBeltInstallation: currentFields['seat-belt-installation'],
+          mot: currentFields['tested-with-mot'],
           productCodes: potentialPcs,
           location: currentFields['test-location'],
           testCentre: currentFields.testCentre,
@@ -610,10 +614,17 @@ router.get(['/submit-test'], (req, res) => {
       vin: currentFields['vin'],
       vrm: currentFields['vrm'],
       category: currentFields['vehicle-category'],
+      unece: currentFields['unece'],
+      axles: currentFields['axles'],
+      class: currentFields['vehicle-class'],
       tests: [
         {
           test: currentFields['application-type'],
           form: currentFields['application-upload'],
+          notifiableAlteration: currentFields['notifiable-alteration'],
+          sizeOfPsv: currentFields['size-of-psv'],
+          seatBeltInstallation: currentFields['seat-belt-installation'],
+          mot: currentFields['tested-with-mot'],
           productCodes: potentialPcs,
           testCentre: currentFields.testCentre,
           location: currentFields['test-location'],
@@ -642,6 +653,8 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data['test-type'] = undefined
   req.session.data['application-type'] = undefined
   req.session.data['upload-form'] = undefined
+  req.session.data['application-upload'] = undefined
+  req.session.data['notifiable-alteration'] = undefined
   req.session.data['supporting-documentation'] = undefined
   res.redirect(`${myvt}/vehicle-details`)
 })
@@ -653,6 +666,8 @@ router.get('/add-test', (req, res) => {
   req.session.data.vrm = req.session.data.vehicles[req.session.data.addTo].vrm
   req.session.data['test-type'] = undefined
   req.session.data['application-type'] = undefined
+  req.session.data['notifiable-alteration'] = undefined
+  req.session.data['upload-form'] = undefined
   req.session.data['application-upload'] = undefined
   req.session.data['supporting-documentation'] = undefined
   res.redirect(`${myvt}/test-type`)
