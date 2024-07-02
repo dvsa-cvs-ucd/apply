@@ -187,7 +187,24 @@
                         }
                       ]
                     }
-                  }
+                  } if vehicle.axles,
+                  {
+                    key: {
+                      text: 'Number of passengers the vehicle can carry'
+                    },
+                    value: {
+                      text: vehicle.sizeOfPsv
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "size of PSV"
+                        }
+                      ]
+                    }
+                  } if vehicle.sizeOfPsv
                 ]
               })}}
             </div>
@@ -273,7 +290,7 @@
                  }
                 ]
               }) }}
-              {% elseif test.test | includes('COIF') %}
+              {% elseif test.test | includes('417') %}
               {{ govukSummaryList({
                 rows: [
                  {
@@ -299,23 +316,6 @@
                   },
                   value: {
                     text: test.supporting
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "support documents"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                    text: 'Number of passengers the vehicle can carry'
-                  },
-                  value: {
-                    text: test.sizeOfPsv
                   },
                   actions: {
                     items: [

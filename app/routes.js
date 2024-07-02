@@ -36,6 +36,7 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
+  console.log(req.session.data.vehicles)
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
@@ -598,7 +599,6 @@ router.get(['/submit-test'], (req, res) => {
           test: currentFields['application-type'],
           form: currentFields['application-upload'],
           notifiableAlteration: currentFields['notifiable-alteration'],
-          sizeOfPsv: currentFields['size-of-psv'],
           seatBeltInstallation: currentFields['seat-belt-installation'],
           mot: currentFields['tested-with-mot'],
           productCodes: potentialPcs,
@@ -607,6 +607,7 @@ router.get(['/submit-test'], (req, res) => {
           time: currentFields['test-time'],
           supporting: currentFields['supporting-documentation']
         })
+        currentVehicle.sizeOfPsv = currentFields['size-of-psv'] ?? false
       }
     }
   } else {
@@ -617,12 +618,12 @@ router.get(['/submit-test'], (req, res) => {
       unece: currentFields['unece'],
       axles: currentFields['axles'],
       class: currentFields['vehicle-class'],
+      sizeOfPsv: currentFields['size-of-psv'] ?? false,
       tests: [
         {
           test: currentFields['application-type'],
           form: currentFields['application-upload'],
           notifiableAlteration: currentFields['notifiable-alteration'],
-          sizeOfPsv: currentFields['size-of-psv'],
           seatBeltInstallation: currentFields['seat-belt-installation'],
           mot: currentFields['tested-with-mot'],
           productCodes: potentialPcs,
@@ -647,6 +648,8 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data.vrm = undefined
   req.session.data['vehicle-category'] = undefined
   req.session.data['vehicle-class'] = undefined
+  req.session.data['size-of-psv'] = undefined
+  req.session.data.sizeOfPsv = undefined
   req.session.data.wav = undefined
   req.session.data.axles = undefined
   req.session.data.unece = undefined
@@ -667,6 +670,8 @@ router.get('/add-test', (req, res) => {
   req.session.data['test-type'] = undefined
   req.session.data['application-type'] = undefined
   req.session.data['notifiable-alteration'] = undefined
+  req.session.data['size-of-psv'] = undefined
+  req.session.data.sizeOfPsv = undefined
   req.session.data['upload-form'] = undefined
   req.session.data['application-upload'] = undefined
   req.session.data['supporting-documentation'] = undefined
