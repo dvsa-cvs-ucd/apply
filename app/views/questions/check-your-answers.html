@@ -187,7 +187,24 @@
                         }
                       ]
                     }
-                  }
+                  } if vehicle.axles,
+                  {
+                    key: {
+                      text: 'Number of passengers the vehicle can carry'
+                    },
+                    value: {
+                      text: vehicle.sizeOfPsv
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "size of PSV"
+                        }
+                      ]
+                    }
+                  } if vehicle.sizeOfPsv
                 ]
               })}}
             </div>
@@ -200,7 +217,6 @@
                 <h5 class="govuk-summary-card__title">{{ test.test }}</h5>
               </div>
               <div class="govuk-summary-card__content">
-                {% if test.test | includes('VTG10') %}
               {{ govukSummaryList({
                 rows: [
                  {
@@ -226,96 +242,6 @@
                   },
                   value: {
                     text: test.supporting
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "support documents"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                    text: 'Changes to the vehicle details as a result of the alterations'
-                  },
-                  value: {
-                    text: test.notifiableAlteration
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "support documents"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                  text: 'Preferred location'
-                  },
-                  value: {
-                    text: test.testCentre
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "preferred test location"
-                      }
-                    ]
-                  }
-                 }
-                ]
-              }) }}
-              {% elseif test.test | includes('COIF') %}
-              {{ govukSummaryList({
-                rows: [
-                 {
-                  key: {
-                    text: 'Application form'
-                  },
-                  value: {
-                    text: test.form
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "application form"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                    text: 'Supporting documents'
-                  },
-                  value: {
-                    text: test.supporting
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "support documents"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                    text: 'Number of passengers the vehicle can carry'
-                  },
-                  value: {
-                    text: test.sizeOfPsv
                   },
                   actions: {
                     items: [
@@ -343,7 +269,24 @@
                       }
                     ]
                   }
-                 },
+                 } if test.test | includes('417'),
+                 {
+                  key: {
+                    text: 'Changes to the vehicle details as a result of the alterations'
+                  },
+                  value: {
+                    text: test.notifiableAlteration
+                  },
+                  actions: {
+                    items: [
+                      {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "support documents"
+                      }
+                    ]
+                  }
+                 } if test.test | includes('VTG10'),
                  {
                   key: {
                     text: 'Will the vehicle will have a test and an MOT?'
@@ -360,7 +303,7 @@
                       }
                     ]
                   }
-                 },
+                 } if test.test | includes('417'),
                  {
                   key: {
                   text: 'Preferred location'
@@ -380,63 +323,6 @@
                  }
                 ]
               }) }}
-              {% else %}
-              {{ govukSummaryList({
-                rows: [
-                 {
-                  key: {
-                    text: 'Application form'
-                  },
-                  value: {
-                    text: test.form
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "application form"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                    text: 'Supporting documents'
-                  },
-                  value: {
-                    text: test.supporting
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "support documents"
-                      }
-                    ]
-                  }
-                 },
-                 {
-                  key: {
-                  text: 'Preferred location'
-                  },
-                  value: {
-                    text: test.testCentre
-                  },
-                  actions: {
-                    items: [
-                      {
-                        href: "#",
-                        text: "Change",
-                        visuallyHiddenText: "preferred test location"
-                      }
-                    ]
-                  }
-                 }
-                ]
-              }) }}
-              {% endif %}
               </div>
             </div>
           <!--- END OF TESTS -->
