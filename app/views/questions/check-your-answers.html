@@ -1,15 +1,16 @@
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
-      {% if not data['myvt'] %}
+    {% if not data['myvt'] %}
       <h2 class="govuk-heading-l">
         About you
       </h2>
       {% set name %}
-      {{data['first-name']}} {{data['last-name']}}
+      {{data['first-name']}}
+      {{data['last-name']}}
       {% endset %}
       {{ govukSummaryList({
         rows: [
@@ -82,30 +83,30 @@
             }
           }
           ]})}}
+    {% endif %}
+    <h2 class="govuk-heading-l govuk-!-margin-top-9">Your vehicles</h2>
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <!-- START OF VEHICLES -->
+      {% for vehicle in data['vehicles'] %}
+        <div class="govuk-accordion__section">
+          {% set vrm %}
+          {% if vehicle.vrm %}
+            <span class="dvsa-vrm">{{ vehicle.vrm | vrm }}</span>
+          {% else %}
+              Not provided
           {% endif %}
-          <h2 class="govuk-heading-l govuk-!-margin-top-9">Your vehicles</h2> 
-          <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
-          <!-- START OF VEHICLES -->
-          {% for vehicle in data['vehicles'] %}
-          <div class="govuk-accordion__section">
-            {% set vrm %}
-              {% if vehicle.vrm %}
-                <span class="dvsa-vrm">{{ vehicle.vrm | vrm }}</span>
-              {% else %}
-                Not provided
-              {% endif %}
-            {% endset %}
-            <div class="govuk-accordion__section-header">
-              <h3 class="govuk-accordion__section-heading">
-                <span class="govuk-accordion__section-button" id="accordion-default-heading-{{loop.index}}">
-                  Vehicle {{ loop.index }}
-                </span>
-              </h3>
-            </div>
-            <div id="accordion-default-content-{{loop.index}}" class="govuk-accordion__section-content">
+          {% endset %}
+          <div class="govuk-accordion__section-header">
+            <h3 class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="accordion-default-heading-{{loop.index}}">
+                  VIN: {{ vehicle.vin }}
+              </span>
+            </h3>
+          </div>
+          <div id="accordion-default-content-{{loop.index}}" class="govuk-accordion__section-content">
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h4 class="govuk-summary-card__title">Vehicle {{ loop.index }} details</h4>
+                <h4 class="govuk-summary-card__title">Vehicle details <span class="govuk-visually-hidden">for {{vehicle.vin}}</span></h4>
               </div>
               <div class="govuk-summary-card__content">
                 {%- set changeVin -%}vehicle-details?changing=1&index={{ loop.index0 }}#vin{%- endset -%}
@@ -132,7 +133,7 @@
                         {
                           href: changeVin,
                           text: "Change",
-                          visuallyHiddenText: "VIN"
+                          visuallyHiddenText: "Change VIN for vehicle with VIN: ' + vehicle['vin']"
                         }
                       ]
                     }
@@ -149,7 +150,7 @@
                         {
                           href: changeVrm,
                           text: "Change",
-                          visuallyHiddenText: "vrm"
+                          visuallyHiddenText: "Change VRM for vehicle with VRM: ' + vehicle['vrm']"
                         }
                       ]
                     }
@@ -166,7 +167,7 @@
                         {
                           href: '#',
                           text: "Change",
-                          visuallyHiddenText: "category"
+                          visuallyHiddenText: "Change design and construction category for VIN: ' + vehicle['vin']"
                         }
                       ]
                     }
@@ -183,7 +184,7 @@
                         {
                           href: '#',
                           text: "Change",
-                          visuallyHiddenText: "category"
+                          visuallyHiddenText: "Change number of axles for VIN: ' + vehicle['vin']"
                         }
                       ]
                     }
@@ -200,24 +201,24 @@
                         {
                           href: "#",
                           text: "Change",
-                          visuallyHiddenText: "size of PSV"
+                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: ' + vehicle['vin']"
                         }
                       ]
                     }
                   } if vehicle.sizeOfPsv
                 ]
               })}}
+              </div>
             </div>
-          </div>
-            <h4 class="govuk-heading-m">Test applications for vehicle {{ loop.index }}</h4>
+            <h4 class="govuk-heading-m">Test applications for VIN: {{ vehicle.vin }}</h4>
             <!-- START OF TESTS -->
             {% for test in vehicle.tests %}
-            <div class="govuk-summary-card">
-              <div class="govuk-summary-card__title-wrapper">
-                <h5 class="govuk-summary-card__title">{{ test.test }}</h5>
-              </div>
-              <div class="govuk-summary-card__content">
-              {{ govukSummaryList({
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h5 class="govuk-summary-card__title">{{ test.test }}</h5>
+                </div>
+                <div class="govuk-summary-card__content">
+                  {{ govukSummaryList({
                 rows: [
                  {
                   key: {
@@ -231,7 +232,7 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "application form"
+                        visuallyHiddenText: "change application form"
                       }
                     ]
                   }
@@ -248,7 +249,7 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "support documents"
+                        visuallyHiddenText: "change supporting documents"
                       }
                     ]
                   }
@@ -265,7 +266,7 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "support documents"
+                        visuallyHiddenText: "change seat belt installation check"
                       }
                     ]
                   }
@@ -282,7 +283,7 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "support documents"
+                        visuallyHiddenText: "changes to the vehicle details as a result of the alterations"
                       }
                     ]
                   }
@@ -299,7 +300,7 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "support documents"
+                        visuallyHiddenText: "will the vehicle have an MOT"
                       }
                     ]
                   }
@@ -316,54 +317,62 @@
                       {
                         href: "#",
                         text: "Change",
-                        visuallyHiddenText: "preferred test location"
+                        visuallyHiddenText: "change preferred test location"
                       }
                     ]
                   }
                  }
                 ]
               }) }}
+                </div>
               </div>
-            </div>
-          <!--- END OF TESTS -->
+              <!--- END OF TESTS -->
             {% endfor %}
             <form action="/add-test">
               <input type="hidden" value="{{ loop.index0 }}" name="addTo">
-              <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for vehicle {{ loop.index }}</button>
+              <button value="add-test" class="govuk-button govuk-button--secondary">Add another application for VIN: {{ vehicle.vin }}</button>
             </form>
           </div>
-          </div>
-          {% endfor %}
-          <!--- END OF VEHICLES -->
         </div>
-          <form action="/add-vehicle">
-            <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
-          </form>
-        {% if data.pfa %}
-        <h3 class="govuk-heading-m">Approve payment from your pre-funded account</h3>
-        <p class="govuk-body">Pre-funded account balance: £XXXX.XX</p>
-        <p class="govuk-body"><strong>Total to pay: £XXX.XX</strong></p>
-        <p class="govuk-body">This gives the DVSA permission to collect the cost of the application from your pre-funded account.</p>
-        <form action="confirmation">
-          {% else %}
-          <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
-            <h3 class="govuk-heading-m">Paying for your application</h3>
-            <p class="govuk-body"><strong>Total to pay: £XXX.XX</strong></p>
-            <p class="govuk-headin-m">Payment is required now, before the DVSA processes your application.</p>
-            <p class="govuk-body">Selecting 'Proceed to payment' will take you to our payment provider Customer
+      {% endfor %}
+      <!--- END OF VEHICLES -->
+    </div>
+    <form action="/add-vehicle">
+      <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
+    </form>
+    {% if data.pfa %}
+      <h3 class="govuk-heading-m">Approve payment from your pre-funded account</h3>
+      <p class="govuk-body">Pre-funded account balance: £XXXX.XX</p>
+      <p class="govuk-body">
+        <strong>Total to pay: £XXX.XX</strong>
+      </p>
+      <p class="govuk-body">This gives the DVSA permission to collect the cost of the application from your pre-funded account.</p>
+      <form action="confirmation">
+      {% else %}
+        <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
+          <h3 class="govuk-heading-m">Paying for your application</h3>
+          <p class="govuk-body">
+            <strong>Total to pay: £XXX.XX</strong>
+          </p>
+          <p class="govuk-headin-m">Payment is required now, before the DVSA processes your application.</p>
+          <p class="govuk-body">Selecting 'Proceed to payment' will take you to our payment provider Customer
               Payment Management System. </p>
-          
-            <p class="govuk-body">Make sure you have your card details in front of you, as you will have 30 minutes to complete
+
+          <p class="govuk-body">Make sure you have your card details in front of you, as you will have 30 minutes to complete
               your payment. This is to keep your information safe and secure. Any details you enter will not be shared.</p>
-          
-            <p class="govuk-body"><strong>To get an email confirmation of your payment, enter your email address when asked to on
-                the ‘Additional Details’ page.</strong></p>
-          </div>
+
+          <p class="govuk-body">
+            <strong>To get an email confirmation of your payment, enter your email address when asked to on
+                the ‘Additional Details’ page.</strong>
+          </p>
+        </div>
         <form action="/cpms">
         {% endif %}
-          <div class="govuk-button-group">
-            <button value="payment" class="govuk-button">{%- if data.pfa -%}Accept and approve payment{%- else -%}Proceed to payment{%- endif -%}</button>
-          </div>
-        </form>
-      </div>
+        <div class="govuk-button-group">
+          <button value="payment" class="govuk-button">
+            {%- if data.pfa -%}Accept and approve payment{%- else -%}Proceed to payment{%- endif -%}
+          </button>
+        </div>
+      </form>
     </div>
+  </div>

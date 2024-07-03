@@ -10,13 +10,14 @@
 {% endif %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-     {% if errors | length > 0 %}
+    {% if errors | length > 0 %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errors
       }) }}
     {% endif %}
-    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <div class="govuk-caption-m">Vehicle VIN: {{ data.vin }}
+    </div>
     <form class="form" action="{{ nextPage }}">
       {{ govukRadios({
         name: 'vehicle-configuration',
