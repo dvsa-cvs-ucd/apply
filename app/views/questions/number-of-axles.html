@@ -5,7 +5,7 @@
   {% set vehicleIndex = query.index | int + 1 %}
   {% set axles = data['vehicles'][query['index']]['axles'] %}
   {% set axleOptions = data['vehicles'][query['index']]['vehicle-category'] | axleOptionCounter %}
-  {% else %}
+{% else %}
   {% set vehicleCount = data.vehicles | length + 1 %}
   {% set vehicleIndex = vehicleCount %}
   {% set nextPage = "/number-of-axles-check" %}
@@ -15,13 +15,14 @@
 {% endif %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-     {% if errors | length > 0 %}
+    {% if errors | length > 0 %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errors
       }) }}
     {% endif %}
-    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <div class="govuk-caption-m">Vehicle VIN: {{ data.vin }}
+    </div>
     <form class="form" action="{{ nextPage }}">
       {{ govukRadios({
         name: 'axles',

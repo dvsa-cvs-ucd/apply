@@ -12,13 +12,14 @@
 {% endif %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-     {% if errors | length > 0 %}
+    {% if errors | length > 0 %}
       {{ govukErrorSummary({
         titleText: "There is a problem",
         errorList: errors
       }) }}
     {% endif %}
-    <div class="govuk-caption-m">Vehicle {{ vehicleIndex }} of {{ vehicleCount }} </div>
+    <div class="govuk-caption-m">Vehicle VIN: {{ data.vin }}
+    </div>
     <form class="form" action="{{ nextPage }}">
       {{ govukCheckboxes({
         name: 'vehicle-class',
@@ -36,7 +37,7 @@
         values: data['vehicle-class']
       } | errorFilter(errors))  }}
       {% if data['vehicle-category'] == 'Cars or passenger vehicles (up to 8 seats)' %}
-     {{ govukRadios({
+        {{ govukRadios({
         classes: "govuk-radios--inline govuk-radios--small",
         name: "wav",
         fieldset: {
