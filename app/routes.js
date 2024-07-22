@@ -404,6 +404,11 @@ router.get('/application-type-check', (req, res) => {
       case 'PSV417 Application for COIF':
         res.redirect(`${myvt}/size-of-psv`)
         break
+      case 'PSVA1 Application for Accessibility Cert (Non Approved Type)':
+      case 'PSVA4 Certification Type Approval Application':
+      case 'PSVA6 Application for Accessibility Cert - Approved Type':
+        res.redirect(`${myvt}/dda-schedules`)
+        break
       default:
         res.redirect(`${myvt}/upload-form`)
         break
@@ -487,6 +492,26 @@ router.get('/seat-belt-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/vehicle-being-tested-alongside-mot`)
+  }
+})
+
+router.get('/dda-schedules', (req, res) => res.render('seat-belt-installation.html', { query: req.query }))
+router.get('/dda-schedules-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['schedules'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#schedules', text: 'Select what your accessibility certificate is for' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/dda-schedules', query: req.query, errors })
+    } else {
+      res.render('dda-schedules.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/upload-form`)
   }
 })
 
@@ -620,7 +645,6 @@ router.get(['/submit-test'], (req, res) => {
       unece: currentFields['unece'],
       axles: currentFields['axles'],
       class: currentFields['vehicle-class'],
-      class: currentFields['wav'] ?? false,
       wav: currentFields.wav ?? false,
       wheels: currentFields['number-of-wheels'] ?? false,
       sizeOfPsv: currentFields['size-of-psv'] ?? false,

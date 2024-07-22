@@ -1,12 +1,21 @@
-<form action="/schedules-check" method="post">
+{% if errors %}
+{{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+  }) }}
+{% endif %}
+<form action="/dda-schedules-check" method="post">
+    <div class="govuk-caption-m">
+      {{ data['test-type'] }}
+    </div>
     {{ govukRadios({
       "idPrefix": "schedules",
       "name": "schedules",
       "fieldset": {
         "legend": {
-          "text": "What is does your accessibility certificate for?",
+          "text": "What is your accessibility certificate for?",
           "isPageHeading": true,
-          "classes": "govuk-fieldset__legend--m"
+          "classes": "govuk-fieldset__legend--l"
         }
       },
       "items": [
@@ -20,12 +29,12 @@
         },
         {
           "value": "both",
-          "text": "Both wheelchair and general accessibility"
+          "text": "Both general and wheelchair accessibility"
         }
       ]
-    }) }}
-  </fieldset>
-  <button class="govuk-button" data-module="govuk-button" type="submit">
-    Continue
-  </button>
+    } | errorFilter(errors))  }}
+  {{ govukButton({
+    text: 'Save and continue',
+    type: 'submit'
+  }) }}
 </form>
