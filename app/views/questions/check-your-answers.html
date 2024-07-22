@@ -188,6 +188,40 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    key: {
+                      text: "Wheelchair Accessible Vehicle"
+                    },
+                    value: {
+                      html: data.wav
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: '#',
+                          text: "Change",
+                          visuallyHiddenText: "Change Wheelchair Accessible Vehicle for VIN: ' + vehicle['vin']"
+                        }
+                      ]
+                    }
+                  } if vehicle.number-of-wheels,
+                  {
+                    key: {
+                      text: 'Number of wheels'
+                    },
+                    value: {
+                      text: vehicle.sizeOfPsv
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: ' + vehicle['vin']"
+                        }
+                      ]
+                    }
                   } if vehicle.axles,
                   {
                     key: {
@@ -206,6 +240,7 @@
                       ]
                     }
                   } if vehicle.sizeOfPsv
+
                 ]
               })}}
               </div>
