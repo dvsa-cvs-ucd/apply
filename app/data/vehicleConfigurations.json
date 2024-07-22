@@ -37,10 +37,6 @@
       "value": "LOW LOADER"
     },
     {
-      "text": "Other",
-      "value": "OTHER"
-    },
-    {
       "text": "Drawbar",
       "value": "DRAWBAR"
     },
@@ -59,6 +55,10 @@
     {
       "text": "Long semi-trailer",
       "value": "LONG_SEMI_TRAILER"
+    },
+    {
+      "text": "Other",
+      "value": "OTHER"
     }
   ]
 }
