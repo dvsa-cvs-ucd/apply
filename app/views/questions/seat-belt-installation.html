@@ -1,11 +1,15 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {% if errors | length > 0 %}
-    {{ govukErrorSummary({
+      {{ govukErrorSummary({
     titleText: "There is a problem",
     errorList: errors
     }) }}
     {% endif %}
+    <div class="govuk-caption-m">
+      {{ data['test-type'] }}
+    </div>
+
     <form action="/seat-belt-check" method="post">
       {{ govukRadios({
         idPrefix: "seat-belt-installation",
@@ -31,7 +35,7 @@
           }
         ]
       } | errorFilter(errors)) }}
-    
+
       {{ govukButton({
         text: 'Save and continue'
       }) }}

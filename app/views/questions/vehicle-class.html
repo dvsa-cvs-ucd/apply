@@ -18,7 +18,7 @@
         errorList: errors
       }) }}
     {% endif %}
-    <div class="govuk-caption-m">Vehicle VIN: {{ data.vin }}
+    <div class="govuk-caption-m">VIN: {{ data.vin }}
     </div>
     <form class="form" action="{{ nextPage }}">
       {{ govukCheckboxes({
@@ -48,11 +48,11 @@
         value: data.wav,
         items: [
           {
-            value: "yes",
+            value: "Yes",
             text: "Yes"
           },
           {
-            value: "no",
+            value: "No",
             text: "No"
           }
         ]
