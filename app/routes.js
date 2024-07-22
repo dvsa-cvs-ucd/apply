@@ -36,6 +36,7 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
+  console.log(req.session.data.vehicles)
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
@@ -160,10 +161,12 @@ router.get('/vehicle-category-check', (req, res) => {
     switch (req.session.data['vehicle-category']) {
       case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
         req.session.data.unece = 'N1'
+        req.session.data.axles = 2
         res.redirect(`${myvt}/vehicle-class`)
         break
       case 'Cars or passenger vehicles (up to 8 seats)':
         req.session.data.unece = 'M1'
+        req.session.data.axles = 2
         res.redirect(`${myvt}/vehicle-class`)
         break
       case 'Motorcycles, 3-wheeled vehicles and quadricycles':
@@ -413,7 +416,6 @@ router.get('/notifiable-alteration-check', (req, res) => {
   let errorPresent = false
   let errors = []
   if (req.session.data['notifiable-alteration'] === undefined) {
-    console.log(errorPresent)
     errors.push({ href: '#notifiable-alteration', text: 'Select if the plated details will change' })
   }
   if (errorPresent) {
@@ -618,6 +620,9 @@ router.get(['/submit-test'], (req, res) => {
       unece: currentFields['unece'],
       axles: currentFields['axles'],
       class: currentFields['vehicle-class'],
+      class: currentFields['wav'] ?? false,
+      wav: currentFields.wav ?? false,
+      wheels: currentFields['number-of-wheels'] ?? false,
       sizeOfPsv: currentFields['size-of-psv'] ?? false,
       tests: [
         {
@@ -649,6 +654,7 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data['vehicle-category'] = undefined
   req.session.data['vehicle-class'] = undefined
   req.session.data.wav = undefined
+  req.session.data['number-of-wheels'] = undefined
   req.session.data.axles = undefined
   req.session.data.unece = undefined
   req.session.data['test-type'] = undefined

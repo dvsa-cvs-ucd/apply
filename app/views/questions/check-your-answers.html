@@ -167,7 +167,7 @@
                         {
                           href: '#',
                           text: "Change",
-                          visuallyHiddenText: "Change design and construction category for VIN: ' + vehicle['vin']"
+                          visuallyHiddenText: "Change design and construction category for VIN: " + vehicle['vin']
                         }
                       ]
                     }
@@ -184,45 +184,45 @@
                         {
                           href: '#',
                           text: "Change",
-                          visuallyHiddenText: "Change number of axles for VIN: ' + vehicle['vin']"
+                          visuallyHiddenText: "Change number of axles for VIN: " + vehicle['vin']
                         }
                       ]
                     }
-                  },
+                  } if not vehicle.wheels,
                   {
                     key: {
-                      text: "Wheelchair Accessible Vehicle"
+                      text: "Number of wheels"
                     },
                     value: {
-                      html: data.wav
+                      html: vehicle.wheels
                     },
                     actions: {
                       items: [
                         {
                           href: '#',
                           text: "Change",
-                          visuallyHiddenText: "Change Wheelchair Accessible Vehicle for VIN: ' + vehicle['vin']"
+                          visuallyHiddenText: "Change number of wheels for VIN: " + vehicle['vin']
                         }
                       ]
                     }
-                  } if vehicle.number-of-wheels,
+                  } if vehicle.wheels,
                   {
                     key: {
-                      text: 'Number of wheels'
+                      text: "Wheelchair Accessible Vehicle"
                     },
                     value: {
-                      text: vehicle.sizeOfPsv
+                      html: vehicle.wav
                     },
                     actions: {
                       items: [
                         {
-                          href: "#",
+                          href: '#',
                           text: "Change",
-                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: ' + vehicle['vin']"
+                          visuallyHiddenText: "Change Wheelchair Accessible Vehicle for VIN: " + vehicle['vin']
                         }
                       ]
                     }
-                  } if vehicle.axles,
+                  } if vehicle.unece == 'M1',
                   {
                     key: {
                       text: 'Number of passengers the vehicle can carry'
@@ -235,7 +235,24 @@
                         {
                           href: "#",
                           text: "Change",
-                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: ' + vehicle['vin']"
+                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: " + vehicle['vin']
+                        }
+                      ]
+                    }
+                  } if vehicle.sizeOfPsv,
+                  {
+                    key: {
+                      text: 'Number of passengers the vehicle can carry'
+                    },
+                    value: {
+                      text: vehicle.sizeOfPsv
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: " + vehicle['vin']
                         }
                       ]
                     }
