@@ -1,0 +1,31 @@
+<form action="/schedules-check" method="post">
+    {{ govukRadios({
+      "idPrefix": "schedules",
+      "name": "schedules",
+      "fieldset": {
+        "legend": {
+          "text": "What is does your accessibility certificate for?",
+          "isPageHeading": true,
+          "classes": "govuk-fieldset__legend--m"
+        }
+      },
+      "items": [
+        {
+          "value": "general",
+          "text": "General accessibility"
+        },
+        {
+          "value": "wheelchair",
+          "text": "Wheelchair accessibility"
+        },
+        {
+          "value": "both",
+          "text": "Both wheelchair and general accessibility"
+        }
+      ]
+    }) }}
+  </fieldset>
+  <button class="govuk-button" data-module="govuk-button" type="submit">
+    Continue
+  </button>
+</form>
