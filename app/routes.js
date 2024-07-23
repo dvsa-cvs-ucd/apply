@@ -406,7 +406,6 @@ router.get('/application-type-check', (req, res) => {
         break
       case 'PSVA1 Application for Accessibility Cert (Non Approved Type)':
       case 'PSVA4 Certification Type Approval Application':
-      case 'PSVA6 Application for Accessibility Cert - Approved Type':
         res.redirect(`${myvt}/dda-schedules`)
         break
       default:
