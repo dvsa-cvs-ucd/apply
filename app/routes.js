@@ -36,7 +36,6 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
-  console.log(req.session.data.vehicles)
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
