@@ -36,7 +36,6 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
-  console.log(req.session.data.vehicles)
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
@@ -402,6 +401,8 @@ router.get('/application-type-check', (req, res) => {
         res.redirect(`${myvt}/notifiable-alteration`)
         break
       case 'PSV417 Application for COIF':
+      case 'PSVC1 Tempo 100 Application':
+      case 'VTP5 Notifiable Alteration':
         res.redirect(`${myvt}/size-of-psv`)
         break
       default:
@@ -446,7 +447,15 @@ router.get('/size-of-psv-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/seat-belt-installation`)
+    switch (req.session.data['application-type']) {
+      case 'PSVC1 Tempo 100 Application':
+      case 'VTP5 Notifiable Alteration':
+        res.redirect(`${myvt}/upload-form`)
+        break
+      default:
+        res.redirect(`${myvt}/seat-belt-installation`)
+        break
+    }
   }
 })
 
