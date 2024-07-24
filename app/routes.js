@@ -402,11 +402,12 @@ router.get('/application-type-check', (req, res) => {
         res.redirect(`${myvt}/notifiable-alteration`)
         break
       case 'PSV417 Application for COIF':
+      case 'PSVC1 Tempo 100 Application':
+      case 'VTP5 Notifiable Alteration':
         res.redirect(`${myvt}/size-of-psv`)
         break
       case 'PSVA1 Application for Accessibility Cert (Non Approved Type)':
       case 'PSVA4 Certification Type Approval Application':
-      case 'PSVA6 Application for Accessibility Cert - Approved Type':
         res.redirect(`${myvt}/dda-schedules`)
         break
       default:
@@ -451,7 +452,15 @@ router.get('/size-of-psv-check', (req, res) => {
     }
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-    res.redirect(`${myvt}/seat-belt-installation`)
+    switch (req.session.data['application-type']) {
+      case 'PSVC1 Tempo 100 Application':
+      case 'VTP5 Notifiable Alteration':
+        res.redirect(`${myvt}/upload-form`)
+        break
+      default:
+        res.redirect(`${myvt}/seat-belt-installation`)
+        break
+    }
   }
 })
 
