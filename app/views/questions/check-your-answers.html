@@ -222,43 +222,8 @@
                         }
                       ]
                     }
-                  } if vehicle.unece == 'M1',
-                  {
-                    key: {
-                      text: 'Number of passengers the vehicle can carry'
-                    },
-                    value: {
-                      text: vehicle.sizeOfPsv
-                    },
-                    actions: {
-                      items: [
-                        {
-                          href: "#",
-                          text: "Change",
-                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: " + vehicle['vin']
-                        }
-                      ]
-                    }
-                  } if vehicle.sizeOfPsv,
-                  {
-                    key: {
-                      text: 'Number of passengers the vehicle can carry'
-                    },
-                    value: {
-                      text: vehicle.sizeOfPsv
-                    },
-                    actions: {
-                      items: [
-                        {
-                          href: "#",
-                          text: "Change",
-                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: " + vehicle['vin']
-                        }
-                      ]
-                    }
-                  } if vehicle.sizeOfPsv
-
-                ]
+                  } if vehicle.unece == 'M1'
+                  ]
               })}}
               </div>
             </div>
@@ -306,6 +271,23 @@
                     ]
                   }
                  },
+                 {
+                    key: {
+                      text: 'Number of passengers the vehicle can carry'
+                    },
+                    value: {
+                      text: vehicle.sizeOfPsv
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "Change number of passengers the vehicle can carry for VIN: " + vehicle['vin']
+                        }
+                      ]
+                    }
+                  } if vehicle.sizeOfPsv,
                  {
                   key: {
                     text: 'Include a seat belt installation check'
