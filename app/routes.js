@@ -656,6 +656,7 @@ router.get(['/submit-test'], (req, res) => {
       wav: currentFields.wav ?? false,
       wheels: currentFields['number-of-wheels'] ?? false,
       sizeOfPsv: currentFields['size-of-psv'] ?? false,
+      schedules: currentFields['schedules'] ?? false,
       tests: [
         {
           test: currentFields['application-type'],
@@ -689,6 +690,7 @@ router.get('/add-vehicle', (req, res) => {
   req.session.data['number-of-wheels'] = undefined
   req.session.data.axles = undefined
   req.session.data.unece = undefined
+  req.session.data.schedules = undefined
   req.session.data['test-type'] = undefined
   req.session.data['application-type'] = undefined
   req.session.data['upload-form'] = undefined
@@ -707,6 +709,7 @@ router.get('/add-test', (req, res) => {
   req.session.data['application-type'] = undefined
   req.session.data['notifiable-alteration'] = undefined
   req.session.data['size-of-psv'] = undefined
+  req.session.data['schedules'] = undefined
   req.session.data.sizeOfPsv = undefined
   req.session.data['upload-form'] = undefined
   req.session.data['application-upload'] = undefined
