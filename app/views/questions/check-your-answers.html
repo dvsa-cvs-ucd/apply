@@ -273,6 +273,23 @@
                  },
                  {
                     key: {
+                      text: 'Accessibility certificate requirements'
+                    },
+                    value: {
+                      text: vehicle.schedules
+                    },
+                    actions: {
+                      items: [
+                        {
+                          href: "#",
+                          text: "Change",
+                          visuallyHiddenText: "Change accessibility certificate requirements for VIN: " + vehicle['vin']
+                        }
+                      ]
+                    }
+                  } if vehicle.schedules,
+                 {
+                    key: {
                       text: 'Number of passengers the vehicle can carry'
                     },
                     value: {
