@@ -54,6 +54,31 @@ router.get('/name-check', (req, res) => {
   if (errorPresent) {
     res.render('what-is-your-name.html', { query: req.query, errors })
   } else {
+    res.redirect('/what-is-your-address')
+  }
+})
+
+router.get('/what-is-your-address', (req, res) => res.render('what-is-your-address.html', { query: req.query }))
+router.get('/address-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['address-line-1'].length === 0) {
+    errorPresent = true
+    errors.push({
+      href: '#address-line-1', text: 'Enter the first line of your address, typically the building and street'
+  })
+  }
+  if (req.session.data['address-town'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#address-town', text: 'Enter the town or city of your address' })
+  }
+  if (req.session.data['address-postcode'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#address-postcode', text: 'Enter the postcode of your address' })
+  }
+  if (errorPresent) {
+    res.render('what-is-your-address.html', { query: req.query, errors })
+  } else {
     res.redirect('/what-is-your-email-address')
   }
 })
