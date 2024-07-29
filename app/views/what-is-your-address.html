@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% set question = 'Enter your address' %}
+
+{% if query.changing %}
+  {% set nextPage='check-your-answers' %}
+{% else %}
+  {% set nextPage='address-check' %}
+{% endif %}
+
+{% block pageTitle %}
+  {{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {% if not query.changing %}
+    <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form class="form" action="{{ nextPage}}" novalidate>
+      <div class="govuk-caption-l">Create an account</div>
+      {% call govukFieldset({
+      legend: {
+      text: question,
+      classes: "govuk-fieldset__legend--l",
+      isPageHeading: true
+      }
+      }) %}
+      
+      {{ govukInput({
+      label: {
+      text: "Address line 1"
+      },
+      id: "address-line-1",
+      name: "address-line-1",
+      value: data["address-line-1"],
+      autocomplete: "address-line1"
+      } | errorFilter(errors)) }}
+      
+      {{ govukInput({
+      label: {
+      text: "Address line 2 (optional)"
+      },
+      id: "address-line-2",
+      name: "address-line-2",
+      value: data["address-line-2"],
+      autocomplete: "address-line2"
+      } | errorFilter(errors)) }}
+      
+      {{ govukInput({
+      label: {
+      text: "Town or city"
+      },
+      classes: "govuk-!-width-two-thirds",
+      id: "address-town",
+      name: "address-town",
+      value: data["address-town"],
+      autocomplete: "address-level2"
+      } | errorFilter(errors)) }}
+      
+      {{ govukInput({
+      label: {
+      text: "County (optional)"
+      },
+      classes: "govuk-!-width-two-thirds",
+      id: "address-county",
+      name: "address-county",
+      value: data["address-county"]
+      } | errorFilter(errors)) }}
+      
+      {{ govukInput({
+      label: {
+      text: "Postcode"
+      },
+      classes: "govuk-input--width-10",
+      id: "address-postcode",
+      name: "address-postcode",
+      value: data["address-postcode"],
+      autocomplete: "postal-code"
+      } | errorFilter(errors)) }}
+      
+      {% endcall %}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}
