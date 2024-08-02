@@ -1,0 +1,56 @@
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{ govukErrorSummary({
+    titleText: "There is a problem",
+    errorList: errors
+    }) }}
+    {% endif %}
+    <form action="/vtp6-check">
+
+      {{ govukRadios({
+        "name": "vtp6",
+        "fieldset": {
+          "legend": {
+            "text": "Select the document you are replacing",
+            "isPageHeading": true,
+            "classes": "govuk-fieldset__legend--l"
+          }
+        },
+        "items": [
+          {
+            "value": "certificate-of-fitness",
+            "text": "Certificate of Fitness (PSV 57)"
+          },
+          {
+            "value": "certificate-of-initial-fitness",
+            "text": "Certificate of Initial Fitness (PSV 418)"
+          },
+          {
+            "value": "certificate-of-conformity",
+            "text": "Certificate of Conformity (PSV 408)"
+          },
+          {
+            "value": "accessibility-certificate",
+            "text": "Accessibility Certificate (PSVA2)"
+          },
+          {
+            "value": "certificate-of-compliance",
+            "text": "Certificate of Compliance (PSV 500)"
+          },
+          {
+            "value": "conformity-certificate",
+            "text": "Conformity Certificate (PSVA 7)"
+          },
+          {
+            "value": "carrying-capacity-authorisation",
+            "text": "Carrying Capacity Authorisation (PSV 445)"
+          }
+        ]
+      } | errorFilter(errors)) }}
+      {{
+        govukButton({text:'Save and continue'})
+      }}
+    </form>
+  </div>
+</div>

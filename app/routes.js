@@ -434,6 +434,9 @@ router.get('/application-type-check', (req, res) => {
       case 'PSVA4 Certification Type Approval Application':
         res.redirect(`${myvt}/dda-schedules`)
         break
+      case 'VTP6 Request for Replacement COIF or Test Certificate':
+        res.redirect(`${myvt}/vtp6`)
+        break
       default:
         res.redirect(`${myvt}/upload-form`)
         break
@@ -505,6 +508,26 @@ router.get('/coc-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/seat-belt-installation`)
+  }
+})
+
+router.get('/vtp6', (req, res) => res.render('vtp6.html', { query: req.query }))
+router.get('/vtp6-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['vtp6'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vtp6', text: 'Select the document you need to replace' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/vtp6', query: req.query, errors })
+    } else {
+      res.render('vtp6.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    res.redirect(`${myvt}/upload-form`)
   }
 })
 
