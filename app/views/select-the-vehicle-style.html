@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+  name: "selectVehicleStyle",
+  fieldset: {
+    legend: {
+      text: "Select the vehicle style",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "bodied",
+      text: "Bodied",
+      hint: {
+        text: "A vehicle with a floor plan and a structure that is higher than the seat's backrest."
+      }
+    },
+    {
+      value: "unbodied",
+      text: "Unbodied",
+      hint: {
+        text: "A vehicle that the driver sits on or astride."
+      }
+    }
+  ]
+}) }}
+
+      {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
