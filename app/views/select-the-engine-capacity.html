@@ -1,43 +1,19 @@
 {% extends "layouts/main.html" %}
 
+{% set question = "Select the engine capacity" %}
+
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  {{ question }} – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+{% if not query.changing %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-      {{ govukRadios({
-  name: "selectVehicleCapacity",
-  fieldset: {
-    legend: {
-      text: "Select the engine capacity",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--l"
-    }
-  },
-  items: [
-    {
-      value: "200ccOrLess",
-      text: "200cc or less"
-    },
-    {
-      value: "moreThan200cc",
-      text: "More than 200cc"
-    }
-  ]
-}) }}
-
-      {{ govukButton({
-          text: "Save and continue"
-        }) }}
-
-    </form>
-
-  </div>
-</div>
+{% include "questions/select-the-engine-capacity.html" %}
 
 {% endblock %}

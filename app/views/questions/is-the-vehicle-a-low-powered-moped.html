@@ -1,0 +1,46 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    {% if errors | length > 0 %}
+    {{
+      govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: errors
+      })
+    }}
+    {% endif %}
+    <div class="govuk-caption-m">VIN: {{ data.vin }}</div>
+      <form action="/low-power-moped-check">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "low-power-moped",
+        fieldset: {
+          legend: {
+            text: "Select if the vehicle is a low-powered moped",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "This is a group of mopeds with pedals, plus auxiliary propulsion not exceeding 1kW, and a maximum design speed not exceeding 25 kilometres per hour. The group also includes 250-watt low-powered mopeds."
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes, it's a low-powered moped"
+          },
+          {
+            value: "no",
+            text: "No, it's not a low-powered moped"
+          }
+        ]
+      } | errorFilter(errors)) }}
+
+      {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+    </form>
+
+  </div>
+</div>
