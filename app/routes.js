@@ -13,6 +13,21 @@ const tass = require('./data/tass.json')
 
 vesKey = process.env.VES_API_KEY
 
+const msvaRoutes = {
+  L1: 'is-the-vehicle-a-low-powered-moped',
+  L2: 'is-the-vehicle-a-low-powered-moped',
+  L3: 'select-the-engine-capacity',
+  L4: 'select-the-vehicle-weight',
+  L5: 'select-the-vehicle-weight',
+  L6: 'select-the-vehicle-style',
+  L7: 'select-the-vehicle-style'
+}
+
+const notMopedOptions = {
+  L1: 'test-type',
+  L2: 'select-the-vehicle-weight'
+}
+
 router.get('/no-pfa', (req, res) => {
   req.session.data.pfa = false
   req.session.data.myvt = true
@@ -275,6 +290,8 @@ router.get('/unece-category-check', (req, res) => {
     switch (req.session.data['vehicle-category']) {
       case 'Motorcycles, 3-wheeled vehicles and quadricycles':
         req.session.data['test-type'] = 'Motorcycle Single Vehicle Approval'
+        res.redirect(`${myvt}/${msvaRoutes[req.session.data.unece]}`)
+        break
       case 'Cars or passenger vehicles (up to 8 seats)':
       case 'Light goods vehicles (LGV) or vans (less than 3,500kg)':
         res.redirect(`${myvt}/test-type`)
@@ -327,6 +344,106 @@ router.get('/vehicle-class-check', (req, res) => {
   } else {
     const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
     res.redirect(`${myvt}/test-type`)
+  }
+})
+
+router.get('/is-the-vehicle-a-low-powered-moped', (req, res) => res.render('is-the-vehicle-a-low-powered-moped.html', { query: req.query }))
+router.get('/low-power-moped-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['low-power-moped'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#low-power-moped', text: 'Select yes if the vehicle is a low-powered moped' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/is-the-vehicle-a-low-powered-moped', query: req.query, errors })
+    } else {
+      res.render('is-the-vehicle-a-low-powered-moped.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['low-power-moped']) {
+      case 'yes':
+        res.redirect(`${myvt}/test-type`)
+        break
+      case 'no':
+      default:
+        res.redirect(`${myvt}/${notMopedOptions[req.session.data.unece]}`)
+        break
+    }
+  }
+})
+
+router.get('/select-the-engine-capacity', (req, res) => res.render('select-the-engine-capacity.html', { query: req.query }))
+router.get('/engine-capacity-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['engine-capacity'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#engine-capacity', text: 'Select if the engine capaticy is 200cc or less or more than 200cc' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/select-the-engine-capacity', query: req.query, errors })
+    } else {
+      res.render('select-the-engine-capacity.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['engine-capacity']) {
+      default:
+        res.redirect(`${myvt}/test-type`)
+        break
+    }
+  }
+})
+
+router.get('/select-the-vehicle-weight', (req, res) => res.render('select-the-vehicle-weight.html', { query: req.query }))
+router.get('/vehicle-weight-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['vehicle-weight'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vehicle-weight', text: 'Select if the weight is 450kg or less or more than 450kg' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/select-the-vehicle-weight', query: req.query, errors })
+    } else {
+      res.render('select-the-vehicle-weight.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['vehicle-weight']) {
+      default:
+        res.redirect(`${myvt}/select-the-vehicle-style`)
+        break
+    }
+  }
+})
+
+router.get('/select-the-vehicle-style', (req, res) => res.render('select-the-vehicle-style.html', { query: req.query }))
+router.get('/vehicle-style-check', (req, res) => {
+  let errorPresent = false
+  let errors = []
+  if (req.session.data['vehicle-style'] === undefined) {
+    errorPresent = true
+    errors.push({ href: '#vehicle-style', text: 'Select if the vehicle is bodied or unbodied' })
+  }
+  if (errorPresent) {
+    if (req.session.data.myvt) {
+      res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/select-the-vehicle-style', query: req.query, errors })
+    } else {
+      res.render('select-the-vehicle-style.html', { query: req.query, errors })
+    }
+  } else {
+    const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+    switch (req.session.data['vehicle-style']) {
+      default:
+        res.redirect(`${myvt}/test-type`)
+        break
+    }
   }
 })
 

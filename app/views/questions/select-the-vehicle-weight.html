@@ -1,0 +1,39 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errors | length > 0 %}
+      {{
+        govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        })
+      }}
+      {% endif %}
+      <div class="govuk-caption-m">VIN: {{ data.vin }}</div>
+      <form action="/vehicle-weight-check">
+        {{ govukRadios({
+          name: "vehicle-weight",
+          fieldset: {
+            legend: {
+              text: "Select the vehicle's weight",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+            },
+            items: [
+              {
+                value: "450kgOrLess",
+                text: "450kg or less"
+              },
+              {
+                value: "moreThan450kg",
+                text: "More than 450kg"
+              }
+            ]
+          } | errorFilter(errors)) }}
+
+        {{ govukButton({
+            text: "Save and continue"
+          }) }}
+    </form>
+  </div>
+</div>

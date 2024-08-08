@@ -1,0 +1,40 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errors | length > 0 %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+      <div class="govuk-caption-m">VIN: {{ data.vin }}</div>
+      <form action="/engine-capacity-check">
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "engine-capacity",
+        fieldset: {
+          legend: {
+            text: "Select the engine capacity",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "200ccOrLess",
+            text: "200cc or less"
+          },
+          {
+            value: "moreThan200cc",
+            text: "More than 200cc"
+          }
+        ]
+      } | errorFilter(errors)) }}
+
+      {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+    </form>
+  </div>
+</div>

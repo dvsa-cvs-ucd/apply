@@ -1,0 +1,46 @@
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if errors | length > 0 %}
+        {{
+          govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errors
+          })
+        }}
+      {% endif %}
+      <form action="/vehicle-style-check">
+      {{ govukRadios({
+        name: "vehicle-style",
+        fieldset: {
+          legend: {
+            text: "Select the vehicle style",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "bodied",
+            text: "Bodied",
+            hint: {
+              text: "A vehicle with a floor plan and a structure that is higher than the seat's backrest."
+            }
+          },
+          {
+            value: "unbodied",
+            text: "Unbodied",
+            hint: {
+              text: "A vehicle that the driver sits on or astride."
+            }
+          }
+        ]
+      } | errorFilter(errors)) }}
+
+      {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+    </form>
+
+  </div>
+</div>
