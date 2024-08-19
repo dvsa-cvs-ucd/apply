@@ -719,23 +719,35 @@ router.get('/download-form', (req, res) => {
 })
 
 router.get('/vrm-check', async (req, res) => {
-  // const reg = { registrationNumber: req.session.data.vrm }
-  // const response = await fetch('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', {
-  //   method: 'POST',
-  //   headers: {
-  //     'x-api-key': vesKey,
-  //     'Content-Type': 'application/json',
-  //   },
-  //   body: JSON.stringify(reg)
-  // })
-  // req.session.data.vehicle = await response.json()
+  const reg = { registrationNumber: req.session.data.vrm }
+  const response = await fetch('https://driver-vehicle-licensing.api.gov.uk/vehicle-enquiry/v1/vehicles', {
+    method: 'POST',
+    headers: {
+      'x-api-key': vesKey,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(reg)
+  })
+  req.session.data.vehicle = await response.json()
   const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
-  res.redirect(`${myvt}/vehicle-category`)
-  // if (response.status === 200) {
-  //   res.redirect(`${myvt}/vehicle-data`)
-  // } else {
-  //   res.redirect(`${myvt}/vehicle-category`)
-  // }
+  // res.redirect(`${myvt}/vehicle-category`)
+  if (response.status === 200) {
+    res.redirect(`${myvt}/vehicle-data`)
+  } else {
+    res.redirect(`${myvt}/vehicle-category`)
+  }
+})
+
+router.get('/vehicle-confirmation-check', (req, res) => {
+  const myvt = req.session.data['myvt'] ? '/apply-for-a-vehicle-test/apply' : ''
+  switch (req.session.data['vehicle-confirmation']) {
+    case 'yes':
+      res.redirect(`${myvt}/vehicle-category`)
+      break
+    case 'no':
+      res.redirect(`${myvt}/vehicle-details`)
+      break
+  }
 })
 
 router.get('/change-vehicle', (req, res) => {
