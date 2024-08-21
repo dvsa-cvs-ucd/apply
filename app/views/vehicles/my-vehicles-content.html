@@ -2,15 +2,37 @@
 
 {% if query.vehicle %}
 {% set vehicle = (data.myVehicles.vehicles | findVin(query.vehicle)) %}
-<span class="govuk-caption-l">
-  {{ vehicle.VIN }}
-</span>
-<h2 class="govuk-heading-l">
-  {{ vehicle.model }}
-</h2>
-{{ govukTaskList({items:data.vehicleSections[vehicle.category].sections | sectionsComplete(vehicle.completeness)}) }}
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-two-thirds">
+    <a class="govuk-body-s govuk-link govuk-link--no-visited-sate" href="{{ path }}">Show all vehicles</a>
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <span class="govuk-caption-l">
+      {{ vehicle.VIN }}
+    </span>
+    <h2 class="govuk-heading-l">
+      {{ vehicle.model }}
+    </h2>
+    <h3 class="govuk-heading-m">Vehicle details</h3>
+    {{ govukTaskList({items:data.vehicleSections[vehicle.category].sections | sectionsComplete(vehicle.completeness)}) }}
+  </div>
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h3 class="govuk-heading-m">Applications</h3>
+    <p class="govuk-body">
+      No applications to show for {{ vehicle.VIN }}
+    </p>
+    {{govukButton({
+      text: 'Create an application for this vehicle',
+      href: '#'
+    })}}
+  </div>
+</div>
 {% else %}
-<h2 class="govuk-heading-l"> My vehicles</h2>
+<h2 class="govuk-heading-l">My vehicles</h2>
 <table class="table-card">
   <caption class="govuk-table__caption govuk-visually-hidden">Existing vehicles</caption>
   <thead role="rowheader" class="govuk-table__head">
