@@ -54,6 +54,11 @@ router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
 })
 
+router.get(['/vehicles/*'], (req, res) => {
+  req.session.myvt = true
+  res.render('vehicles/vehicles.html', { path: req.path, query: req.query })
+})
+
 router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', { query: req.query }))
 router.get('/name-check', (req, res) => {
   let errorPresent = false

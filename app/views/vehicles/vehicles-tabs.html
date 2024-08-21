@@ -1,0 +1,12 @@
+<ul role="tablist" class="tabs">
+  <li role="presentation" class="tab-item">
+    <a role="tab" id="my-vehicles" class="govuk-body-l tab-link {% if activeTab == 'My vehicles' %}active-tab{% endif %}" aria-selected="{% if activeTab == 'My vehicles' %}true{% else %}false{% endif %}" {% if path != '/vehicles/my-vehicles' %}tabindex="-1"{% endif %}
+      data-tab="/vehicles/my-vehicles"
+      href="/vehicles/my-vehicles">My vehicles</a>
+  </li>
+  <li role="presentation" class="tab-item">
+    <a role="tab" id="vehicle-templates" class="govuk-body-l tab-link {% if activeTab == 'Vehicle templates' %}active-tab{% endif %}" aria-selected="{% if activeTab == 'Vehicle templates' %}true{% else %}false{% endif %}"  {% if path != '/vehicles/applications' %}tabindex="-1"{% endif %}
+      data-tab="/vehicles/vehicle-templates"
+      href="/vehicles/vehicle-templates">Vehicle templates</a>
+  </li>
+</ul>

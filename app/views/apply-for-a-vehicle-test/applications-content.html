@@ -1,21 +1,23 @@
 <h2 class="govuk-heading-l">Past applications</h2>
-<table class="govuk-table">
+<table class="table-card">
   <caption class="govuk-table__caption govuk-visually-hidden">Status</caption>
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">VIN</th>
-      <th scope="col" class="govuk-table__header">VRM</th>
-      <th scope="col" class="govuk-table__header">Technical Test Name</th>
-      <th scope="col" class="govuk-table__header">Status</th>
+  <thead role="rowgroup" class="govuk-table__head">
+    <tr role="row" class="govuk-table__row">
+      <th role="columnheader" scope="col" class="govuk-table__header">VIN</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">VRM</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">Technical Test Name</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">Status</th>
+      <th role="columnheader" scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
     </tr>
   </thead>
-  <tbody class="govuk-table__body">
+  <tbody role="rowgroup" class="govuk-table__body">
     {% for vehicle in data['pastApplications']['vehicles'] %}
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell">{{ vehicle.VIN }}</td>
-      <td class="govuk-table__cell"><span class="dvsa-vrm">{{ vehicle.VRM | vrm }}</span></td>
-      <td class="govuk-table__cell">{{ vehicle.technicalTestName }}</td>
-      <td class="govuk-table__cell"><span class="govuk-tag {{vehicle.status | statusClass}}">{{ vehicle.status | title }}</span></td>
+    <tr role="row" class="govuk-table__row">
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">VIN</span> {{ vehicle.VIN }}</td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">VRM</span> <span class="dvsa-vrm">{{ vehicle.VRM | vrm }}</span></td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Technical Test Name</span> {{ vehicle.technicalTestName }}</td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Status</span> <span class="govuk-tag {{vehicle.status | statusClass}}">{{ vehicle.status | title }}</span></td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Actions</span> {% if vehicle.status == 'ready' %}<a href="govuk-link govuk-link--no-visited-state">Book inspection</a>{% endif %}</td>
     </tr>
     {% endfor %}
   </tbody>

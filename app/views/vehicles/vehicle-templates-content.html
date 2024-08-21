@@ -1,0 +1,27 @@
+<h2 class="govuk-heading-l">Vehicle templates</h2>
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-visually-hidden">Existing vehicles</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Nickname</th>
+      <th scope="col" class="govuk-table__header">Category</th>
+      <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    {% for vehicle in data['templates']['templates'] %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">{{ vehicle.nickname }}</td>
+      <td class="govuk-table__cell">{{ vehicle.category }}</td>
+      <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-sate">View</a></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{{
+  govukButton({
+    'text': 'Add a new template',
+    'href': 'add-template'
+  })
+}}

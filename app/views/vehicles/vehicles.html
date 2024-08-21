@@ -1,0 +1,22 @@
+{% set title = "Vehicles and templates" %}
+{%- set activeTab -%}
+{%- if '/vehicles/my-vehicles' in path -%}
+My vehicles
+{%- elif '/vehicles/vehicle-templates' in path -%}
+Vehicle templates
+{%- endif -%}
+{%- endset -%}
+{% set tabs %}
+{% include './vehicles-tabs.html' %}
+{% endset %}
+{% set section = 'Vehicles' %}
+{% extends "layouts/myvtlayout.html" %}
+
+{% block content %}
+  <section role="tabpanel" class="govuk-main-wrapper app-main-class tab-content {% if activeTab == 'My vehicles' -%}active-tab{% endif %}" data-tab="/vehicles/my-vehicles" aria-labelledby="my-vehicles">
+    {% include "./my-vehicles-content.html" %}
+  </section>
+  <section role="tabpanel" class="govuk-main-wrapper app-main-class tab-content {% if activeTab == 'Vehicle templates' %}active-tab{% endif %}" data-tab="/vehicles/vehicle-templates" aria-labelledby="vehicle-templates">
+    {% include "./vehicle-templates-content.html" %}
+  </section>
+{% endblock %}

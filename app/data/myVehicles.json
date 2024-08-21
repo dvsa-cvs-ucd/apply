@@ -1,0 +1,39 @@
+{
+  "vehicles": [
+    {
+      "VIN": "1HGCM82633A123456",
+      "VRM": "AB12CDE",
+      "model": "DAF XF",
+      "category": "HGV",
+      "completeness": "random"
+    },
+    {
+      "VIN": "2HGFG12674H567890",
+      "VRM": "DE14FGH",
+      "model": "DAF XG",
+      "category": "HGV",
+      "completeness": "most"
+    },
+    {
+      "VIN": "3HGGK25896T987654",
+      "VRM": "GH16IJK",
+      "model": "Scania L-Series",
+      "category": "HGV",
+      "completeness": "complete"
+    },
+    {
+      "VIN": "4HGLL38102M345678",
+      "VRM": "JK16LMN",
+      "model": "Scania L-Series",
+      "category": "HGV",
+      "completeness": "complete"
+    },
+    {
+      "VIN": "5HGMN49713P876543",
+      "VRM": "MN16 0PQ",
+      "model": "Scania L-Series",
+      "category": "HGV",
+      "completeness": "complete"
+    }
+  ]
+}

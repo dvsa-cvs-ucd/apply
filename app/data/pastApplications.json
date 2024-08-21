@@ -20,15 +20,15 @@
     },
     {
       "VIN": "4HGLL38102M345678",
-      "VRM": "JK18LMN",
+      "VRM": "JK16LMN",
       "technicalTestName": "VTG788 Application for a Plating ",
       "status": "on hold"
     },
     {
       "VIN": "5HGMN49713P876543",
-      "VRM": "MN20 0PQ",
+      "VRM": "MN16 0PQ",
       "technicalTestName": "VTG10 Notifiable Alteration",
-      "status": "accepted"
+      "status": "ready"
     }
   ]
 }

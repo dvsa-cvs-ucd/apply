@@ -1,0 +1,45 @@
+{% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+{% if query.vehicle %}
+{% set vehicle = (data.myVehicles.vehicles | findVin(query.vehicle)) %}
+<span class="govuk-caption-l">
+  {{ vehicle.VIN }}
+</span>
+<h2 class="govuk-heading-l">
+  {{ vehicle.model }}
+</h2>
+{{ govukTaskList({items:data.vehicleSections[vehicle.category].sections | sectionsComplete(vehicle.completeness)}) }}
+{% else %}
+<h2 class="govuk-heading-l"> My vehicles</h2>
+<table class="table-card">
+  <caption class="govuk-table__caption govuk-visually-hidden">Existing vehicles</caption>
+  <thead role="rowheader" class="govuk-table__head">
+    <tr role="row" class="govuk-table__row">
+      <th role="columnheader" scope="col" class="govuk-table__header">VIN</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">VRM</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">Vehicle category</th>
+      <th role="columnheader" scope="col" class="govuk-table__header">Model</th>
+      <th role="columnheader" scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+    </tr>
+  </thead>
+  <tbody role="rowgroup" class="govuk-table__body">
+    {% for vehicle in data['myVehicles']['vehicles'] %}
+    <tr role="row" class="govuk-table__row">
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">VIN</span> {{ vehicle.VIN }}</td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">VRM</span> <span class="dvsa-vrm">{{ vehicle.VRM | vrm }}</span></td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Category</span> {{ vehicle.category }}</td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Model</span> {{ vehicle.model }}</td>
+      <td role="cell" class="govuk-table__cell"><span class="table-card-inline-label" aria-hidden="true">Actions</span><a href="{{ path }}?vehicle={{vehicle.VIN}}" class="govuk-link govuk-link--no-visited-sate">View</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{{
+  govukButton({
+    'text': 'Add a new vehicle',
+    'href': 'add-vehicle'
+  })
+}}
+
+{% endif %}

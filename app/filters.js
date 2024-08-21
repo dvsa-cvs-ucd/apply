@@ -107,6 +107,9 @@ addFilter('statusClass', string => {
     case 'accepted':
       tag += 'blue'
       break
+    case 'ready':
+      tag += 'green'
+      break
     case 'rejected':
       tag += 'red'
       break
@@ -128,6 +131,8 @@ addFilter('tagCodes', array => {
 })
 
 addFilter('findError', (array, name) => array !== undefined && array.find(error => error.field === name))
+
+addFilter('findVin', (array, vin) => array !== undefined && array.find(vehicle => vehicle.VIN === vin))
 
 addFilter('errorFilter', (object, errors = []) => {
   let toReturn = { ...object }
@@ -205,3 +210,32 @@ addFilter('dateNow', string => {
 addFilter('obfuscateNumber', string => string !== undefined ? `${string.slice(0, 2)}${'x'.repeat(string.slice(2, -2).length)}${string.slice(-2)}` : '07xxxxxx00')
 
 addFilter('includes', (string, check) => string.includes(check))
+
+addFilter('sectionsComplete', (sections, completeness) => {
+  const total = sections.length
+  const limit = Math.floor(sections.length * (completeness === 'most' ? 0.8 : completeness === 'some' ? 0.4 : 0))
+  let sectionsAsItems = []
+  switch (completeness) {
+    case 'most':
+    case 'some':
+    case 'none':
+      sectionsAsItems = sections.map((section, index) => ({
+        title: { text: section },
+        href: '#', 
+        status: index > limit ? { tag: {text: 'Incomplete', classes: 'govuk-tag--blue'}} : {text: 'Completed'}
+      }))
+      break
+    case 'random':
+      sectionsAsItems = sections.map(section => ({
+        title: { text: section },
+        href: '#',
+        status: Math.round(Math.random()) > 0 ? { text: 'Completed' } : { tag: { text: 'Incomplete', classes: 'govuk-tag--blue' } }
+      }))
+      break
+    case 'all':
+    default:
+      sectionsAsItems = sections.map(section => ({title: { text: section }, href: '#', status: {text: 'Completed'}}))
+      break
+  }
+  return sectionsAsItems
+})

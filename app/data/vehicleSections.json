@@ -1,0 +1,18 @@
+{
+  "HGV": {
+    "sections": [
+      "Vehicle Summary",
+      "Type approval",
+      "Body",
+      "Gross Vehicle Weight",
+      "Gross Train Weight",
+      "Max Train Weight",
+      "Axle Weights",
+      "Tyres",
+      "Dimensions",
+      "Front of vehicle to 5th wheel coupling",
+      "Front axle to 5th wheel",
+      "Documents"
+    ]
+  }
+}

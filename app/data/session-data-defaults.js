@@ -4,14 +4,20 @@ const ivaSubClasses = require('./ivaSubClasses.json')
 const uneceCategories = require('./uneceCategories.json')
 const vehicleConfigurations = require('./vehicleConfigurations.json')
 const testCentres = require('./testCentres.json')
+const myVehicles = require('./myVehicles.json')
+const templates = require('./templates.json')
+const vehicleSections = require('./vehicleSections.json')
 
 module.exports = {
-  tass: tass,
-  pastApplications: pastApplications,
-  ivaSubClasses: ivaSubClasses,
-  uneceCategories: uneceCategories,
-  vehicleConfigurations: vehicleConfigurations,
-  testCentres: testCentres,
+  tass,
+  pastApplications,
+  ivaSubClasses,
+  uneceCategories,
+  vehicleConfigurations,
+  testCentres,
   'test-time': 'NH',
-  vehicles: []
+  vehicles: [],
+  myVehicles,
+  templates,
+  vehicleSections
 }
