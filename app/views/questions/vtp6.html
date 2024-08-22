@@ -6,6 +6,7 @@
     errorList: errors
     }) }}
     {% endif %}
+    <div class="govuk-caption-m">VIN: {{ data.vin }}</div>
     <form action="/vtp6-check">
 
       {{ govukRadios({
@@ -28,7 +29,7 @@
           },
           {
             "value": "accessibility-certificate",
-            "text": "Accessibility Certificate (PSVA2)"
+            "text": "Accessibility Certificate (PSVA 2)"
           },
           {
             "value": "conformity-certificate",
