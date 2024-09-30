@@ -6,7 +6,9 @@
     errorList: errors
     }) }}
     {% endif %}
-    <div class="govuk-caption-m">VIN: {{ data.vin }}</div>
+    <div class="govuk-caption-m">
+      {{ data['test-type'] }}
+    </div>
     <form action="/vtp6-check">
 
       {{ govukRadios({
