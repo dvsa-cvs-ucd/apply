@@ -1,0 +1,16 @@
+{% extends "layouts/main.html" %}
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Sorry, there was a problem when we tried to take payment</h1>
+      <p class="govuk-body">We saved your answers.</p>
+      <p class="govuk-body">Try going back and submitting again.</p>
+      <p class="govuk-body">
+        <a class="govuk-link" href="#">Contact the DVSA</a> if you are unable to complete your application online.
+      </p>
+    </div>
+  </div>
+{% endblock %}
