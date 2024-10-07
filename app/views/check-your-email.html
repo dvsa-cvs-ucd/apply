@@ -3,7 +3,7 @@
 {% from "govukNotifications/components/email.njk" import "govukNotificationsEmail" %}
 
 {% block beforeContent %}
-  {{ govukNotificationsEmail("DVSA", "Your one-time email code is 53821") }}
+  <!-- {{ govukNotificationsEmail("DVSA", "Your one-time email code is 53821") }} -->
   {% if not query.changing %}
     <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
   {% endif %}
@@ -16,10 +16,17 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-caption-l">Create an account</div>
     <h1 class="govuk-heading-l">Check your email</h1>
-    <p class="govuk-body">We need to confirm your email address. We have sent a one-time email code to <strong>{{ data['email'] }}</strong>.</p>
+    <p class="govuk-body">We need to confirm your email address. We have sent an email one-time email code to <strong>{{ data['email'] }}</strong>.</p>
+    <p class="govuk-body">Follow the link in this email to finish creating your account.</p>
+    <p class="govuk-body">Check your junk/spam folder if you have not received the email.</p>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a class="govuk-link govuk-link--no-visited-state" href="#">Request a new email</a>
+      </div>
+    </div>
   </div>
 </div>
-<div class="govuk-grid-row">
+<!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="/what-is-your-phone-number">
     {{
@@ -37,11 +44,7 @@
     }}
     </form>
   </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <a class="govuk-link govuk-link--no-visited-state" href="#">Request a new code</a>
-  </div>
-</div>
+</div> -->
+
 
 {% endblock %}

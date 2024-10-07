@@ -28,6 +28,11 @@
     errorList: errors
     }) }}
     {% endif %}
+    {{
+      govukInsetText({
+        text: 'We can only accept applications online from Great Britain and Northern Ireland. For overseas applications, contact the DVSA customer service centre...'
+      })
+    }}
     <form class="form" action="{{ nextPage}}" novalidate>
       <div class="govuk-caption-l">Create an account</div>
       {% call govukFieldset({
