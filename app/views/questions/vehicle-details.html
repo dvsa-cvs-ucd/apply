@@ -2,29 +2,22 @@
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-inset-text">
       <p class="govuk-body">
-        Before you start, you need to download and fill in an application form.
-      </p>
+      Before you start, you will need to download and fill in an application form.
+    </p>
       {% if data.pfa %}
         <p class="govuk-body">
-        We take the payment when you apply. Make sure there are enough funds in your pre-funded account. 
-      </p>
-        <p class="govuk-body">
-        So that we take the correct amount from your pre-funded account, you will need to enter some vehicle details.
-      </p>
-        <p class="govuk-body">
-        Information is available to help you understand the <a class="govuk-link" href="https://www.gov.uk/browse/driving/manufacture-adapt-vehicle">forms and costs required to get a vehicle approved</a>.
+          When you submit your application, we will collect your payment from your pre-funded account. Some of the details you
+          enter as part of this application will be used to work out the cost.
       </p>
       {% else %}
-        <p class="govuk-body">
-        We take the payment when you apply. Make sure you have a credit or debit card available to pay. 
-      </p>
-        <p class="govuk-body">
-        So that we charge the correct amount for your test, you will need to enter some vehicle details.
-      </p>
-        <p class="govuk-body">
-        Information is available to help you understand the <a class="govuk-link" href="https://www.gov.uk/browse/driving/manufacture-adapt-vehicle">forms and costs required to get a vehicle approved</a>.
+      <p class="govuk-body">
+        When you submit your application, you will need to pay with a credit or debit card. Some of the details you enter as
+        part of this application will be used to work out the cost.
       </p>
       {% endif %}
+      <p class="govuk-body">
+        Information is available to help you <a href="https://www.gov.uk/browse/driving/manufacture-adapt-vehicle" class="govuk-link govuk-link--no-visited-state">the right form and the cost of your application</a>.
+      </p>
     </div>
   </div>
 </div>
