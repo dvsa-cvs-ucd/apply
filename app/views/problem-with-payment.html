@@ -3,14 +3,15 @@
 {% set mainClasses = "govuk-main-wrapper--l" %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">Sorry, there was a problem when we tried to take payment</h1>
-      <p class="govuk-body">We saved your answers.</p>
-      <p class="govuk-body">Try going back and submitting again.</p>
-      <p class="govuk-body">
-        <a class="govuk-link" href="#">Contact the DVSA</a> if you are unable to complete your application online.
-      </p>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">There was a problem connecting to the payment page</h1>
+    <p class="govuk-body">We saved all of your answers and application details.</p>
+    <p class="govuk-body">Try going back, then submit again.</p>
+    <p class="govuk-body">
+      If the problem continues <a class="govuk-link govuk-link--no-visited-state"
+        href="https://www.gov.uk/contact-dvsa">contact the customer service centre</a>.
+    </p>
   </div>
+</div>
 {% endblock %}
