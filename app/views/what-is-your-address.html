@@ -28,6 +28,11 @@
     errorList: errors
     }) }}
     {% endif %}
+    {{ govukInsetText({
+    html: 'Currently, we can only accept online applications from within the UK. If you are applying from overseas, <a
+      class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/contact-dvsa">contact the customer service
+      centre. </a>'
+    })}}
     <form class="form" action="{{ nextPage}}" novalidate>
       <div class="govuk-caption-l">Create an account</div>
       {% call govukFieldset({

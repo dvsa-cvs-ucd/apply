@@ -3,7 +3,7 @@
 {% from "govukNotifications/components/email.njk" import "govukNotificationsEmail" %}
 
 {% block beforeContent %}
-  {{ govukNotificationsEmail("DVSA", "Your one-time email code is 53821") }}
+  <!-- {{ govukNotificationsEmail("DVSA", "Your one-time email code is 53821") }} -->
   {% if not query.changing %}
     <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
   {% endif %}
@@ -15,33 +15,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <div class="govuk-caption-l">Create an account</div>
-    <h1 class="govuk-heading-l">Check your email</h1>
-    <p class="govuk-body">We need to confirm your email address. We have sent a one-time email code to <strong>{{ data['email'] }}</strong>.</p>
+    <h1 class="govuk-heading-l">Confirm your email address</h1>
+    <p class="govuk-body">We have sent an email containing a link to <strong>{{ data['email'] }}</strong>.</p>
+    <p class="govuk-body">To confirm your email address, click the link in the email. Then, you can continue to create your account.</p>
+    <p class="govuk-body">If you have not received the email, check your junk or spam folder.</p>
+    <a class="govuk-link govuk-link--no-visited-state" href="#">Request a new email</a>
   </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="/what-is-your-phone-number">
-    {{
-      govukInput({
-        label: {
-          text: 'Enter your one-time email code'
-        },
-        classes: 'govuk-input--width-5'
-      })
-    }}
-    {{
-      govukButton({
-        text: 'Continue'
-      })
-    }}
-    </form>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <a class="govuk-link govuk-link--no-visited-state" href="#">Request a new code</a>
-  </div>
-</div>
 
 {% endblock %}
