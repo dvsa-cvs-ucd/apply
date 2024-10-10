@@ -94,8 +94,16 @@
       value: data["address-postcode"],
       autocomplete: "postal-code"
       } | errorFilter(errors)) }}
-      {{ govukCountryAndTerritory({classes: 'govuk-input--width-20', label:{text: "Country"},id: "address-country"} | errorFilter(errors))}}
-      
+      {{ govukCountryAndTerritory({
+        classes: 'govuk-input--width-20',
+        label:{
+          text: "Country"
+        },
+        id: "address-country",
+        name: "address-country",
+        value: data['address-country'][1]
+      } | errorFilter(errors))}}
+    
       {% endcall %}
       {{ govukButton({
       text: "Save and continue"

@@ -91,6 +91,10 @@ router.get('/address-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#address-postcode', text: 'Enter the postcode of your address' })
   }
+  if (req.session.data['address-country'].length === 0) {
+    errorPresent = true
+    errors.push({ href: '#address-country', text: 'Enter the country of your address'})
+  } 
   if (errorPresent) {
     res.render('what-is-your-address.html', { query: req.query, errors })
   } else {
