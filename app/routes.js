@@ -62,9 +62,29 @@ router.get('/name-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#first-name', text: 'Enter your first name' })
   }
+  if (req.session.data['first-name'].length > 50) {
+    errorPresent = true
+    errors.push({ href: '#first-name', text: 'First name must be 50  characters or less' })
+  }
+  if (req.session.data['first-name'].length !== 0 && !(/^[a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['first-name'])) {
+    errorPresent = true
+    errors.push({ href: '#first-name', text: 'First name must only include letters, and the characters space, apostrophe, hyphen, full stop or comma' })
+  }
   if (req.session.data['last-name'].length === 0) {
     errorPresent = true
     errors.push({ href: '#last-name', text: 'Enter your last name' })
+  }
+  if (req.session.data['last-name'].length > 50) {
+    errorPresent = true
+    errors.push({ href: '#last-name', text: 'Last name must be 50  characters or less' })
+  }
+  if (req.session.data['last-name'].length !== 0 && !(/^[a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['last-name'])) {
+    errorPresent = true
+    errors.push({ href: '#last-name', text: 'Last name must only include letters, and the characters space, apostrophe, hyphen, full stop or comma' })
+  }
+  if (req.session.data['company-name'].length > 160) {
+    errorPresent = true
+    errors.push({ href: '#company-name', text: 'Company name must be 160 characters or less' })
   }
   if (errorPresent) {
     res.render('what-is-your-name.html', { query: req.query, errors })
@@ -79,17 +99,47 @@ router.get('/address-check', (req, res) => {
   let errors = []
   if (req.session.data['address-line-1'].length === 0) {
     errorPresent = true
-    errors.push({
-      href: '#address-line-1', text: 'Enter the first line of your address, typically the building and street'
-  })
+    errors.push({href: '#address-line-1', text: 'Enter the first line of your address, typically the building and street'})
+  }
+  if (req.session.data['address-line-1'].length !== 0 && !(/^[0-9a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['address-line-1'])) {
+    errorPresent = true
+    errors.push({ href: '#address-line-1', text: 'Address line 1 must  only include letters and numbers, and the characters space,  apostrophe hyphen or full stop' })
+  }
+  if (req.session.data['address-line-1'].length > 100) {
+    errorPresent = true
+    errors.push({href: '#address-line-1', text: 'Address line 1 must be 100 characters or less'})
+  }
+  if (req.session.data['address-line-2'].length > 50) {
+    errorPresent = true
+    errors.push({href: '#address-line-2', text: 'Address line 2 must be 50 characters or less'})
   }
   if (req.session.data['address-town'].length === 0) {
     errorPresent = true
     errors.push({ href: '#address-town', text: 'Enter the town or city of your address' })
   }
+  if (req.session.data['address-town'].length !== 0 && !(/^[a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['address-town'])) {
+    errorPresent = true
+    errors.push({ href: '#address-town', text: 'Town or city must only include letters and numbers, and the characters space,  apostrophe hyphen or full stop' })
+  }
+  if (req.session.data['address-town'].length > 30) {
+    errorPresent = true
+    errors.push({ href: '#address-town', text: 'Town or city must be 30 characters or less' })
+  }
+  if (req.session.data['address-county'].length > 30) {
+    errorPresent = true
+    errors.push({ href: '#address-county', text: 'County must be  30 characters or less' })
+  }
   if (req.session.data['address-postcode'].length === 0) {
     errorPresent = true
     errors.push({ href: '#address-postcode', text: 'Enter the postcode of your address' })
+  }
+  if (req.session.data['address-postcode'].length > 20) {
+    errorPresent = true
+    errors.push({ href: '#address-postcode', text: 'Postcode must  be 20 characters or less' })
+  }
+  if (req.session.data['address-postcode'].length !== 0 && !(/^[a-zA-Z0-9\s]+$/u).test(req.session.data['address-postcode'])) {
+    errorPresent = true
+    errors.push({ href: '#address-postcode', text: 'Postcode must  only include letters and numbers, and the space character' })
   }
   if (req.session.data['address-country'].length === 0) {
     errorPresent = true
@@ -162,15 +212,15 @@ router.get('/vin-check', (req, res) => {
   let errors = []
   if (req.session.data.vin.length < 8) {
     errorPresent = true
-    errors.push({ href: '#vin', text: 'Enter a VIN with the correct number of characters. Most vehicles registered after 1980 should have a 17 character VIN. Vehicles registered earlier or imported should have a 8 or 21 character VIN.' })
+    errors.push({ href: '#vin', text: 'Enter a VIN with the correct number of characters. Most vehicles registered after 1980 should have a 17 character VIN. Vehicles registered earlier or imported should have a 8 or 21 character VIN' })
   }
   if (req.session.data.vin.length > 0 && !(/^[a-zA-Z0-9 \u2013\u2014\u2212\-]+$/).test(req.session.data.vin)) {
     errorPresent = true
-    errors.push({ href: '#vin', text: 'A vehicle identification number must only include the letters a to z or numbers.' })
+    errors.push({ href: '#vin', text: 'A vehicle identification number must only include the letters a to z or numbers' })
   }
   if (req.session.data.vrm.length > 0 && !(/^[a-zA-Z0-9 \u2013\u2014\u2212\-]+$/).test(req.session.data.vrm)) {
     errorPresent = true
-    errors.push({ href: '#vrm', text: 'A vehicle registration mark must only include the letters a to z or numbers.' })
+    errors.push({ href: '#vrm', text: 'A vehicle registration mark must only include the letters a to z or numbers' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
@@ -337,7 +387,7 @@ router.get('/vehicle-class-check', (req, res) => {
   }
   if (req.session.data['vehicle-category'] === 'Cars or passenger vehicles (up to 8 seats)' && req.session.data.wav === undefined) {
     errorPresent = true
-    errors.push({ href: '#wav', text: 'Select an  Wheelchair Accessible Vehicle option' })
+    errors.push({ href: '#wav', text: 'Select a Wheelchair Accessible Vehicle option' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
@@ -385,7 +435,7 @@ router.get('/engine-capacity-check', (req, res) => {
   let errors = []
   if (req.session.data['engine-capacity'] === undefined) {
     errorPresent = true
-    errors.push({ href: '#engine-capacity', text: 'Select if the engine capaticy is 200cc or less or more than 200cc' })
+    errors.push({ href: '#engine-capacity', text: 'Select if the engine capacity is 200cc or less or more than 200cc' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
@@ -699,7 +749,7 @@ router.get('/test-location-check', (req, res) => {
     let errors = []
     if (req.session.data['find-test-centre'] === '') {
       errorPresent = true
-      errors.push({ href: '#find-test-centre', text: 'Enter a test centre name, test centre number, address, postcode, phone number or email.' })
+      errors.push({ href: '#find-test-centre', text: 'Enter a test centre name, test centre number, address, postcode, phone number or email' })
     }
     if (errorPresent) {
       res.render('apply-for-a-vehicle-test/apply.html', { path: '/apply-for-a-vehicle-test/apply/test-location', query: req.query, errors })
