@@ -27,7 +27,7 @@
         classes: "govuk-fieldset__legend--l"
         }
       },
-      items: categories | radiosFromObject(foundVehicleCategory)
+      items: categories | radiosFromObject(foundVehicleCategory, true)
       } | errorFilter(errors)) }}
       {{ govukButton({
         text: "Save and continue"
