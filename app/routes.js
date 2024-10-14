@@ -143,7 +143,7 @@ router.get('/address-check', (req, res) => {
   }
   if (req.session.data['address-country']) {
     if (req.session.data['address-country'][1] === 'country:GB' && req.session.data['address-postcode'].length > 0) {
-      if (!(/^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/).test(req.session)) {
+      if (!(/^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/).test(req.session.data['address-postcode'])) {
         errorPresent = true
         errors.push({ href: '#address-postcode', text: 'Enter a full UK postcode, like LS9 6NF, BT12 6QL, or SA1 8AN'})
       }
