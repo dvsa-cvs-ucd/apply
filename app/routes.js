@@ -101,7 +101,7 @@ router.get('/address-check', (req, res) => {
     errorPresent = true
     errors.push({href: '#address-line-1', text: 'Enter the first line of your address, typically the building and street'})
   }
-  if (req.session.data['address-line-1'].length !== 0 && !(/^[0-9a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['address-line-1'])) {
+  if (req.session.data['address-line-1'].length !== 0 && !(/^[0-9a-zA-ZÀ-ÿ\s'-\.]+$/u).test(req.session.data['address-line-1'])) {
     errorPresent = true
     errors.push({ href: '#address-line-1', text: 'Address line 1 must  only include letters and numbers, and the characters space,  apostrophe hyphen or full stop' })
   }
@@ -117,7 +117,7 @@ router.get('/address-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#address-town', text: 'Enter the town or city of your address' })
   }
-  if (req.session.data['address-town'].length !== 0 && !(/^[a-zA-ZÀ-ÿ\s'-]+$/u).test(req.session.data['address-town'])) {
+  if (req.session.data['address-town'].length !== 0 && !(/^[a-zA-ZÀ-ÿ\s'-\.]+$/u).test(req.session.data['address-town'])) {
     errorPresent = true
     errors.push({ href: '#address-town', text: 'Town or city must only include letters and numbers, and the characters space,  apostrophe hyphen or full stop' })
   }
@@ -140,6 +140,14 @@ router.get('/address-check', (req, res) => {
   if (req.session.data['address-postcode'].length !== 0 && !(/^[a-zA-Z0-9\s]+$/u).test(req.session.data['address-postcode'])) {
     errorPresent = true
     errors.push({ href: '#address-postcode', text: 'Postcode must  only include letters and numbers, and the space character' })
+  }
+  if (req.session.data['address-country']) {
+    if (req.session.data['address-country'][1] === 'country:GB' && req.session.data['address-postcode'].length > 0) {
+      if (!(/^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/).test(req.session)) {
+        errorPresent = true
+        errors.push({ href: '#address-postcode', text: 'Enter a full UK postcode, like LS9 6NF, BT12 6QL, or SA1 8AN'})
+      }
+    }
   }
   if (req.session.data['address-country'].length === 0) {
     errorPresent = true
