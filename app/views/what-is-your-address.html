@@ -96,7 +96,7 @@
         },
         id: "address-country",
         name: "address-country",
-        value: data['address-country'][1]
+        value: data['address-country'][1] if data['address-country'] else 'country:GB'
       } | errorFilter(errors))}}
     
       {% endcall %}
