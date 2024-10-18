@@ -194,15 +194,24 @@ router.get('/phone-number-check', (req, res) => {
   const phoneNumber = parsePhoneNumber(req.session.data['telephone-number'], 'GB')
   if (req.session.data['telephone-number'].length === 0) {
     errorPresent = true
-    errors.push({ href: '#telephone-number', text: 'Enter your telephone number' })
+    errors.push({ href: '#telephone-number', text: 'Enter a telephone number' })
+  }
+  if (req.session.data['telephone-number'].length > 50) {
+    errorPresent = true
+    errors.push({ href: '#telephone-number', text: 'Telephone number must be 50 digits or less'    
+    })
+  }
+  if (req.session.data['telephone-number'].length !== 0 && !(/^[\d\s#()+]+$/).test(req.session.data['telephone-number'])) {
+    errorPresent = true
+    errors.push({ href: '#telephone-number', text: 'Telephone number must only include digits and the characters space, brackets, hash, and plus'})
   }
   if (req.session.data['confirm-telephone-number'].length === 0) {
     errorPresent = true
-    errors.push({ href: '#confirm-telephone-number', text: 'Confirm your telephone number' })
+    errors.push({ href: '#confirm-telephone-number', text: 'Confirm the telephone number' })
   }
   if (req.session.data['telephone-number'].trim() !== req.session.data['confirm-telephone-number'].trim() && !errorPresent) {
     errorPresent = true
-    errors.push({ href: '#confirm-telephone-number', text: 'The telephone numbers must match' })
+    errors.push({ href: '#confirm-telephone-number', text: 'Telephone numbers must match' })
   }
   if (phoneNumber !== undefined && !phoneNumber.isValid() && !errorPresent) {
     errorPresent = true
