@@ -4,6 +4,17 @@
     <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
+    {{
+      govukErrorSummary({
+        titleText: 'There is a problem',
+        errorList: [
+          {
+            html: '<span class="govuk-!-font-weight-regular">We could not add the <strong>VTP6 Request for Replacement COIF or Test Certificate</strong> to this submission, because we cannot process it at the same time as the <strong>IVA 1P Category M3 Statutory Application</strong>.<br><br> To continue, complete your current submission, then apply separately for the <strong>VTP6 Request for Replacement COIF or Test Certificate</strong>.</span>',
+            href: '#payment'
+          }
+        ]
+      })
+    }}
     {% if not data['myvt'] %}
       <h2 class="govuk-heading-l">
         About you
@@ -421,7 +432,7 @@
         <form action="/cpms">
         {% endif %}
         <div class="govuk-button-group">
-          <button value="payment" class="govuk-button">
+          <button id="payment" value="payment" class="govuk-button">
             {%- if data.pfa -%}Accept and approve payment{%- else -%}Proceed to payment{%- endif -%}
           </button>
         </div>
