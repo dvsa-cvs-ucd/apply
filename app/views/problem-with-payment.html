@@ -7,7 +7,11 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">There was a problem connecting to the payment page</h1>
     <p class="govuk-body">We saved all of your answers and application details.</p>
-    <p class="govuk-body">Try going back, then submit again.</p>
+    {{
+      govukButton({
+        text: 'Retry payment'
+      })
+    }}
     <p class="govuk-body">
       If the problem continues <a class="govuk-link govuk-link--no-visited-state"
         href="https://www.gov.uk/contact-dvsa">contact the customer service centre</a>.
