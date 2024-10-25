@@ -40,7 +40,6 @@ router.get('/pfa', (req, res) => {
   res.redirect('/myvt')
 })
 
-router.get
 
 router.get('/unauthenticated', (req, res) => res.redirect('/'))
 
@@ -52,6 +51,10 @@ router.get(['/apply-for-a-vehicle-test'], (req, res) => {
 router.get(['/apply-for-a-vehicle-test/*'], (req, res) => {
   req.session.myvt = true
   res.render('apply-for-a-vehicle-test/apply.html', { path: req.path, query: req.query })
+})
+
+router.get(['/facility-management/*'], (req, res) => {
+  req.session.myvt = true
 })
 
 router.get('/what-is-your-name', (req, res) => res.render('what-is-your-name.html', { query: req.query }))
@@ -223,6 +226,9 @@ router.get('/phone-number-check', (req, res) => {
     res.redirect('/check-your-phone')
   }
 })
+
+router.get('/sign-in', (req, res) => res.render('sign-in', { query: req.query }))
+
 router.get('/vehicle-details', (req, res) => res.render('vehicle-details.html', { query: req.query }))
 router.get('/vin-check', (req, res) => {
   let errorPresent = false

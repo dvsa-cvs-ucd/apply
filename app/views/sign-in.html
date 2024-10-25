@@ -10,11 +10,12 @@
       </h3>
       <p class="govuk-body">To sign in, use the details you used to create your account.</p>
       {% endset %}
-      
+      {% if query['account-created'] == 'true' %}
       {{ govukNotificationBanner({
       html: html,
       type: "success"
       }) }}
+      {% endif %}
       <h1 class="govuk-heading-l">
         Sign in to your account
       </h1>
@@ -42,8 +43,19 @@
       {{ govukButton({
         text: 'Sign in'
       })}}
-        <a class="govuk-link govuk-link--no-visited-state govuk-!-display-block" href="#">I have forgotten my password</a></form>
-      </form>
+    </form>
+    <h2 class="govuk-heading-s">
+      New users
+    </h2>
+    <p class="govuk-body">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">Create an account</a>
+    </p>
+    <h2 class="govuk-heading-s">
+      Problems signing in
+    </h2>
+    <p class="govuk-body">
+      <a class="govuk-link govuk-link--no-visited-state" href="#">I have forgotten my password</a>
+    </p>
   </div>
 </div>
 
