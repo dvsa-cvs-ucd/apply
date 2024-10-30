@@ -5,15 +5,15 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">There was a problem connecting to the payment page</h1>
-    <p class="govuk-body">We saved all of your answers and application details.</p>
+    <h1 class="govuk-heading-l">There was a problem processing your payment</h1>
+    <p class="govuk-body">We saved all your answers and application details. Please try again.</p>
     {{
       govukButton({
         text: 'Retry payment'
       })
     }}
     <p class="govuk-body">
-      If the problem continues <a class="govuk-link govuk-link--no-visited-state"
+      If the problem continues, <a class="govuk-link govuk-link--no-visited-state"
         href="https://www.gov.uk/contact-dvsa">contact the customer service centre</a>.
     </p>
   </div>
