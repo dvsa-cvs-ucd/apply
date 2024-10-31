@@ -427,4 +427,77 @@ $chevron-altitude-calculated: 5.655px;
   margin-bottom: govuk-spacing(2);
   border-top: 2px solid $govuk-brand-colour;
 }
+
+@include govuk-media-query($until: tablet) {
+  .table-card {
+
+    thead,
+    & .table-card-hidden-row {
+      position: absolute;
+      top: auto;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    & tbody tr {
+      display: flex;
+      flex-flow: column;
+      margin-bottom: govuk-spacing(6);
+      padding-bottom: govuk-spacing(6);
+      border-bottom: 5px solid $govuk-border-colour;
+    }
+
+    & td {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 0 !important;
+      border-bottom: 1px solid $govuk-border-colour;
+    }
+
+    & .table-card-inline-label {
+      display: block !important;
+      margin-bottom: govuk-spacing(1);
+      font-weight: 700;
+    }
+  }
+}
+
+.table-card {
+  @extend .govuk-table;
+
+  & thead {
+    @extend .govuk-table__head !optional;
+  }
+
+  & tr {
+    @extend .govuk-table__row !optional;
+  }
+
+  & th {
+    @extend .govuk-table__header;
+
+    @include govuk-media-query($until: tablet) {
+      margin: 0;
+    }
+  }
+
+  & td {
+    @extend .govuk-table__cell;
+
+    @include govuk-media-query($until: tablet) {
+      padding: govuk-spacing(3) 0;
+    }
+  }
+
+  & .govuk-table__header--numeric,
+  & .govuk-table__cell--numeric {
+    text-align: right;
+  }
+
+  & .table-card-inline-label {
+    display: none;
+  }
+}
   
