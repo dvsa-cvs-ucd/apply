@@ -1,6 +1,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-
+    {% if query.problem == 'cpms' %}
+    {{
+      govukWarningText({
+        html: '<p class="govuk-!-font-weight-bold">We cannot take payments at the moment.</p><p class="govuk-!-font-weight-bold">You will need to apply again later. Your answers will not be saved when you leave this screen.</p>'
+      })
+    }}
+    {% endif %}
     <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
@@ -388,6 +394,7 @@
       {% endfor %}
       <!--- END OF VEHICLES -->
     </div>
+    {% if query.problem != 'cpms' %}
     <form action="/add-vehicle">
       <button value="add-vehicle" class="govuk-button govuk-button--secondary">Add another vehicle</button>
     </form>
@@ -428,3 +435,4 @@
       </form>
     </div>
   </div>
+  {% endif %}
