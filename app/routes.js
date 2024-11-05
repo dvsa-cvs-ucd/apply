@@ -140,9 +140,9 @@ router.get('/address-check', (req, res) => {
     errorPresent = true
     errors.push({ href: '#address-postcode', text: 'Postcode must  be 20 characters or less' })
   }
-  if (req.session.data['address-postcode'].length !== 0 && !(/^[a-zA-Z0-9\s]+$/u).test(req.session.data['address-postcode'])) {
+  if (req.session.data['address-postcode'].length !== 0 && !(/^[a-zA-Z0-9\s\-–—‒―]+$/u).test(req.session.data['address-postcode'])) {
     errorPresent = true
-    errors.push({ href: '#address-postcode', text: 'Postcode must  only include letters and numbers, and the space character' })
+    errors.push({ href: '#address-postcode', text: 'Postcode must only include letters, numbers, and the space and hyphen characters' })
   }
   if (req.session.data['address-country']) {
     if (req.session.data['address-country'][1] === 'country:GB' && req.session.data['address-postcode'].length > 0) {
