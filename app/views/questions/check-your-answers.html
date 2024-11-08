@@ -4,6 +4,7 @@
     <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
+      {% if query.problem =='sundry' %}
     {{
       govukErrorSummary({
         titleText: 'There is a problem',
@@ -15,6 +16,7 @@
         ]
       })
     }}
+    {% endif %}
     {% if not data['myvt'] %}
       <h2 class="govuk-heading-l">
         About you
