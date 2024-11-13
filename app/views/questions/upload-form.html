@@ -8,14 +8,20 @@
       <p class="govuk-body">
         Upload the official document you have completed for your {{ title }} application.
       </p>
+      <p class="govuk-body">
+        The application form that you upload must:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have a file name that is no more than 128 characters long</li>
+        <li>have a file name that only contains letters, numbers, and a single full stop</li>
+        <li>be smaller than 10MB</li>
+        <li>be in a .doc, .docx, .pdf, .xls or .xlsx format</li>
+      </ul>
       {{ govukFileUpload({
       id: "application-upload",
       name: "application-upload",
       label: {
       html: "<strong>Choose an application form to upload</strong>"
-      },
-      hint: {
-        text: "The file must be smaller than 10MB and in either a .doc, .docx, .pdf, .xls, or .xlsx format."
       }
       }) }}
       {{ govukButton({
