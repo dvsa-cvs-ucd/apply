@@ -12,13 +12,20 @@
        </h1>
       <p class="govuk-body">
         Upload extra information or evidence in support of your {{ title }} application.
-       </p>
-
+      </p>
+      <p class="govuk-body">
+        Any supporting documents that you upload must:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>have file names that are no more than 128 characters long</li>
+        <li>have file names that only contain letters, numbers, and a single full stop</li>
+        <li>be smaller than 10MB</li>
+        <li>be in a .doc, .docx, .gif, .jpg, .pdf, .png, .txt, .xls, . xlsx, or .zip format</li>
+      </ul>
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label govuk-!-font-weight-bold" for="supporting-documentation-upload">
           Choose supporting documents to upload
         </label>
-        <p class="govuk-hint" id="supporting-documentation-upload-hint">Each file must be smaller than 10MB. Files can be in either a .doc, .docx, .gif, .jpg, .pdf, .png, .txt, .xls, .xlsx, or .zip format.</p>
         <input
           class="govuk-file-upload"
           id="supporting-documentation-upload"
