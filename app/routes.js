@@ -458,7 +458,7 @@ router.get('/engine-capacity-check', (req, res) => {
   let errors = []
   if (req.session.data['engine-capacity'] === undefined) {
     errorPresent = true
-    errors.push({ href: '#engine-capacity', text: 'Select if the engine capacity is 200cc or less or more than 200cc' })
+    errors.push({ href: '#engine-capacity', text: 'Select the engine capacity' })
   }
   if (errorPresent) {
     if (req.session.data.myvt) {
