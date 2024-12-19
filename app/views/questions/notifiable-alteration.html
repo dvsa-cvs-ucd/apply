@@ -4,18 +4,19 @@
   {% set letter = 'T' %}
 {% endif %}
 {% set explainer %}
-<p class="govuk-hint">These paper documents show important details about the vehicle. The ministry plate or plating certficiate can include:</p>
+<p class="govuk-hint">The plate (sometimes called the ministry plate) and plating certificate are paper documents that show important vehicle details. If there is a mistake in the document or the vehicle details have changed, the plate or plating certificate should be updated.</p>
+<h2 class="govuk-heading-m">There's a mistake on the plate or plating certificate</h2>
+<p class="govuk-hint">You can apply to get information corrected on your plate or plating certificate if it's wrong.</p>
+<h2 class="govuk-heading-m">The vehicle details have changed</h2>
+<p class="govuk-hint">You need to update the plate and plating certificate if you make a notifiable alteration. This includes changes such as:</p>
 <ul class="govuk-list govuk-list--bullet">
-  <li class="govuk-hint">the serial number</li>
-  <li class="govuk-hint">the gross weight, train weight, and maximum train weight</li>
-  <li class="govuk-hint">the length and width</li>
-  <li class="govuk-hint">the axle weights</li>
-  <li class="govuk-hint">the conditions about the use of tyres</li>
+  <li class="govuk-hint">the chassis</li>
+  <li class="govuk-hint">the tyres</li>
+  <li class="govuk-hint">the brakes</li>
+  <li class="govuk-hint">the weight you can carry</li>
 </ul>
-<p class="govuk-hint">If the vehicle details change as part of the alterations, then the DVSA will issue a new VTG6 or both a VTG6 and a VTG7.</p>
-<h2 class="govuk-heading-m">Changes to the vehicle details as a result of the alterations</h2>
+<h2 class="govuk-heading-m">Changing the plate or plating certificate</h2>
 {% endset %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     {% if errors | length > 0 %}
@@ -30,7 +31,7 @@
         name: "notifiable-alteration",
         fieldset: {
           legend: {
-            text: "Vehicle details on the ministry plate or plating certificate",
+            text: "Vehicle details on the plate and plating certificate",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -40,13 +41,17 @@
         },
         items: [
           {
-            value: "The vehicle details are changing",
-            text: "The vehicle details are changing"
+            value: "DVSA made a mistake on the plate or certificate",
+            text: "DVSA made a mistake on the plate or certificate"
           },
           {
-            value: "The vehicle details are staying the same",
-            text: "The vehicle details are staying the same"
-          }
+            value: "The vehicle details have changed",
+            text: "The vehicle details have changed"
+          },
+          {
+            value: "The vehicle details have stayed the same",
+            text: "The vehicle details have stayed the same"
+          },
         ]
       } | errorFilter(errors)) }}
 
